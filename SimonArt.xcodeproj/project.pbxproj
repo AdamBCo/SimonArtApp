@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		873858131A3600BB000E4B32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858121A3600BB000E4B32 /* main.m */; };
+		873858161A3600BB000E4B32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858151A3600BB000E4B32 /* AppDelegate.m */; };
+		873858191A3600BB000E4B32 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858181A3600BB000E4B32 /* ViewController.m */; };
+		8738581C1A3600BB000E4B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8738581A1A3600BB000E4B32 /* Main.storyboard */; };
+		8738581E1A3600BB000E4B32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8738581D1A3600BB000E4B32 /* Images.xcassets */; };
+		873858211A3600BB000E4B32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8738581F1A3600BB000E4B32 /* LaunchScreen.xib */; };
+		8738582D1A3600BB000E4B32 /* SimonArtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8738582C1A3600BB000E4B32 /* SimonArtTests.m */; };
+		8753480C1A36880D00C55864 /* TableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480B1A36880D00C55864 /* TableTableViewController.m */; };
+		8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480E1A36890900C55864 /* InstagramTableViewCell.m */; };
+		875348121A36897100C55864 /* InstagramClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348111A36897100C55864 /* InstagramClient.m */; };
+		875348151A368B2200C55864 /* InstagramPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348141A368B2200C55864 /* InstagramPhoto.m */; };
+		8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482A1A3809DF00C55864 /* LFGlassView.m */; };
+		8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482C1A3809DF00C55864 /* LFDisplayBridge.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		873858271A3600BB000E4B32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 873858051A3600BB000E4B32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8738580C1A3600BB000E4B32;
+			remoteInfo = SimonArt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8738580D1A3600BB000E4B32 /* SimonArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimonArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		873858111A3600BB000E4B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		873858121A3600BB000E4B32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		873858141A3600BB000E4B32 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		873858151A3600BB000E4B32 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		873858171A3600BB000E4B32 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		873858181A3600BB000E4B32 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8738581B1A3600BB000E4B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8738581D1A3600BB000E4B32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		873858201A3600BB000E4B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		873858261A3600BB000E4B32 /* SimonArtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimonArtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8738582B1A3600BB000E4B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8738582C1A3600BB000E4B32 /* SimonArtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimonArtTests.m; sourceTree = "<group>"; };
+		8753480A1A36880D00C55864 /* TableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableTableViewController.h; sourceTree = "<group>"; };
+		8753480B1A36880D00C55864 /* TableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableTableViewController.m; sourceTree = "<group>"; };
+		8753480D1A36890900C55864 /* InstagramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramTableViewCell.h; sourceTree = "<group>"; };
+		8753480E1A36890900C55864 /* InstagramTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTableViewCell.m; sourceTree = "<group>"; };
+		875348101A36897100C55864 /* InstagramClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramClient.h; sourceTree = "<group>"; };
+		875348111A36897100C55864 /* InstagramClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramClient.m; sourceTree = "<group>"; };
+		875348131A368B2200C55864 /* InstagramPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramPhoto.h; sourceTree = "<group>"; };
+		875348141A368B2200C55864 /* InstagramPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramPhoto.m; sourceTree = "<group>"; };
+		875348281A3809DF00C55864 /* LiveFrost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveFrost.h; sourceTree = "<group>"; };
+		875348291A3809DF00C55864 /* LFGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGlassView.h; sourceTree = "<group>"; };
+		8753482A1A3809DF00C55864 /* LFGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGlassView.m; sourceTree = "<group>"; };
+		8753482B1A3809DF00C55864 /* LFDisplayBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDisplayBridge.h; sourceTree = "<group>"; };
+		8753482C1A3809DF00C55864 /* LFDisplayBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDisplayBridge.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8738580A1A3600BB000E4B32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		873858231A3600BB000E4B32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		873858041A3600BB000E4B32 = {
+			isa = PBXGroup;
+			children = (
+				8738580F1A3600BB000E4B32 /* SimonArt */,
+				873858291A3600BB000E4B32 /* SimonArtTests */,
+				8738580E1A3600BB000E4B32 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8738580E1A3600BB000E4B32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8738580D1A3600BB000E4B32 /* SimonArt.app */,
+				873858261A3600BB000E4B32 /* SimonArtTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8738580F1A3600BB000E4B32 /* SimonArt */ = {
+			isa = PBXGroup;
+			children = (
+				873858141A3600BB000E4B32 /* AppDelegate.h */,
+				873858151A3600BB000E4B32 /* AppDelegate.m */,
+				873858171A3600BB000E4B32 /* ViewController.h */,
+				873858181A3600BB000E4B32 /* ViewController.m */,
+				875348101A36897100C55864 /* InstagramClient.h */,
+				875348111A36897100C55864 /* InstagramClient.m */,
+				8753480A1A36880D00C55864 /* TableTableViewController.h */,
+				8753480B1A36880D00C55864 /* TableTableViewController.m */,
+				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
+				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
+				875348131A368B2200C55864 /* InstagramPhoto.h */,
+				875348141A368B2200C55864 /* InstagramPhoto.m */,
+				8753482F1A3809E500C55864 /* LiveFrost */,
+				8738581A1A3600BB000E4B32 /* Main.storyboard */,
+				8738581D1A3600BB000E4B32 /* Images.xcassets */,
+				8738581F1A3600BB000E4B32 /* LaunchScreen.xib */,
+				873858101A3600BB000E4B32 /* Supporting Files */,
+			);
+			path = SimonArt;
+			sourceTree = "<group>";
+		};
+		873858101A3600BB000E4B32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				873858111A3600BB000E4B32 /* Info.plist */,
+				873858121A3600BB000E4B32 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		873858291A3600BB000E4B32 /* SimonArtTests */ = {
+			isa = PBXGroup;
+			children = (
+				8738582C1A3600BB000E4B32 /* SimonArtTests.m */,
+				8738582A1A3600BB000E4B32 /* Supporting Files */,
+			);
+			path = SimonArtTests;
+			sourceTree = "<group>";
+		};
+		8738582A1A3600BB000E4B32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8738582B1A3600BB000E4B32 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8753482F1A3809E500C55864 /* LiveFrost */ = {
+			isa = PBXGroup;
+			children = (
+				875348281A3809DF00C55864 /* LiveFrost.h */,
+				875348291A3809DF00C55864 /* LFGlassView.h */,
+				8753482A1A3809DF00C55864 /* LFGlassView.m */,
+				8753482B1A3809DF00C55864 /* LFDisplayBridge.h */,
+				8753482C1A3809DF00C55864 /* LFDisplayBridge.m */,
+			);
+			name = LiveFrost;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8738580C1A3600BB000E4B32 /* SimonArt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 873858301A3600BB000E4B32 /* Build configuration list for PBXNativeTarget "SimonArt" */;
+			buildPhases = (
+				873858091A3600BB000E4B32 /* Sources */,
+				8738580A1A3600BB000E4B32 /* Frameworks */,
+				8738580B1A3600BB000E4B32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimonArt;
+			productName = SimonArt;
+			productReference = 8738580D1A3600BB000E4B32 /* SimonArt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		873858251A3600BB000E4B32 /* SimonArtTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 873858331A3600BB000E4B32 /* Build configuration list for PBXNativeTarget "SimonArtTests" */;
+			buildPhases = (
+				873858221A3600BB000E4B32 /* Sources */,
+				873858231A3600BB000E4B32 /* Frameworks */,
+				873858241A3600BB000E4B32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				873858281A3600BB000E4B32 /* PBXTargetDependency */,
+			);
+			name = SimonArtTests;
+			productName = SimonArtTests;
+			productReference = 873858261A3600BB000E4B32 /* SimonArtTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		873858051A3600BB000E4B32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Adam Cooper";
+				TargetAttributes = {
+					8738580C1A3600BB000E4B32 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					873858251A3600BB000E4B32 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 8738580C1A3600BB000E4B32;
+					};
+				};
+			};
+			buildConfigurationList = 873858081A3600BB000E4B32 /* Build configuration list for PBXProject "SimonArt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 873858041A3600BB000E4B32;
+			productRefGroup = 8738580E1A3600BB000E4B32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8738580C1A3600BB000E4B32 /* SimonArt */,
+				873858251A3600BB000E4B32 /* SimonArtTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8738580B1A3600BB000E4B32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8738581C1A3600BB000E4B32 /* Main.storyboard in Resources */,
+				873858211A3600BB000E4B32 /* LaunchScreen.xib in Resources */,
+				8738581E1A3600BB000E4B32 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		873858241A3600BB000E4B32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		873858091A3600BB000E4B32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8753480C1A36880D00C55864 /* TableTableViewController.m in Sources */,
+				8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */,
+				873858191A3600BB000E4B32 /* ViewController.m in Sources */,
+				8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */,
+				875348151A368B2200C55864 /* InstagramPhoto.m in Sources */,
+				873858161A3600BB000E4B32 /* AppDelegate.m in Sources */,
+				873858131A3600BB000E4B32 /* main.m in Sources */,
+				875348121A36897100C55864 /* InstagramClient.m in Sources */,
+				8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		873858221A3600BB000E4B32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8738582D1A3600BB000E4B32 /* SimonArtTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		873858281A3600BB000E4B32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8738580C1A3600BB000E4B32 /* SimonArt */;
+			targetProxy = 873858271A3600BB000E4B32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8738581A1A3600BB000E4B32 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8738581B1A3600BB000E4B32 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8738581F1A3600BB000E4B32 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				873858201A3600BB000E4B32 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8738582E1A3600BB000E4B32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8738582F1A3600BB000E4B32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		873858311A3600BB000E4B32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimonArt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		873858321A3600BB000E4B32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimonArt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		873858341A3600BB000E4B32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimonArtTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimonArt.app/SimonArt";
+			};
+			name = Debug;
+		};
+		873858351A3600BB000E4B32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimonArtTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimonArt.app/SimonArt";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		873858081A3600BB000E4B32 /* Build configuration list for PBXProject "SimonArt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8738582E1A3600BB000E4B32 /* Debug */,
+				8738582F1A3600BB000E4B32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		873858301A3600BB000E4B32 /* Build configuration list for PBXNativeTarget "SimonArt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				873858311A3600BB000E4B32 /* Debug */,
+				873858321A3600BB000E4B32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		873858331A3600BB000E4B32 /* Build configuration list for PBXNativeTarget "SimonArtTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				873858341A3600BB000E4B32 /* Debug */,
+				873858351A3600BB000E4B32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 873858051A3600BB000E4B32 /* Project object */;
+}
