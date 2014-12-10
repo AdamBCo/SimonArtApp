@@ -24,4 +24,9 @@
     [super setSelected:selected animated:animated];
 }
 
+- (IBAction)onShareButtonPressed:(id)sender {
+    [self.delegate cellShareButtonTapped:self.instagramPhoto];
+}
+
+
 @end

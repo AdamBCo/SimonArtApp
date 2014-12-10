@@ -20,6 +20,11 @@
 		875348151A368B2200C55864 /* InstagramPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348141A368B2200C55864 /* InstagramPhoto.m */; };
 		8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482A1A3809DF00C55864 /* LFGlassView.m */; };
 		8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482C1A3809DF00C55864 /* LFDisplayBridge.m */; };
+		87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C404451A38BB730099AC9F /* CustomShareButton.m */; };
+		87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C404921A38E5690099AC9F /* Pinterest.framework */; };
+		87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */; };
+		87C4049B1A38EAAF0099AC9F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C4049A1A38EAAF0099AC9F /* FacebookSDK.framework */; };
+		87C4049D1A38F5940099AC9F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C4049C1A38F5940099AC9F /* Twitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,12 @@
 		8753482A1A3809DF00C55864 /* LFGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGlassView.m; sourceTree = "<group>"; };
 		8753482B1A3809DF00C55864 /* LFDisplayBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDisplayBridge.h; sourceTree = "<group>"; };
 		8753482C1A3809DF00C55864 /* LFDisplayBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDisplayBridge.m; sourceTree = "<group>"; };
+		87C404441A38BB730099AC9F /* CustomShareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareButton.h; sourceTree = "<group>"; };
+		87C404451A38BB730099AC9F /* CustomShareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShareButton.m; sourceTree = "<group>"; };
+		87C404921A38E5690099AC9F /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
+		87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PinterestSDKResources.bundle; sourceTree = "<group>"; };
+		87C4049A1A38EAAF0099AC9F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		87C4049C1A38F5940099AC9F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C4049D1A38F5940099AC9F /* Twitter.framework in Frameworks */,
+				87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */,
+				87C4049B1A38EAAF0099AC9F /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,9 +96,11 @@
 		873858041A3600BB000E4B32 = {
 			isa = PBXGroup;
 			children = (
+				87C4049C1A38F5940099AC9F /* Twitter.framework */,
 				8738580F1A3600BB000E4B32 /* SimonArt */,
 				873858291A3600BB000E4B32 /* SimonArtTests */,
 				8738580E1A3600BB000E4B32 /* Products */,
+				87C404911A38E5690099AC9F /* Pinterest.embeddedframework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +124,8 @@
 				875348111A36897100C55864 /* InstagramClient.m */,
 				8753480A1A36880D00C55864 /* TableTableViewController.h */,
 				8753480B1A36880D00C55864 /* TableTableViewController.m */,
+				87C404441A38BB730099AC9F /* CustomShareButton.h */,
+				87C404451A38BB730099AC9F /* CustomShareButton.m */,
 				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
 				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
 				875348131A368B2200C55864 /* InstagramPhoto.h */,
@@ -116,6 +134,7 @@
 				8738581A1A3600BB000E4B32 /* Main.storyboard */,
 				8738581D1A3600BB000E4B32 /* Images.xcassets */,
 				8738581F1A3600BB000E4B32 /* LaunchScreen.xib */,
+				87C4049A1A38EAAF0099AC9F /* FacebookSDK.framework */,
 				873858101A3600BB000E4B32 /* Supporting Files */,
 			);
 			path = SimonArt;
@@ -157,6 +176,23 @@
 				8753482C1A3809DF00C55864 /* LFDisplayBridge.m */,
 			);
 			name = LiveFrost;
+			sourceTree = "<group>";
+		};
+		87C404911A38E5690099AC9F /* Pinterest.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				87C404921A38E5690099AC9F /* Pinterest.framework */,
+				87C404931A38E5690099AC9F /* Resources */,
+			);
+			path = Pinterest.embeddedframework;
+			sourceTree = "<group>";
+		};
+		87C404931A38E5690099AC9F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +278,7 @@
 				8738581C1A3600BB000E4B32 /* Main.storyboard in Resources */,
 				873858211A3600BB000E4B32 /* LaunchScreen.xib in Resources */,
 				8738581E1A3600BB000E4B32 /* Images.xcassets in Resources */,
+				87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +298,7 @@
 			files = (
 				8753480C1A36880D00C55864 /* TableTableViewController.m in Sources */,
 				8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */,
+				87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */,
 				873858191A3600BB000E4B32 /* ViewController.m in Sources */,
 				8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */,
 				875348151A368B2200C55864 /* InstagramPhoto.m in Sources */,
@@ -391,6 +429,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+					"$(PROJECT_DIR)/SimonArt",
+				);
 				INFOPLIST_FILE = SimonArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -401,6 +444,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+					"$(PROJECT_DIR)/SimonArt",
+				);
 				INFOPLIST_FILE = SimonArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

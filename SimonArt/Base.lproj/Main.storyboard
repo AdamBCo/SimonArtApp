@@ -59,29 +59,59 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izp-ze-5EI">
-                                            <rect key="frame" x="8" y="8" width="584" height="385.5"/>
+                                            <rect key="frame" x="8" y="53" width="584" height="340.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLd-J6-2kM">
+                                            <rect key="frame" x="548" y="8" width="44" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="2ez-98-4U6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                            <state key="normal" title="Share">
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onShareButtonPressed:" destination="wAO-Y0-7CZ" eventType="touchUpInside" id="gce-HF-jg6"/>
+                                            </connections>
+                                        </button>
                                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wpw-sT-MR0">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="401.5"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="tLd-J6-2kM" firstAttribute="top" secondItem="4bU-Ab-dwe" secondAttribute="topMargin" id="4eR-gc-p99"/>
                                         <constraint firstAttribute="bottom" secondItem="Wpw-sT-MR0" secondAttribute="bottom" id="63z-T2-1hz"/>
+                                        <constraint firstItem="Izp-ze-5EI" firstAttribute="top" secondItem="tLd-J6-2kM" secondAttribute="bottom" id="6H6-Pl-yCE"/>
                                         <constraint firstAttribute="centerY" secondItem="Izp-ze-5EI" secondAttribute="centerY" id="EGY-QH-Pmn"/>
                                         <constraint firstItem="Izp-ze-5EI" firstAttribute="leading" secondItem="4bU-Ab-dwe" secondAttribute="leadingMargin" id="KkM-qk-YDX"/>
                                         <constraint firstItem="Izp-ze-5EI" firstAttribute="top" secondItem="4bU-Ab-dwe" secondAttribute="topMargin" id="UD3-GV-MDr"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Izp-ze-5EI" secondAttribute="trailing" id="Vwp-f7-fJE"/>
+                                        <constraint firstItem="Izp-ze-5EI" firstAttribute="top" secondItem="tLd-J6-2kM" secondAttribute="bottom" id="aT7-yz-Nwk"/>
+                                        <constraint firstItem="tLd-J6-2kM" firstAttribute="trailing" secondItem="4bU-Ab-dwe" secondAttribute="trailingMargin" id="aWo-3h-nYh"/>
                                         <constraint firstItem="Wpw-sT-MR0" firstAttribute="leading" secondItem="4bU-Ab-dwe" secondAttribute="leading" id="czQ-ek-ukI"/>
                                         <constraint firstItem="Izp-ze-5EI" firstAttribute="leading" secondItem="4bU-Ab-dwe" secondAttribute="leadingMargin" id="f8a-As-m0t"/>
+                                        <constraint firstItem="Izp-ze-5EI" firstAttribute="top" secondItem="tLd-J6-2kM" secondAttribute="bottom" id="gF5-Du-Wsx"/>
                                         <constraint firstAttribute="trailing" secondItem="Wpw-sT-MR0" secondAttribute="trailing" id="hdq-9q-5Hn"/>
                                         <constraint firstItem="Wpw-sT-MR0" firstAttribute="top" secondItem="4bU-Ab-dwe" secondAttribute="top" id="mUf-Z5-No0"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Izp-ze-5EI" secondAttribute="bottom" id="pwK-Sv-Uit"/>
                                         <constraint firstAttribute="centerX" secondItem="Izp-ze-5EI" secondAttribute="centerX" id="qeV-U3-IPc"/>
                                         <constraint firstItem="Izp-ze-5EI" firstAttribute="trailing" secondItem="4bU-Ab-dwe" secondAttribute="trailingMargin" id="zXm-5C-GFJ"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="EGY-QH-Pmn"/>
+                                            <exclude reference="UD3-GV-MDr"/>
+                                            <exclude reference="aT7-yz-Nwk"/>
+                                            <exclude reference="f8a-As-m0t"/>
+                                            <exclude reference="gF5-Du-Wsx"/>
+                                            <exclude reference="qeV-U3-IPc"/>
+                                            <exclude reference="zXm-5C-GFJ"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="artworkNameLabel" destination="Izp-ze-5EI" id="lfD-lN-FdG"/>
