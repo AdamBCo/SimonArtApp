@@ -13,6 +13,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logoNameButton;
 @property InstagramClient *instagramClient;
+@property (weak, nonatomic) IBOutlet UIButton *clickHereButton;
 
 @end
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.logoNameButton.alpha = 0;
+    self.clickHereButton.alpha = 0;
     [self drawSimonLogo];
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
@@ -29,6 +31,9 @@
         NSLog(@"Photos Loaded");
     }];
     
+}
+- (IBAction)onClickHereButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"IntroToMainSegue" sender:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -114,6 +119,7 @@
     //Animate Text Alpha
     [UIView animateWithDuration:2.0 delay:1.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.logoNameButton.alpha = 1;
+        self.clickHereButton.alpha = 1;
     } completion:^(BOOL finished) {
         
     }];

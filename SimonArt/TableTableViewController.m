@@ -102,6 +102,7 @@
     self.blurView = [[LFGlassView alloc] initWithFrame:self.view.bounds];
     self.blurView.alpha = 0.5;
     [self.profileView addSubview:self.blurView];
+
     
     self.profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(frameWidth*.25, frameHeight*.15, frameWidth*.5, frameWidth*.5)];
     self.profileImageView.alpha = 0;
@@ -135,6 +136,7 @@
     
     [contactButton setTintColor:[UIColor blackColor]];
     [contactButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [contactButton addTarget:self action:@selector(contactMeEmail) forControlEvents:UIControlEventTouchUpInside];
     [self.profileView addSubview:contactButton];
     
 }
@@ -168,7 +170,7 @@
     [whiteView addSubview:pinterestButton];
     
     CustomShareButton *instagramButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
-    [instagramButton setTitle:@"Tumblr" forState:UIControlStateNormal];
+    [instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
     [instagramButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [instagramButton setImage:[[UIImage imageNamed:@"instagram_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     instagramButton.tintColor = [UIColor colorWithRed:0.255 green:0.420 blue:0.576 alpha:1.000];
@@ -226,42 +228,47 @@
                      }];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.profileView.center = CGPointMake(self.view.center.x, self.view.center.y + scrollView.contentOffset.y);
-//    self.shareView.center = CGPointMake(self.view.center.x, self.view.center.y + scrollView.contentOffset.y);
+
     [scrollView bringSubviewToFront:self.profileView];
 }
 
 
 
 - (IBAction)onProfileButtonPressed:(id)sender {
+    [self openAndCloseProfileView];
     
-        if (!self.profileViewIsShowing) {
-            [UIView animateWithDuration:0.6
-                                  delay:0
-                                options:UIViewAnimationOptionAllowUserInteraction
-                             animations:^{
-                                 self.profileImageView.alpha = 1.0;
-                                 self.profileView.hidden = NO;
-                                 self.profileView.alpha = 1.0;
-                             } completion:^(BOOL finished) {
-                                 self.profileViewIsShowing = YES;
-                                 self.tableView.scrollEnabled = NO;
-                             }];
-        } else {
-            [UIView animateWithDuration:0.5
-                                  delay:0
-                                options:UIViewAnimationOptionAllowUserInteraction
-                             animations:^{
-                                 self.profileView.alpha = 0;
-                             } completion:^(BOOL finished) {
-                                 self.profileView.hidden = YES;
-                                 self.profileImageView.alpha = 0;
-                                 self.profileViewIsShowing = NO;
-                                 self.tableView.scrollEnabled = YES;
-                             }];
-        }
+}
+
+-(void)openAndCloseProfileView {
+    
+    if (!self.profileViewIsShowing) {
+        [UIView animateWithDuration:0.6
+                              delay:0
+                            options:UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             self.profileImageView.alpha = 1.0;
+                             self.profileView.hidden = NO;
+                             self.profileView.alpha = 1.0;
+                         } completion:^(BOOL finished) {
+                             self.profileViewIsShowing = YES;
+                             self.tableView.scrollEnabled = NO;
+                         }];
+    } else {
+        [UIView animateWithDuration:0.5
+                              delay:0
+                            options:UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             self.profileView.alpha = 0;
+                         } completion:^(BOOL finished) {
+                             self.profileView.hidden = YES;
+                             self.profileImageView.alpha = 0;
+                             self.profileViewIsShowing = NO;
+                             self.tableView.scrollEnabled = YES;
+                         }];
+    }
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -416,6 +423,22 @@
     UIImage *image = self.selectedInstagramPhoto.standardResolutionImage;
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     [mc addAttachmentData:imageData mimeType:@"image/jpeg" fileName:@"SimonArt"];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+- (void)contactMeEmail {
+    NSString *emailTitle = @"Hey Simon";
+    NSString *messageBody = @"";
+    NSArray *toRecipents = [NSArray arrayWithObject:@"simonco@comcast.net"];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
     
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
