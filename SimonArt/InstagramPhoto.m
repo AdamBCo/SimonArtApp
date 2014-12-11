@@ -152,7 +152,9 @@ return number;
 
 -(NSURL *)urlForInstagramPhoto{
     NSURL *url = [NSURL new];
+    NSLog(@"The link: %@", json [@"link"]);
     if(json [@"link"] != [NSNull null]){
+                NSLog(@"%@",url);
     return json [@"link"];
     }
     return url;

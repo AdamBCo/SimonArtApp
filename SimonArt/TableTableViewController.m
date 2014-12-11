@@ -15,8 +15,10 @@
 
 #import <Pinterest/Pinterest.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Social/Social.h>
+#import <MessageUI/MessageUI.h>
 
-@interface TableTableViewController () <InstagramTableViewCellDelegate>
+@interface TableTableViewController () <InstagramTableViewCellDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -43,7 +45,6 @@
 
 -(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
     self.selectedInstagramPhoto = instagramPhoto;
-    
     self.shareView = [[UIView alloc] initWithFrame:self.view.frame];
     
     [self.navigationController.view addSubview:self.shareView];
@@ -166,12 +167,13 @@
     [pinterestButton addTarget:self action:@selector(pinIt:) forControlEvents:UIControlEventTouchUpInside];
     [whiteView addSubview:pinterestButton];
     
-    CustomShareButton *tumblrButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
-    [tumblrButton setTitle:@"Tumblr" forState:UIControlStateNormal];
-    [tumblrButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [tumblrButton setImage:[[UIImage imageNamed:@"tumblr_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    tumblrButton.tintColor = [UIColor colorWithRed:0.161 green:0.208 blue:0.290 alpha:1.000];
-    [whiteView addSubview:tumblrButton];
+    CustomShareButton *instagramButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
+    [instagramButton setTitle:@"Tumblr" forState:UIControlStateNormal];
+    [instagramButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [instagramButton setImage:[[UIImage imageNamed:@"instagram_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    instagramButton.tintColor = [UIColor colorWithRed:0.255 green:0.420 blue:0.576 alpha:1.000];
+    [instagramButton addTarget:self action:@selector(shareImageOnInstagram) forControlEvents:UIControlEventTouchUpInside];
+    [whiteView addSubview:instagramButton];
     
     CustomShareButton *facebookButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, whiteView.frame.size.height/3, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
     [facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
@@ -186,6 +188,8 @@
     [twitterButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [twitterButton setImage:[[UIImage imageNamed:@"twitter_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     twitterButton.tintColor = [UIColor colorWithRed:0.275 green:0.604 blue:0.914 alpha:1.000];
+    [twitterButton addTarget:self action:@selector(shareToTwitter:) forControlEvents:UIControlEventTouchUpInside];
+
     [whiteView addSubview:twitterButton];
     
     CustomShareButton *copyLinkButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, (whiteView.frame.size.height - whiteView.frame.size.height/3), whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
@@ -193,13 +197,15 @@
     [copyLinkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [copyLinkButton setImage:[[UIImage imageNamed:@"link"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     copyLinkButton.tintColor = [UIColor grayColor];
+    [copyLinkButton addTarget:self action:@selector(copyLinkToClipboard:) forControlEvents:UIControlEventTouchUpInside];
     [whiteView addSubview:copyLinkButton];
     
     CustomShareButton *emailButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, (whiteView.frame.size.height - whiteView.frame.size.height/3), whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
-    [emailButton setTitle:@"Copy Link" forState:UIControlStateNormal];
+    [emailButton setTitle:@"Email" forState:UIControlStateNormal];
     [emailButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [emailButton setImage:[[UIImage imageNamed:@"email"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     emailButton.tintColor = [UIColor grayColor];
+    [emailButton addTarget:self action:@selector(showEmail) forControlEvents:UIControlEventTouchUpInside];
     [whiteView addSubview:emailButton];
     
 
@@ -232,15 +238,13 @@
 - (IBAction)onProfileButtonPressed:(id)sender {
     
         if (!self.profileViewIsShowing) {
-            [UIView animateWithDuration:0.25 animations:^{
-                self.profileView.hidden = NO;
-                self.profileView.alpha = 1.0;
-            }];
             [UIView animateWithDuration:0.6
                                   delay:0
                                 options:UIViewAnimationOptionAllowUserInteraction
                              animations:^{
                                  self.profileImageView.alpha = 1.0;
+                                 self.profileView.hidden = NO;
+                                 self.profileView.alpha = 1.0;
                              } completion:^(BOOL finished) {
                                  self.profileViewIsShowing = YES;
                                  self.tableView.scrollEnabled = NO;
@@ -277,8 +281,10 @@
     
     if (shouldBeFlipped){
         cell.standardImageView.hidden = YES;
+        NSLog(@"Cell Yes");
     } else {
         cell.standardImageView.hidden = NO;
+        NSLog(@"Cell No");
     }
     
     InstagramPhoto *result = [self.instagramClient.instagramPhotos objectAtIndex:indexPath.row];
@@ -295,6 +301,7 @@
     InstagramTableViewCell *cell = (InstagramTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.delegate = self;
     
+    NSLog(cell.isFlipped ? @"Photo" : @" Text");
     
     [UIView beginAnimations:@"FlipCellAnimation" context:nil];
     [UIView setAnimationDuration:0.5];
@@ -354,6 +361,127 @@
     }
     
     
+}
+
+- (void)shareToTwitter:(id)sender{
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
+            if (result == SLComposeViewControllerResultCancelled) {
+                NSLog(@"Cancelled");
+                
+            } else
+                
+            {
+                NSLog(@"Done");
+            }
+            
+            [controller dismissViewControllerAnimated:YES completion:Nil];
+        };
+        controller.completionHandler =myBlock;
+        
+        //Adding the Text to the facebook post value from iOS
+        [controller setInitialText:@"Awesome photo by Simon Coooper"];
+        
+        //Adding the URL to the facebook post value from iOS
+        
+        [controller addURL:[NSURL URLWithString:@"http://www.simoncooperart.com"]];
+        
+        //Adding the Image to the facebook post value from iOS
+        [controller addImage:self.selectedInstagramPhoto.standardResolutionImage];
+        
+        [self presentViewController:controller animated:YES completion:Nil];
+        
+        
+    }
+    else{
+        NSLog(@"Twitter is unavailable");
+    }
+}
+
+
+- (void)showEmail{
+    NSString *emailTitle = @"Awesome Painting by Simon Cooper";
+    NSString *messageBody = @"Hey, check this painting by Simon Cooper!";
+//    NSArray *toRecipents = [NSArray arrayWithObject:@""];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    
+    // Get the resource path and read the file using NSData
+    UIImage *image = self.selectedInstagramPhoto.standardResolutionImage;
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    [mc addAttachmentData:imageData mimeType:@"image/jpeg" fileName:@"SimonArt"];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)copyLinkToClipboard:(id)sender {
+    
+    UIImageWriteToSavedPhotosAlbum(self.selectedInstagramPhoto.standardResolutionImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+//    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+//    NSData *imageData = UIImagePNGRepresentation(self.selectedInstagramPhoto.standardResolutionImage);
+//    [pasteboard setData:imageData forPasteboardType:[UIPasteboardTypeListImage objectAtIndex:0]];
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    UIAlertView *alert;
+    
+    if (error) {
+        alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                           message:@"Unable to save image to Photo Album."
+                                          delegate:self
+                                 cancelButtonTitle:@"Ok"
+                                 otherButtonTitles:nil];
+    }else {
+        alert = [[UIAlertView alloc] initWithTitle:@"Success"
+                                           message:@"The image was saved."
+                                          delegate:self
+                                 cancelButtonTitle:@"Cancel"
+                                 otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+
+-(void)shareImageOnInstagram {
+        NSString *urlString = [NSString stringWithFormat:@"instagram://media?id=%@",self.selectedInstagramPhoto.photoIDNumber];
+    NSLog(@"%@",urlString);
+    NSURL *instagramURL = [NSURL URLWithString:urlString];
+    if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
+        [[UIApplication sharedApplication] openURL:instagramURL];
+    }
 }
 
 

@@ -56,6 +56,8 @@
             NSMutableArray *instagramArray = [NSMutableArray array];
 
             for (NSDictionary *result in results) {
+                
+                NSLog(@"The help: %@",result [@"link"]);
 
                 InstagramPhoto *new = [[InstagramPhoto alloc] initWithCreateInstagramPhoto:result];
                 [self requestImageWithURL:new.standardResolutionPhotoURL withCompletion:^(UIImage *image) {

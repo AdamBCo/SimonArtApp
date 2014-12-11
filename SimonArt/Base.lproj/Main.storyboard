@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.68235294120000001" green="0.01413981838" blue="0.179583623" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.75294117647058822" green="0.22352941176470589" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Yiu-gI-SQV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4p4-ye-hgT"/>
                             <constraint firstAttribute="trailing" secondItem="Yiu-gI-SQV" secondAttribute="trailing" id="PEd-k9-Oy6"/>
@@ -146,7 +146,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NqT-IJ-FiW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.68235294120000001" green="0.01413981838" blue="0.179583623" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
