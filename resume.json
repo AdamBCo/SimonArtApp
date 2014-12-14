@@ -1,0 +1,128 @@
+{
+    "basics": {
+        "name": "Simon Cooper",
+        "label": "Artist",
+        "pictureURL": "",
+        "email": "simonco@comcast.net",
+        "website": "http://www.simoncooperart.com",
+        "summary": "Simon Cooper is an American artist and designer currently based in Savannah, Georgia. His interest in the arts began in Buenos Aires, Argentina where he lived and was greatly influenced by Latin-American art and culture. Cooper received his B.F.A. in Illustration, Printmaking from the Savannah College of Art and Design in 2014. Simon continues to explore painting, printmaking and gallery exhibitions.",
+        "location": {
+            "city": "Savannah",
+            "countryCode": "US",
+            "region": "Georgia"
+        },
+        "profiles": [
+            {
+                "linkedinURL": "",
+                "twitterURL": "",
+                "facebookURL": ""
+            }
+        ]
+    },
+    "exhibitions": [
+        {
+            "name": "The Meantime: Solo Exhibition",
+            "location": "Savannah, GA",
+            "galleryName": "Gallery Espresso",
+            "galleryWebsite": "http://www.galleryespresso.com",
+            "pressURL": "http://www.galleryespresso.com",
+            "startDate": "2014",
+            "endDate": "2014"
+        },
+        {
+            "name": "Society of Illustrators Student Scholarship",
+            "location": "New York City, NY",
+            "galleryName": "New York Society of Illustrators",
+            "galleryWebsite": "http://www.societyillustrators.org",
+            "pressURL": "http://www.galleryespresso.com",
+            "startDate": "2014",
+            "endDate": "2014"
+        },
+        {
+            "name": "Love Is A Monoprint",
+            "location": "Savannah, GA",
+            "galleryName": "New York Society of Illustrators",
+            "galleryWebsite": "http://www.societyillustrators.org",
+            "pressURL": "http://www.galleryespresso.com",
+            "startDate": "2014",
+            "endDate": "2014"
+        },
+        {
+            "name": "Student International Small Print Show",
+            "location": "El Minia, Egypt",
+            "galleryName": "New York Society of Illustrators",
+            "galleryWebsite": "http://www.societyillustrators.org",
+            "pressURL": "http://www.galleryespresso.com",
+            "startDate": "2014",
+            "endDate": "2014"
+        },
+        {
+            "name": "Porteno: Solo Exhibition",
+            "location": "Savannah, GA",
+            "galleryName": "Sicky Nar Nar Gallery",
+            "galleryWebsite": "http://www.societyillustrators.org",
+            "pressURL": "http://www.galleryespresso.com",
+            "startDate": "2014",
+            "endDate": "2014"
+        },
+        {
+            "name": "SHAKTAYA: Solo Exhibition",
+            "location": "Savannah, GA",
+            "galleryName": "Gallery Le Snoot",
+            "galleryWebsite": "http://www.societyillustrators.org",
+            "pressURL": "http://www.galleryespresso.com",
+            "startDate": "2014",
+            "endDate": "2014"
+        }
+    ],
+    "education": [
+        {
+            "institution": "Savannah College of Art and Design",
+            "area": "Illustration and Printmaking",
+            "studyType": "B.F.A",
+            "startDate": "2010-08-20",
+            "endDate": "2014-05-20",
+            "gpa": "4.0"
+        }
+    ],
+    "publications": [
+        {
+            "name": "Society of Illustrators Student Scholarship 2014",
+            "publisher": "New York Society of Illustrators",
+            "releaseDate": "2014-10-01",
+            "website": "https://www.scad.edu/about/news-press-and-recognition/2014-04-14-scad-student-works-selected-annual-catalog-new-york-soc"
+        },
+        {
+            "name": "Savannah College of Art & Design Catalogue 2013",
+            "publisher": "Savannah College of Art and Design",
+            "releaseDate": "2014-10-01",
+            "website": "http://issuu.com/scad/docs/catalog_2013-2014"
+        },
+        {
+            "name": "Chalk it up to greatness: Sidewalk Arts Festival 2013",
+            "publisher": "Port City Review",
+            "releaseDate": "2013-04-07",
+            "website": "http://scaddistrict.com/chalk-it-up-to-greatness-sidewalk-arts-festival-2013/"
+        },
+        {
+            "name": "Big Bad Print Show” BIG, but not bad!",
+            "publisher": "Port City Review",
+            "releaseDate": "2013-04-07",
+            "website": "http://scaddistrict.com/big-bad-print-show-big-but-not-bad-review/"
+        }
+    ],
+    "publicArt": [
+        {
+            "name": "Hermanos",
+            "location": "Charleston, SC",
+            "venueName": "Minero",
+            "pressURL": "Hello"
+        },
+        {
+            "name": "Hermanos",
+            "location": "Savannah, GA",
+            "venueName": "Southbound Brewing Co.",
+            "pressURL": "Hello"
+        }
+    ]
+}

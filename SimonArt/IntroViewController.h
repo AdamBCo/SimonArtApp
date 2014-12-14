@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@protocol IntroViewDelegate <NSObject>
+
+-(void)onEnterAppButtonPressed;
+
+@end
+
+@interface IntroViewController : UIViewController
+
+@property id<IntroViewDelegate> delegate;
 
 
 @end

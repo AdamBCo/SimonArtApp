@@ -6,38 +6,48 @@
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "TableTableViewController.h"
+#import "IntroViewController.h"
+#import "TableViewController.h"
 #import "InstagramClient.h"
 
-@interface ViewController ()
+@interface IntroViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logoNameButton;
 @property InstagramClient *instagramClient;
 @property (weak, nonatomic) IBOutlet UIButton *clickHereButton;
 
 @end
 
-@implementation ViewController
+@implementation IntroViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.logoNameButton.alpha = 0;
     self.clickHereButton.alpha = 0;
-    [self drawSimonLogo];
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
     
+    UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    activityView.center=self.view.center;
+    
+    [activityView startAnimating];
+    
+    [self.view addSubview:activityView];
+    
     [self.instagramClient searchForInstagramPhotosWithCompletion:^{
         NSLog(@"Photos Loaded");
+        [activityView stopAnimating];
     }];
     
-}
-- (IBAction)onClickHereButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"IntroToMainSegue" sender:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self drawSimonLogo];
+}
+- (IBAction)onClickHereButtonPressed:(id)sender {
+    [self.delegate onEnterAppButtonPressed];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +59,7 @@
 - (void)drawSimonLogo {
     UIView *simonLogo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width*.5, self.view.frame.size.height*.5)];
     [self.view addSubview:simonLogo];
-    simonLogo.center = self.view.center;
+    simonLogo.center = CGPointMake(CGRectGetMidX(self.view.frame), self.view.frame.size.height*.48);
     simonLogo.layer.borderColor = [UIColor yellowColor].CGColor;
     simonLogo.layer.borderWidth = 10.0;
     

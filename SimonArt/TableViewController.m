@@ -6,25 +6,29 @@
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "TableTableViewController.h"
+#import "TableViewController.h"
 #import "InstagramTableViewCell.h"
 #import "InstagramClient.h"
 #import "InstagramPhoto.h"
 #import "LiveFrost.h"
 #import "CustomShareButton.h"
+#import "RESideMenu.h"
+#import "LeftMenuViewController.h"
+#import "IntroViewController.h"
 
 #import <Pinterest/Pinterest.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <Social/Social.h>
 #import <MessageUI/MessageUI.h>
 
-@interface TableTableViewController () <InstagramTableViewCellDelegate, MFMailComposeViewControllerDelegate>
+@interface TableViewController () <InstagramTableViewCellDelegate, MFMailComposeViewControllerDelegate, RESideMenuDelegate, IntroViewDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
 @property InstagramClient *instagramClient;
 @property BOOL profileViewIsShowing;
 @property BOOL shareViewIsShowing;
+@property BOOL resumeScrollViewIsShowing;
 
 @property UIView *shareView;
 
@@ -34,14 +38,64 @@
 
 @property InstagramPhoto *selectedInstagramPhoto;
 
+@property UIView *resumeView;
+@property UIRefreshControl *refreshControl;
+
 
 @property NSMutableArray *flippedIndexPaths;
 
 @end
 
-@implementation TableTableViewController{
+@implementation TableViewController{
     Pinterest*  _pinterest;
 }
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    [self performSegueWithIdentifier:@"IntroSegue" sender:self];
+    
+    //Share Feature
+    _pinterest = [[Pinterest alloc] initWithClientId:@"1441873"];
+    
+    self.instagramClient = [InstagramClient sharedInstagramClient];
+    self.flippedIndexPaths = [NSMutableArray array];
+    
+    self.profileView = [[UIView alloc] initWithFrame:self.tableView.frame];
+    [self.tableView addSubview:self.profileView];
+    
+    
+    self.profileView.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500];
+    [self createProfileView];
+    self.profileView.hidden = YES;
+    self.profileView.alpha = 0;
+    self.profileViewIsShowing = NO;
+    
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"write"]
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(presentLeftMenuViewController:)];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
+    
+}
+
+-(void)onEnterAppButtonPressed{
+    
+    for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
+        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
+    }
+    
+    [self.tableView reloadData];
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    IntroViewController *introViewController = segue.destinationViewController;
+    introViewController.delegate = self;
+}
+
 
 -(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
     self.selectedInstagramPhoto = instagramPhoto;
@@ -67,33 +121,9 @@
     }
 
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //Share Feature
-    _pinterest = [[Pinterest alloc] initWithClientId:@"1441873"];
-
-    self.instagramClient = [InstagramClient sharedInstagramClient];
-    self.flippedIndexPaths = [NSMutableArray array];
-    
-    self.profileView = [[UIView alloc] initWithFrame:self.tableView.frame];
-    [self.tableView addSubview:self.profileView];
-    
-    
-    self.profileView.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500];
-    [self createProfileView];
-    self.profileView.hidden = YES;
-    self.profileView.alpha = 0;
-    self.profileViewIsShowing = NO;
-    
-
-    for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
-    }
-    [self.tableView reloadData];
+- (IBAction)onMenuButtonPushed:(id)sender {
+//    [sender addTarget:self action:@selector(presentLeftMenuViewController:)];
 }
-
 
 -(void)createProfileView{
     CGFloat frameHeight = self.view.frame.size.height;
@@ -238,7 +268,6 @@
 
 - (IBAction)onProfileButtonPressed:(id)sender {
     [self openAndCloseProfileView];
-    
 }
 
 -(void)openAndCloseProfileView {
@@ -271,6 +300,7 @@
     
 }
 
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.instagramClient.instagramPhotos.count;
 }
@@ -284,7 +314,9 @@
         NSLog(@"New");
     }
     
+    
     BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    shouldBeFlipped = NO;
     
     if (shouldBeFlipped){
         cell.standardImageView.hidden = YES;
@@ -314,8 +346,8 @@
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:cell cache:YES];
     
-    BOOL currentValue = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
-    BOOL updatedValue = !currentValue;
+    BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL updatedValue = !shouldBeFlipped;
     
     self.flippedIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
     
