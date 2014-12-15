@@ -37,12 +37,10 @@
 #if __IPHONE_8_0
 @property (strong, readwrite, nonatomic) IBInspectable NSString *contentViewStoryboardID;
 @property (strong, readwrite, nonatomic) IBInspectable NSString *leftMenuViewStoryboardID;
-@property (strong, readwrite, nonatomic) IBInspectable NSString *rightMenuViewStoryboardID;
 #endif
 
 @property (strong, readwrite, nonatomic) UIViewController *contentViewController;
 @property (strong, readwrite, nonatomic) UIViewController *leftMenuViewController;
-@property (strong, readwrite, nonatomic) UIViewController *rightMenuViewController;
 @property (weak, readwrite, nonatomic) id<RESideMenuDelegate> delegate;
 
 @property (assign, readwrite, nonatomic) NSTimeInterval animationDuration;
@@ -75,10 +73,8 @@
 @property (assign, readwrite, nonatomic) IBInspectable BOOL menuPrefersStatusBarHidden;
 
 - (id)initWithContentViewController:(UIViewController *)contentViewController
-             leftMenuViewController:(UIViewController *)leftMenuViewController
-            rightMenuViewController:(UIViewController *)rightMenuViewController;
+             leftMenuViewController:(UIViewController *)leftMenuViewController;
 - (void)presentLeftMenuViewController;
-- (void)presentRightMenuViewController;
 - (void)hideMenuViewController;
 - (void)setContentViewController:(UIViewController *)contentViewController animated:(BOOL)animated;
 

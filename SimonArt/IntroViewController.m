@@ -11,7 +11,7 @@
 #import "InstagramClient.h"
 
 @interface IntroViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *logoNameButton;
+@property (weak, nonatomic) IBOutlet UILabel *logoNameButton;
 @property InstagramClient *instagramClient;
 @property (weak, nonatomic) IBOutlet UIButton *clickHereButton;
 

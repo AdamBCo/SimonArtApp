@@ -51,9 +51,4 @@
     [self.sideMenuViewController presentLeftMenuViewController];
 }
 
-- (IBAction)presentRightMenuViewController:(id)sender
-{
-    [self.sideMenuViewController presentRightMenuViewController];
-}
-
 @end

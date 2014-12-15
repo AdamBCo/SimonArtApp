@@ -34,6 +34,4 @@
 // IB Action Helper methods
 
 - (IBAction)presentLeftMenuViewController:(id)sender;
-- (IBAction)presentRightMenuViewController:(id)sender;
-
 @end

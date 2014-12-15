@@ -28,23 +28,6 @@
             </objects>
             <point key="canvasLocation" x="22" y="336"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="oEE-Aj-DQ7">
-            <objects>
-                <viewController storyboardIdentifier="rightMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NyE-cG-vo6" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iVj-cF-j4u"/>
-                        <viewControllerLayoutGuide type="bottom" id="IOL-io-4Q2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u9V-sV-MGk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vOf-I7-Yet" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="107" y="1051"/>
-        </scene>
         <!--Title-->
         <scene sceneID="hfz-Gx-jzX">
             <objects>
@@ -88,14 +71,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yiu-gI-SQV">
-                                <rect key="frame" x="0.0" y="440" width="600" height="60"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
-                                <state key="normal" title="Simon Cooper">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mo-sT-EEh">
                                 <rect key="frame" x="16" y="500" width="568" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
@@ -107,20 +82,26 @@
                                     <action selector="onClickHereButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nra-q7-JF2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon Cooper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-Uz-XnK">
+                                <rect key="frame" x="0.0" y="452" width="600" height="48"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.22352941176470589" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Mo-sT-EEh" secondAttribute="bottom" constant="70" id="32j-ZG-tah"/>
                             <constraint firstItem="4Mo-sT-EEh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="48G-lt-F3E"/>
-                            <constraint firstItem="Yiu-gI-SQV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4p4-ye-hgT"/>
-                            <constraint firstItem="4Mo-sT-EEh" firstAttribute="top" secondItem="Yiu-gI-SQV" secondAttribute="bottom" id="83D-k1-Kbr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Mo-sT-EEh" secondAttribute="trailing" id="O1L-Qb-Een"/>
-                            <constraint firstAttribute="trailing" secondItem="Yiu-gI-SQV" secondAttribute="trailing" id="PEd-k9-Oy6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Yiu-gI-SQV" secondAttribute="bottom" constant="100" id="Sga-1w-iw4"/>
+                            <constraint firstItem="4Mo-sT-EEh" firstAttribute="top" secondItem="uhg-Uz-XnK" secondAttribute="bottom" id="PLA-UT-BDl"/>
+                            <constraint firstItem="uhg-Uz-XnK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="S26-1r-LY1"/>
+                            <constraint firstAttribute="trailing" secondItem="uhg-Uz-XnK" secondAttribute="trailing" id="v4t-94-vKh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="clickHereButton" destination="4Mo-sT-EEh" id="FZN-ki-EeA"/>
-                        <outlet property="logoNameButton" destination="Yiu-gI-SQV" id="jLh-SD-m33"/>
+                        <outlet property="logoNameButton" destination="uhg-Uz-XnK" id="NcZ-5K-mwT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
