@@ -51,7 +51,6 @@
         [self performSegueWithIdentifier:@"IntroSegue" sender:self];
     }
     
-    
     for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
         [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
