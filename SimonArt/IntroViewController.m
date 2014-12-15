@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *logoNameButton;
 @property InstagramClient *instagramClient;
 @property (weak, nonatomic) IBOutlet UIButton *clickHereButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -26,17 +27,12 @@
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
     
-    UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    activityView.center=self.view.center;
-    
-    [activityView startAnimating];
-    
-    [self.view addSubview:activityView];
+    [self.activityIndicator startAnimating];
     
     [self.instagramClient searchForInstagramPhotosWithCompletion:^{
         NSLog(@"Photos Loaded");
-        [activityView stopAnimating];
+        [self.activityIndicator stopAnimating];
+        [self.activityIndicator removeFromSuperview];
     }];
     
 }

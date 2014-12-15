@@ -27,6 +27,7 @@
 		875794CA1A3C07120073B429 /* SideBarRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794C91A3C07120073B429 /* SideBarRootViewController.m */; };
 		875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CC1A3E2AC20073B429 /* ProfileViewController.m */; };
 		875794D01A3E36FE0073B429 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CF1A3E36FE0073B429 /* ShareView.m */; };
+		875794D31A3F7C580073B429 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794D21A3F7C580073B429 /* ContactViewController.m */; };
 		87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C404451A38BB730099AC9F /* CustomShareButton.m */; };
 		87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C404921A38E5690099AC9F /* Pinterest.framework */; };
 		87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */; };
@@ -85,6 +86,8 @@
 		875794CC1A3E2AC20073B429 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		875794CE1A3E36FE0073B429 /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
 		875794CF1A3E36FE0073B429 /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
+		875794D11A3F7C580073B429 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		875794D21A3F7C580073B429 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		87C404441A38BB730099AC9F /* CustomShareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareButton.h; sourceTree = "<group>"; };
 		87C404451A38BB730099AC9F /* CustomShareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShareButton.m; sourceTree = "<group>"; };
 		87C404921A38E5690099AC9F /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				875794CF1A3E36FE0073B429 /* ShareView.m */,
 				875794CB1A3E2AC20073B429 /* ProfileViewController.h */,
 				875794CC1A3E2AC20073B429 /* ProfileViewController.m */,
+				875794D11A3F7C580073B429 /* ContactViewController.h */,
+				875794D21A3F7C580073B429 /* ContactViewController.m */,
 				875794C81A3C07120073B429 /* SideBarRootViewController.h */,
 				875794C91A3C07120073B429 /* SideBarRootViewController.m */,
 				87C404441A38BB730099AC9F /* CustomShareButton.h */,
@@ -352,6 +357,7 @@
 				875794D01A3E36FE0073B429 /* ShareView.m in Sources */,
 				873858161A3600BB000E4B32 /* AppDelegate.m in Sources */,
 				873858131A3600BB000E4B32 /* main.m in Sources */,
+				875794D31A3F7C580073B429 /* ContactViewController.m in Sources */,
 				875348121A36897100C55864 /* InstagramClient.m in Sources */,
 				8712E6391A3BDDE4009B6792 /* RECommonFunctions.m in Sources */,
 				8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */,

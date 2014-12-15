@@ -39,6 +39,8 @@
     [pinterestButton setImage:[[UIImage imageNamed:@"pinterest_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     pinterestButton.tintColor = [UIColor colorWithRed:0.753 green:0.000 blue:0.094 alpha:1.000];
     [pinterestButton addTarget:self action:@selector(pinIt:) forControlEvents:UIControlEventTouchUpInside];
+    pinterestButton.layer.borderColor = [UIColor grayColor].CGColor;
+    pinterestButton.layer.borderWidth = .25;
     [whiteView addSubview:pinterestButton];
     
     CustomShareButton *instagramButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
@@ -47,6 +49,8 @@
     [instagramButton setImage:[[UIImage imageNamed:@"instagram_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     instagramButton.tintColor = [UIColor colorWithRed:0.255 green:0.420 blue:0.576 alpha:1.000];
     [instagramButton addTarget:self action:@selector(shareImageOnInstagram) forControlEvents:UIControlEventTouchUpInside];
+    instagramButton.layer.borderColor = [UIColor grayColor].CGColor;
+    instagramButton.layer.borderWidth = .25;
     [whiteView addSubview:instagramButton];
     
     CustomShareButton *facebookButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, whiteView.frame.size.height/3, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
@@ -55,6 +59,8 @@
     [facebookButton setImage:[[UIImage imageNamed:@"facebook_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     facebookButton.tintColor = [UIColor colorWithRed:0.204 green:0.290 blue:0.545 alpha:1.000];
     [facebookButton addTarget:self action:@selector(shareToFacebook:) forControlEvents:UIControlEventTouchUpInside];
+    facebookButton.layer.borderColor = [UIColor grayColor].CGColor;
+    facebookButton.layer.borderWidth = .25;
     [whiteView addSubview:facebookButton];
     
     CustomShareButton *twitterButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, whiteView.frame.size.height/3, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
@@ -63,7 +69,8 @@
     [twitterButton setImage:[[UIImage imageNamed:@"twitter_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     twitterButton.tintColor = [UIColor colorWithRed:0.275 green:0.604 blue:0.914 alpha:1.000];
     [twitterButton addTarget:self action:@selector(shareToTwitter:) forControlEvents:UIControlEventTouchUpInside];
-    
+    twitterButton.layer.borderColor = [UIColor grayColor].CGColor;
+    twitterButton.layer.borderWidth = .25;
     [whiteView addSubview:twitterButton];
     
     CustomShareButton *copyLinkButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, (whiteView.frame.size.height - whiteView.frame.size.height/3), whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
@@ -72,6 +79,8 @@
     [copyLinkButton setImage:[[UIImage imageNamed:@"link"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     copyLinkButton.tintColor = [UIColor grayColor];
     [copyLinkButton addTarget:self action:@selector(copyLinkToClipboard:) forControlEvents:UIControlEventTouchUpInside];
+    copyLinkButton.layer.borderColor = [UIColor grayColor].CGColor;
+    copyLinkButton.layer.borderWidth = .25;
     [whiteView addSubview:copyLinkButton];
     
     CustomShareButton *emailButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, (whiteView.frame.size.height - whiteView.frame.size.height/3), whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
@@ -80,6 +89,8 @@
     [emailButton setImage:[[UIImage imageNamed:@"email"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     emailButton.tintColor = [UIColor grayColor];
     [emailButton addTarget:self action:@selector(showEmail) forControlEvents:UIControlEventTouchUpInside];
+    emailButton.layer.borderColor = [UIColor grayColor].CGColor;
+    emailButton.layer.borderWidth = .25;
     [whiteView addSubview:emailButton];
 }
 

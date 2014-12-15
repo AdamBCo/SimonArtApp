@@ -14,9 +14,6 @@
 {
     [super layoutSubviews];
     
-    self.layer.borderColor = [UIColor grayColor].CGColor;
-    self.layer.borderWidth = .25;
-    
     CGRect frame = self.imageView.frame;
     frame = CGRectMake(truncf((self.bounds.size.width - frame.size.width) / 2), self.bounds.size.height*.3, frame.size.width, frame.size.height);
     self.imageView.frame = frame;
