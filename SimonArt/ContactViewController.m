@@ -25,16 +25,6 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
     self.title = @"Contact";
-    
-//    CGFloat frameHeight = self.view.frame.size.height;
-//    CGFloat frameWidth = self.view.frame.size.width;
-//    
-//    self.userMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(frameWidth*.05, frameHeight*.225, frameWidth*.9, frameHeight*.1)];
-//    [self.userMessageLabel setText:@"Thank you"];
-//    [self.userMessageLabel setTextAlignment:NSTextAlignmentCenter];
-//    [self.userMessageLabel setTextColor:[UIColor whiteColor]];
-//    [self.userMessageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:30.0]];
-//    [self.view addSubview:self.userMessageLabel];
 }
 
 - (void)viewDidLoad {
@@ -44,11 +34,11 @@
     CGFloat frameWidth = self.view.frame.size.width;
     
     
-    UIImageView *borderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frameWidth, frameHeight*.5)];
+    UIImageView *borderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, frameWidth, frameHeight*.5)];
     borderImageView.image = [UIImage imageNamed:@"cool_Border"];
     [self.view addSubview:borderImageView];
     
-    UITextView *forAllMessagesLabel = [[UITextView alloc] initWithFrame:CGRectMake(frameWidth*.05, frameHeight*.525, frameWidth*.9, frameHeight*.15)];
+    UITextView *forAllMessagesLabel = [[UITextView alloc] initWithFrame:CGRectMake(frameWidth*.05, frameHeight*.55, frameWidth*.9, frameHeight*.15)];
     [forAllMessagesLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
     forAllMessagesLabel.scrollEnabled = NO;
     forAllMessagesLabel.editable = NO;
@@ -56,7 +46,7 @@
     forAllMessagesLabel.text = @"For all questions related to my work please use the links provided below:";
     [self.view addSubview:forAllMessagesLabel];
     
-    self.contactViaEmail = [[UIButton alloc] initWithFrame:CGRectMake(frameWidth*.05, frameHeight*.625, frameWidth*.9, frameHeight*.075)];
+    self.contactViaEmail = [[UIButton alloc] initWithFrame:CGRectMake(frameWidth*.05, frameHeight*.65, frameWidth*.9, frameHeight*.075)];
     [self.contactViaEmail setTitle:@"Email" forState:UIControlStateNormal];
     [self.contactViaEmail setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.contactViaEmail.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:24.0]];
@@ -67,15 +57,6 @@
     self.contactViaEmail.layer.borderWidth = 0.5;
     [self.contactViaEmail addTarget:self action:@selector(emailMe) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.contactViaEmail];
-    
-    
-//    UITextView *forMoreLinks = [[UITextView alloc] initWithFrame:CGRectMake(frameWidth*.05, frameHeight*.65, frameWidth*.9, frameHeight*.15)];
-//    [forMoreLinks setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
-//    forMoreLinks.scrollEnabled = NO;
-//    forMoreLinks.editable = NO;
-//    [forMoreLinks setTextAlignment:NSTextAlignmentCenter];
-//    forMoreLinks.text = @"For more information please visit the links provided below:";
-//    [self.view addSubview:forMoreLinks];
     
     self.goToPersonalWebsite = [[UIButton alloc] initWithFrame:CGRectMake(frameWidth*.05, frameHeight*.75, frameWidth*.9, frameHeight*.075)];
     [self.goToPersonalWebsite setTitle:@"WWW.SIMONCOOPERART.COM" forState:UIControlStateNormal];
@@ -102,7 +83,7 @@
     [instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
     [instagramButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [instagramButton setImage:[[UIImage imageNamed:@"instagram_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    instagramButton.tintColor = [UIColor colorWithRed:0.204 green:0.290 blue:0.545 alpha:1.000];
+    instagramButton.tintColor = [UIColor colorWithRed:0.255 green:0.420 blue:0.576 alpha:1.000];
     instagramButton.layer.borderColor = [UIColor clearColor].CGColor;
     [instagramButton addTarget:self action:@selector(goToInstagramPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:instagramButton];
@@ -112,7 +93,7 @@
     [linkedInButton setTitle:@"LinkedIn" forState:UIControlStateNormal];
     [linkedInButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [linkedInButton setImage:[[UIImage imageNamed:@"linkedIn_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    linkedInButton.tintColor = [UIColor colorWithRed:0.204 green:0.290 blue:0.545 alpha:1.000];
+    linkedInButton.tintColor = [UIColor colorWithRed:0.090 green:0.439 blue:0.678 alpha:1.000];
     linkedInButton.layer.borderColor = [UIColor clearColor].CGColor;
     [linkedInButton addTarget:self action:@selector(goToLinkedInPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:linkedInButton];

@@ -90,6 +90,7 @@
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wxQ-hC-jMn">
                                 <rect key="frame" x="290" y="560" width="20" height="20"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.22352941176470589" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
