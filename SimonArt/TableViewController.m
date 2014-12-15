@@ -36,23 +36,27 @@
 
 @implementation TableViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
+    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     self.flippedIndexPaths = [NSMutableArray array];
-    
-    NSLog(@"Number of photos: %lu",(unsigned long)self.instagramClient.instagramPhotos.count);
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
     if (self.instagramClient.instagramPhotos.count == 0) {
         [self performSegueWithIdentifier:@"IntroSegue" sender:self];
     }
     
+    
     for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
         [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
         
-        [self.tableView reloadData];
+    [self.tableView reloadData];
     
 }
 

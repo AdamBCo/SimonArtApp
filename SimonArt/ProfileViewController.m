@@ -16,6 +16,12 @@
 
 @implementation ProfileViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
+    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -24,7 +30,6 @@
     
     
     self.profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(frameWidth*.25, frameHeight*.15, frameWidth*.5, frameWidth*.5)];
-    self.profileImageView.alpha = 0;
     self.profileImageView.image = [UIImage imageNamed:@"simon_photo"];
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
