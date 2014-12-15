@@ -15,7 +15,6 @@
 
 @implementation InstagramClient
 
-
 //Create a shared Instagram Client
 +(instancetype)sharedInstagramClient{
     static InstagramClient *_sharedClient = nil;
@@ -36,37 +35,51 @@
 
 
 -(void)searchForInstagramPhotosWithCompletion:(void (^)(void))completion{
+    
+    [self requestImageInformationWithCompletion:^{
+        for (InstagramPhoto *instagramPhoto in self.instagramPhotos) {
+            
+            [self requestImageWithURL:instagramPhoto.standardResolutionPhotoURL withCompletion:^(UIImage *image) {
+                instagramPhoto.standardResolutionImage = image;
+            }];
+            
+            completion();
+        }
+    }];
 
+
+}
+
+
+
+
+-(void)requestImageInformationWithCompletion:(void (^)(void))completion{
+    
     if (!self.isLoading) {
         self.isLoading = YES;
         
         NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/193252904/media/recent/?client_id=6946df7e278148f28fb71800bbdff97b"];
-
+        
         NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
+        
         NSLog(@"The Instagram Request URL: %@",request.URL);
-
+        
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-
+        
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             NSDictionary *jSONresult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
             NSArray *results = [jSONresult valueForKey:@"data"];
             NSMutableArray *instagramArray = [NSMutableArray array];
-
+            
             for (NSDictionary *result in results) {
                 
                 NSLog(@"The help: %@",result [@"link"]);
-
                 InstagramPhoto *new = [[InstagramPhoto alloc] initWithCreateInstagramPhoto:result];
-                [self requestImageWithURL:new.standardResolutionPhotoURL withCompletion:^(UIImage *image) {
-                    new.standardResolutionImage = image;
-                }];
-                
                 [instagramArray addObject:new];
             }
-
+            
             if (error){
                 if (!error){
                     NSDictionary *userInfo = @{@"error":jSONresult[@"status"]};
@@ -82,13 +95,15 @@
                 completion();
             }
         }];
-
+        
         [task resume];
     }
-
+    
 }
 
--(void)requestImageWithURL: (NSURL *)url withCompletion:(void (^)(UIImage *image))completion {
+
+
+-(void)requestImageWithURL: (NSURL *)url withCompletion:(void (^)(UIImage *image))completion{
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

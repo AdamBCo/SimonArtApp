@@ -25,6 +25,8 @@
 		8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482A1A3809DF00C55864 /* LFGlassView.m */; };
 		8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482C1A3809DF00C55864 /* LFDisplayBridge.m */; };
 		875794CA1A3C07120073B429 /* SideBarRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794C91A3C07120073B429 /* SideBarRootViewController.m */; };
+		875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CC1A3E2AC20073B429 /* ProfileViewController.m */; };
+		875794D01A3E36FE0073B429 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CF1A3E36FE0073B429 /* ShareView.m */; };
 		87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C404451A38BB730099AC9F /* CustomShareButton.m */; };
 		87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C404921A38E5690099AC9F /* Pinterest.framework */; };
 		87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */; };
@@ -79,6 +81,10 @@
 		8753482C1A3809DF00C55864 /* LFDisplayBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDisplayBridge.m; sourceTree = "<group>"; };
 		875794C81A3C07120073B429 /* SideBarRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarRootViewController.h; sourceTree = "<group>"; };
 		875794C91A3C07120073B429 /* SideBarRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarRootViewController.m; sourceTree = "<group>"; };
+		875794CB1A3E2AC20073B429 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		875794CC1A3E2AC20073B429 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		875794CE1A3E36FE0073B429 /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
+		875794CF1A3E36FE0073B429 /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
 		87C404441A38BB730099AC9F /* CustomShareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareButton.h; sourceTree = "<group>"; };
 		87C404451A38BB730099AC9F /* CustomShareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShareButton.m; sourceTree = "<group>"; };
 		87C404921A38E5690099AC9F /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
@@ -152,6 +158,10 @@
 				875348111A36897100C55864 /* InstagramClient.m */,
 				8753480A1A36880D00C55864 /* TableViewController.h */,
 				8753480B1A36880D00C55864 /* TableViewController.m */,
+				875794CE1A3E36FE0073B429 /* ShareView.h */,
+				875794CF1A3E36FE0073B429 /* ShareView.m */,
+				875794CB1A3E2AC20073B429 /* ProfileViewController.h */,
+				875794CC1A3E2AC20073B429 /* ProfileViewController.m */,
 				875794C81A3C07120073B429 /* SideBarRootViewController.h */,
 				875794C91A3C07120073B429 /* SideBarRootViewController.m */,
 				87C404441A38BB730099AC9F /* CustomShareButton.h */,
@@ -159,9 +169,9 @@
 				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
 				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
 				875348131A368B2200C55864 /* InstagramPhoto.h */,
+				875348141A368B2200C55864 /* InstagramPhoto.m */,
 				8712E63F1A3BDF56009B6792 /* LeftMenuViewController.h */,
 				8712E6401A3BDF56009B6792 /* LeftMenuViewController.m */,
-				875348141A368B2200C55864 /* InstagramPhoto.m */,
 				8712E6321A3BDDE4009B6792 /* RESideMenu */,
 				8753482F1A3809E500C55864 /* LiveFrost */,
 				8738581A1A3600BB000E4B32 /* Main.storyboard */,
@@ -331,6 +341,7 @@
 			files = (
 				8712E6411A3BDF56009B6792 /* LeftMenuViewController.m in Sources */,
 				8753480C1A36880D00C55864 /* TableViewController.m in Sources */,
+				875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */,
 				8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */,
 				87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */,
 				875794CA1A3C07120073B429 /* SideBarRootViewController.m in Sources */,
@@ -338,6 +349,7 @@
 				8712E63A1A3BDDE4009B6792 /* RESideMenu.m in Sources */,
 				8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */,
 				875348151A368B2200C55864 /* InstagramPhoto.m in Sources */,
+				875794D01A3E36FE0073B429 /* ShareView.m in Sources */,
 				873858161A3600BB000E4B32 /* AppDelegate.m in Sources */,
 				873858131A3600BB000E4B32 /* main.m in Sources */,
 				875348121A36897100C55864 /* InstagramClient.m in Sources */,

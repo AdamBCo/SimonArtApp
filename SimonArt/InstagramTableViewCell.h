@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *standardImageView;
 @property (weak, nonatomic) IBOutlet UILabel *artworkNameLabel;
 @property BOOL isFlipped;
-
 @property (nonatomic, strong) NSURLSessionDataTask *standardImageDownloadTask;
 @property (nonatomic, strong) NSURLSessionDataTask *profileImageDownloadTask;
 

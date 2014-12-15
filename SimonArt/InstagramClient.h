@@ -5,7 +5,7 @@
 //  Created by Adam Cooper on 11/25/14.
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
-
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -18,5 +18,6 @@
 
 + (instancetype)sharedInstagramClient;
 -(void)searchForInstagramPhotosWithCompletion:(void (^)(void))completion;
+-(void)requestImageWithURL: (NSURL *)url withCompletion:(void (^)(UIImage *image))completion;
 
 @end

@@ -12,12 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.isFlipped = NO;
     self.artworkNameLabel.numberOfLines = 0;
     self.artworkNameLabel.adjustsFontSizeToFitWidth = YES;
     self.artworkNameLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [self.artworkNameLabel adjustsFontSizeToFitWidth];
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
