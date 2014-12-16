@@ -39,7 +39,38 @@
                     <view key="view" contentMode="scaleToFill" id="JPf-pG-3Me">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="uK7-Y7-i5Z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Iwz-Hj-YYj">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iwz-Hj-YYj" id="UG6-Wa-PsW">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wT8-Nq-WB8" id="wie-lB-Gtl"/>
+                                    <outlet property="delegate" destination="wT8-Nq-WB8" id="cCH-Ol-yh4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uK7-Y7-i5Z" firstAttribute="top" secondItem="JPf-pG-3Me" secondAttribute="topMargin" id="9cs-lL-zqg"/>
+                            <constraint firstAttribute="trailing" secondItem="uK7-Y7-i5Z" secondAttribute="trailing" id="J1o-MN-mqE"/>
+                            <constraint firstItem="uK7-Y7-i5Z" firstAttribute="leading" secondItem="JPf-pG-3Me" secondAttribute="leading" id="OPP-3c-OYf"/>
+                            <constraint firstAttribute="bottom" secondItem="uK7-Y7-i5Z" secondAttribute="bottom" id="SOQ-4T-LNA"/>
+                            <constraint firstItem="uK7-Y7-i5Z" firstAttribute="top" secondItem="Lta-c5-2cf" secondAttribute="bottom" id="uha-VO-vTJ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uha-VO-vTJ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="9Vp-P6-Dkx">
@@ -49,11 +80,11 @@
                                 <action selector="presentLeftMenuViewController:" destination="wT8-Nq-WB8" id="GAz-B4-g7Z"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="IHY-0Z-JH4">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableview" destination="uK7-Y7-i5Z" id="gY7-Xq-Yeb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6d9-d0-kp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,9 +257,6 @@
                             <connections>
                                 <action selector="presentLeftMenuViewController:" destination="i3G-aN-DDp" id="xQU-zb-Tru"/>
                             </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="9ye-6e-oOF">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
