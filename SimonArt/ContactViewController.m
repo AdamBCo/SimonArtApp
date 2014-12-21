@@ -51,7 +51,7 @@
     [self.contactViaEmail setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.contactViaEmail.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:24.0]];
     [self.contactViaEmail setImage:[[UIImage imageNamed:@"email"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    [self.contactViaEmail setImageEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 15)];
+    [self.contactViaEmail setImageEdgeInsets:UIEdgeInsetsMake(11.5, -30, 13.5, -12)];
     self.contactViaEmail.tintColor = [UIColor blackColor];
     self.contactViaEmail.layer.borderColor = [UIColor blackColor].CGColor;
     self.contactViaEmail.layer.borderWidth = 0.5;

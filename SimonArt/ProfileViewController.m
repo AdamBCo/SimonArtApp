@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "ResumeDetailViewController.h"
 #import <MessageUI/MessageUI.h>
 
 @interface ProfileViewController () <MFMailComposeViewControllerDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -40,10 +41,18 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
 
 
 @implementation ProfileViewController
+- (IBAction)onRightBarButtonItemPressed:(id)sender {
+    [self performSegueWithIdentifier:@"ResumePDFSegue" sender:self];
+}
+
+
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
+    
+    self.title = @"Simon Cooper";
     
     self.exhibits = @[@"2014 The Meantime: Solo Exhibition",@"2014 Society of Illustrators Student Scholarship",@"2014 Love Is A Monoprint",@"2013 Student International Small Print Show",@"2013 Porteno: Solo Exhibition",@"2013 SHAKTAYA: Solo Exhibition"];
     
@@ -171,6 +180,53 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
     return 0;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+//    
+//    ResumeDetailViewController *resumeDetailViewController = segue.destinationViewController;
+//    resumeDetailViewController.selectedUrlString = @"http://www.simoncooperart.com";
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    switch (indexPath.section) {
+        case TableViewBioSection: {
+        }break;
+        case TableViewEducationSection: {
+//            UITextView *educationTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.tableview.frame.size.width, 80)];
+//            [educationTextView setTextAlignment:NSTextAlignmentCenter];
+//            [educationTextView setEditable:NO];
+//            [educationTextView setScrollEnabled:NO];
+//            [educationTextView setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
+//            [educationTextView setText:@"Savannah College of Art and Design\n(2010-2014)\nB.F.A. Illustration, Printmaking"];
+//            [cell.contentView addSubview:educationTextView];
+        }break;
+        case TableViewExhibitSection: {
+        }break;
+        case TableViewPublicationSection: {
+            [self performSegueWithIdentifier:@"ResumeDetailSegue" sender:self];
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+//            cell.textLabel.text = [self.publications objectAtIndex:indexPath.row];
+//            [cell.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
+//            [cell.textLabel sizeToFit];
+//            cell.detailTextLabel.text = [self.publicationsDetail objectAtIndex:indexPath.row];
+//            [cell.detailTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:12.0]];
+        }break;
+        case TableViewPublicArtSection: {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+//            cell.textLabel.text = [self.publicArt objectAtIndex:indexPath.row];
+//            [cell.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
+//            cell.detailTextLabel.text = [self.publicArtDetail objectAtIndex:indexPath.row];
+//            [cell.detailTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:12.0]];
+        }break;
+            
+        default:
+            break;
+    }
+    
+}
+
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     switch (indexPath.section) {
@@ -243,7 +299,6 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
             break;
     }
     
-    // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

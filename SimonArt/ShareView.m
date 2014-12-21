@@ -74,7 +74,7 @@
     [whiteView addSubview:twitterButton];
     
     CustomShareButton *copyLinkButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, (whiteView.frame.size.height - whiteView.frame.size.height/3), whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
-    [copyLinkButton setTitle:@"Copy Link" forState:UIControlStateNormal];
+    [copyLinkButton setTitle:@"Save Image" forState:UIControlStateNormal];
     [copyLinkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [copyLinkButton setImage:[[UIImage imageNamed:@"link"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     copyLinkButton.tintColor = [UIColor grayColor];

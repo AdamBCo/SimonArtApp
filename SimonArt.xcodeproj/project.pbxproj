@@ -28,6 +28,9 @@
 		875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CC1A3E2AC20073B429 /* ProfileViewController.m */; };
 		875794D01A3E36FE0073B429 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CF1A3E36FE0073B429 /* ShareView.m */; };
 		875794D31A3F7C580073B429 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794D21A3F7C580073B429 /* ContactViewController.m */; };
+		876EE59E1A43769700036D57 /* ResumeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876EE59D1A43769700036D57 /* ResumeDetailViewController.m */; };
+		87B9AFD41A47064300B8F3F4 /* ResumePDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */; };
+		87B9AFDB1A47180800B8F3F4 /* Resume.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 87B9AFDA1A47180800B8F3F4 /* Resume.pdf */; };
 		87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C404451A38BB730099AC9F /* CustomShareButton.m */; };
 		87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C404921A38E5690099AC9F /* Pinterest.framework */; };
 		87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */; };
@@ -88,6 +91,11 @@
 		875794CF1A3E36FE0073B429 /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
 		875794D11A3F7C580073B429 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		875794D21A3F7C580073B429 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		876EE59C1A43769700036D57 /* ResumeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeDetailViewController.h; sourceTree = "<group>"; };
+		876EE59D1A43769700036D57 /* ResumeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeDetailViewController.m; sourceTree = "<group>"; };
+		87B9AFD21A47064300B8F3F4 /* ResumePDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumePDFViewController.h; sourceTree = "<group>"; };
+		87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumePDFViewController.m; sourceTree = "<group>"; };
+		87B9AFDA1A47180800B8F3F4 /* Resume.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Resume.pdf; sourceTree = "<group>"; };
 		87C404441A38BB730099AC9F /* CustomShareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareButton.h; sourceTree = "<group>"; };
 		87C404451A38BB730099AC9F /* CustomShareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShareButton.m; sourceTree = "<group>"; };
 		87C404921A38E5690099AC9F /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 		8738580F1A3600BB000E4B32 /* SimonArt */ = {
 			isa = PBXGroup;
 			children = (
+				87B9AFDA1A47180800B8F3F4 /* Resume.pdf */,
 				873858141A3600BB000E4B32 /* AppDelegate.h */,
 				873858151A3600BB000E4B32 /* AppDelegate.m */,
 				873858171A3600BB000E4B32 /* IntroViewController.h */,
@@ -165,6 +174,8 @@
 				875794CF1A3E36FE0073B429 /* ShareView.m */,
 				875794CB1A3E2AC20073B429 /* ProfileViewController.h */,
 				875794CC1A3E2AC20073B429 /* ProfileViewController.m */,
+				876EE59C1A43769700036D57 /* ResumeDetailViewController.h */,
+				876EE59D1A43769700036D57 /* ResumeDetailViewController.m */,
 				875794D11A3F7C580073B429 /* ContactViewController.h */,
 				875794D21A3F7C580073B429 /* ContactViewController.m */,
 				875794C81A3C07120073B429 /* SideBarRootViewController.h */,
@@ -180,6 +191,8 @@
 				8712E6321A3BDDE4009B6792 /* RESideMenu */,
 				8753482F1A3809E500C55864 /* LiveFrost */,
 				8738581A1A3600BB000E4B32 /* Main.storyboard */,
+				87B9AFD21A47064300B8F3F4 /* ResumePDFViewController.h */,
+				87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */,
 				8738581D1A3600BB000E4B32 /* Images.xcassets */,
 				8738581F1A3600BB000E4B32 /* LaunchScreen.xib */,
 				87C4049A1A38EAAF0099AC9F /* FacebookSDK.framework */,
@@ -325,6 +338,7 @@
 			files = (
 				8738581C1A3600BB000E4B32 /* Main.storyboard in Resources */,
 				873858211A3600BB000E4B32 /* LaunchScreen.xib in Resources */,
+				87B9AFDB1A47180800B8F3F4 /* Resume.pdf in Resources */,
 				8738581E1A3600BB000E4B32 /* Images.xcassets in Resources */,
 				87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */,
 			);
@@ -354,11 +368,13 @@
 				8712E63A1A3BDDE4009B6792 /* RESideMenu.m in Sources */,
 				8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */,
 				875348151A368B2200C55864 /* InstagramPhoto.m in Sources */,
+				87B9AFD41A47064300B8F3F4 /* ResumePDFViewController.m in Sources */,
 				875794D01A3E36FE0073B429 /* ShareView.m in Sources */,
 				873858161A3600BB000E4B32 /* AppDelegate.m in Sources */,
 				873858131A3600BB000E4B32 /* main.m in Sources */,
 				875794D31A3F7C580073B429 /* ContactViewController.m in Sources */,
 				875348121A36897100C55864 /* InstagramClient.m in Sources */,
+				876EE59E1A43769700036D57 /* ResumeDetailViewController.m in Sources */,
 				8712E6391A3BDDE4009B6792 /* RECommonFunctions.m in Sources */,
 				8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */,
 				8712E63B1A3BDDE4009B6792 /* UIViewController+RESideMenu.m in Sources */,
