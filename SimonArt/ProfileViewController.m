@@ -18,7 +18,6 @@
 @property UILabel *publicationsLabel;
 @property UILabel *publicArtLabel;
 
-
 @property NSArray *exhibits;
 @property NSArray *exhibitsDetail;
 @property NSArray *publications;
@@ -158,10 +157,24 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
     return 0;
 }
 
+-(CGFloat)heightForText:(NSString *)text
+{
+    NSInteger MAX_HEIGHT = 2000;
+    UITextView * textView = [[UITextView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, MAX_HEIGHT)];
+    textView.text = text;
+    textView.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0];
+    [textView sizeToFit];
+    return textView.frame.size.height;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *text =  @"     Simon Cooper is an American artist and designer currently based in Savannah, Georgia. His interest in the arts began in Buenos Aires, Argentina where he lived and was greatly influenced by Latin-American art and culture. Cooper received his B.F.A. in Illustration, Printmaking from the Savannah College of Art and Design in 2014. Simon continues to explore painting, printmaking and gallery exhibitions.";
+    
     switch (indexPath.section) {
         case TableViewBioSection:
-            return 180;
+            // or however you are getting the text
+            return 10 + [self heightForText:text];
             break;
         case TableViewEducationSection:
             return 80;
