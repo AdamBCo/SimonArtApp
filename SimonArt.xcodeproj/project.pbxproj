@@ -36,6 +36,10 @@
 		87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */; };
 		87C4049B1A38EAAF0099AC9F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C4049A1A38EAAF0099AC9F /* FacebookSDK.framework */; };
 		87C4049F1A38FA4F0099AC9F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C4049E1A38FA4F0099AC9F /* Social.framework */; };
+		87CCDCD11A4CE306007B74CD /* SquareSpaceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCD01A4CE306007B74CD /* SquareSpaceClient.m */; };
+		87CCDCD41A4CE577007B74CD /* SquarePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCD31A4CE577007B74CD /* SquarePhoto.m */; };
+		87CCDCD71A4CF32D007B74CD /* PortfolioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */; };
+		87CCDCDA1A4CF5DD007B74CD /* SquareSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,14 @@
 		87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PinterestSDKResources.bundle; sourceTree = "<group>"; };
 		87C4049A1A38EAAF0099AC9F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		87C4049E1A38FA4F0099AC9F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		87CCDCCF1A4CE306007B74CD /* SquareSpaceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareSpaceClient.h; sourceTree = "<group>"; };
+		87CCDCD01A4CE306007B74CD /* SquareSpaceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareSpaceClient.m; sourceTree = "<group>"; };
+		87CCDCD21A4CE577007B74CD /* SquarePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquarePhoto.h; sourceTree = "<group>"; };
+		87CCDCD31A4CE577007B74CD /* SquarePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquarePhoto.m; sourceTree = "<group>"; };
+		87CCDCD51A4CF32D007B74CD /* PortfolioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortfolioTableViewController.h; sourceTree = "<group>"; };
+		87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortfolioTableViewController.m; sourceTree = "<group>"; };
+		87CCDCD81A4CF5DD007B74CD /* SquareSpaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareSpaceTableViewCell.h; sourceTree = "<group>"; };
+		87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareSpaceTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,10 +182,18 @@
 				875348111A36897100C55864 /* InstagramClient.m */,
 				8753480A1A36880D00C55864 /* TableViewController.h */,
 				8753480B1A36880D00C55864 /* TableViewController.m */,
+				87CCDCD51A4CF32D007B74CD /* PortfolioTableViewController.h */,
+				87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */,
 				875794CE1A3E36FE0073B429 /* ShareView.h */,
 				875794CF1A3E36FE0073B429 /* ShareView.m */,
 				875794CB1A3E2AC20073B429 /* ProfileViewController.h */,
 				875794CC1A3E2AC20073B429 /* ProfileViewController.m */,
+				87CCDCCF1A4CE306007B74CD /* SquareSpaceClient.h */,
+				87CCDCD01A4CE306007B74CD /* SquareSpaceClient.m */,
+				87CCDCD21A4CE577007B74CD /* SquarePhoto.h */,
+				87CCDCD31A4CE577007B74CD /* SquarePhoto.m */,
+				875348131A368B2200C55864 /* InstagramPhoto.h */,
+				875348141A368B2200C55864 /* InstagramPhoto.m */,
 				876EE59C1A43769700036D57 /* ResumeDetailViewController.h */,
 				876EE59D1A43769700036D57 /* ResumeDetailViewController.m */,
 				875794D11A3F7C580073B429 /* ContactViewController.h */,
@@ -183,9 +203,9 @@
 				87C404441A38BB730099AC9F /* CustomShareButton.h */,
 				87C404451A38BB730099AC9F /* CustomShareButton.m */,
 				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
+				87CCDCD81A4CF5DD007B74CD /* SquareSpaceTableViewCell.h */,
+				87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */,
 				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
-				875348131A368B2200C55864 /* InstagramPhoto.h */,
-				875348141A368B2200C55864 /* InstagramPhoto.m */,
 				8712E63F1A3BDF56009B6792 /* LeftMenuViewController.h */,
 				8712E6401A3BDF56009B6792 /* LeftMenuViewController.m */,
 				8712E6321A3BDDE4009B6792 /* RESideMenu */,
@@ -370,12 +390,16 @@
 				875348151A368B2200C55864 /* InstagramPhoto.m in Sources */,
 				87B9AFD41A47064300B8F3F4 /* ResumePDFViewController.m in Sources */,
 				875794D01A3E36FE0073B429 /* ShareView.m in Sources */,
+				87CCDCD11A4CE306007B74CD /* SquareSpaceClient.m in Sources */,
 				873858161A3600BB000E4B32 /* AppDelegate.m in Sources */,
+				87CCDCD71A4CF32D007B74CD /* PortfolioTableViewController.m in Sources */,
 				873858131A3600BB000E4B32 /* main.m in Sources */,
+				87CCDCD41A4CE577007B74CD /* SquarePhoto.m in Sources */,
 				875794D31A3F7C580073B429 /* ContactViewController.m in Sources */,
 				875348121A36897100C55864 /* InstagramClient.m in Sources */,
 				876EE59E1A43769700036D57 /* ResumeDetailViewController.m in Sources */,
 				8712E6391A3BDDE4009B6792 /* RECommonFunctions.m in Sources */,
+				87CCDCDA1A4CF5DD007B74CD /* SquareSpaceTableViewCell.m in Sources */,
 				8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */,
 				8712E63B1A3BDDE4009B6792 /* UIViewController+RESideMenu.m in Sources */,
 			);

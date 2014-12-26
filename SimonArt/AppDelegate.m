@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "InstagramClient.h"
+#import "SquareSpaceClient.h"
+
 #import "IntroViewController.h"
 #import "LeftMenuViewController.h"
 #import "TableViewController.h"
@@ -15,6 +17,7 @@
 
 @interface AppDelegate ()
 @property InstagramClient *instagramClient;
+@property SquareSpaceClient *squareSpaceClient;
 @property UIView *splashScreen;
 
 @end
@@ -24,6 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
+    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     
     return YES;
 }

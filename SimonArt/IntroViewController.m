@@ -9,10 +9,12 @@
 #import "IntroViewController.h"
 #import "TableViewController.h"
 #import "InstagramClient.h"
+#import "SquareSpaceClient.h"
 
 @interface IntroViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *logoNameButton;
 @property InstagramClient *instagramClient;
+@property SquareSpaceClient *squareSpaceClient;
 @property (weak, nonatomic) IBOutlet UIButton *clickHereButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
@@ -33,6 +35,13 @@
         NSLog(@"Photos Loaded");
         [self.activityIndicator stopAnimating];
         [self.activityIndicator removeFromSuperview];
+    }];
+    
+    
+    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
+    
+    [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
+        NSLog(@"YES");
     }];
     
 }
