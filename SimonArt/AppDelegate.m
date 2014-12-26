@@ -9,15 +9,17 @@
 #import "AppDelegate.h"
 #import "InstagramClient.h"
 #import "SquareSpaceClient.h"
+#import "SketchBookClient.h"
 
 #import "IntroViewController.h"
 #import "LeftMenuViewController.h"
-#import "TableViewController.h"
+#import "InstagramTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface AppDelegate ()
 @property InstagramClient *instagramClient;
 @property SquareSpaceClient *squareSpaceClient;
+@property SketchBookClient *sketchBookClient;
 @property UIView *splashScreen;
 
 @end
@@ -28,6 +30,7 @@
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
+    self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
     
     return YES;
 }

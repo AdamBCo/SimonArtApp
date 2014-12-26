@@ -1,26 +1,23 @@
 //
-//  SquareSpaceClient.m
+//  SketchBookClient.m
 //  SimonArt
 //
 //  Created by Adam Cooper on 12/25/14.
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "SquareSpaceClient.h"
+#import "SketchBookClient.h"
 #import "SquarePhoto.h"
 
-@interface SquareSpaceClient()
+@implementation SketchBookClient
 
-@end
-
-@implementation SquareSpaceClient
 
 //Create a shared Instagram Client
 +(instancetype)sharedSquareSpaceClient{
-    static SquareSpaceClient *_sharedClient = nil;
+    static SketchBookClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^(void){
-        _sharedClient = [[SquareSpaceClient alloc] init];
+        _sharedClient = [[SketchBookClient alloc] init];
     });
     
     return _sharedClient;
@@ -58,7 +55,7 @@
     if (!self.isLoading) {
         self.isLoading = YES;
         
-        NSString *urlString = [NSString stringWithFormat:@"http://www.simoncooperart.com/?format=json-pretty"];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.simoncooperart.com/sketch/?format=json-pretty"];
         
         NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];

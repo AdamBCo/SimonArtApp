@@ -18,7 +18,7 @@
 		8738581E1A3600BB000E4B32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8738581D1A3600BB000E4B32 /* Images.xcassets */; };
 		873858211A3600BB000E4B32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8738581F1A3600BB000E4B32 /* LaunchScreen.xib */; };
 		8738582D1A3600BB000E4B32 /* SimonArtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8738582C1A3600BB000E4B32 /* SimonArtTests.m */; };
-		8753480C1A36880D00C55864 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480B1A36880D00C55864 /* TableViewController.m */; };
+		8753480C1A36880D00C55864 /* InstagramTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480B1A36880D00C55864 /* InstagramTableViewController.m */; };
 		8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480E1A36890900C55864 /* InstagramTableViewCell.m */; };
 		875348121A36897100C55864 /* InstagramClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348111A36897100C55864 /* InstagramClient.m */; };
 		875348151A368B2200C55864 /* InstagramPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348141A368B2200C55864 /* InstagramPhoto.m */; };
@@ -40,6 +40,8 @@
 		87CCDCD41A4CE577007B74CD /* SquarePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCD31A4CE577007B74CD /* SquarePhoto.m */; };
 		87CCDCD71A4CF32D007B74CD /* PortfolioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */; };
 		87CCDCDA1A4CF5DD007B74CD /* SquareSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */; };
+		87CCDCDD1A4D09EB007B74CD /* SketchBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCDC1A4D09EB007B74CD /* SketchBookTableViewController.m */; };
+		87CCDCE01A4D0A0A007B74CD /* SketchBookClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CCDCDF1A4D0A0A007B74CD /* SketchBookClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +76,8 @@
 		873858261A3600BB000E4B32 /* SimonArtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimonArtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8738582B1A3600BB000E4B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8738582C1A3600BB000E4B32 /* SimonArtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimonArtTests.m; sourceTree = "<group>"; };
-		8753480A1A36880D00C55864 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		8753480B1A36880D00C55864 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		8753480A1A36880D00C55864 /* InstagramTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramTableViewController.h; sourceTree = "<group>"; };
+		8753480B1A36880D00C55864 /* InstagramTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTableViewController.m; sourceTree = "<group>"; };
 		8753480D1A36890900C55864 /* InstagramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramTableViewCell.h; sourceTree = "<group>"; };
 		8753480E1A36890900C55864 /* InstagramTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTableViewCell.m; sourceTree = "<group>"; };
 		875348101A36897100C55864 /* InstagramClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramClient.h; sourceTree = "<group>"; };
@@ -114,6 +116,10 @@
 		87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortfolioTableViewController.m; sourceTree = "<group>"; };
 		87CCDCD81A4CF5DD007B74CD /* SquareSpaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareSpaceTableViewCell.h; sourceTree = "<group>"; };
 		87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareSpaceTableViewCell.m; sourceTree = "<group>"; };
+		87CCDCDB1A4D09EB007B74CD /* SketchBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchBookTableViewController.h; sourceTree = "<group>"; };
+		87CCDCDC1A4D09EB007B74CD /* SketchBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchBookTableViewController.m; sourceTree = "<group>"; };
+		87CCDCDE1A4D0A0A007B74CD /* SketchBookClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchBookClient.h; sourceTree = "<group>"; };
+		87CCDCDF1A4D0A0A007B74CD /* SketchBookClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchBookClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,36 +184,25 @@
 				873858151A3600BB000E4B32 /* AppDelegate.m */,
 				873858171A3600BB000E4B32 /* IntroViewController.h */,
 				873858181A3600BB000E4B32 /* IntroViewController.m */,
-				875348101A36897100C55864 /* InstagramClient.h */,
-				875348111A36897100C55864 /* InstagramClient.m */,
-				8753480A1A36880D00C55864 /* TableViewController.h */,
-				8753480B1A36880D00C55864 /* TableViewController.m */,
+				87CCDCE11A4D12EF007B74CD /* InstagramTableViewController */,
 				87CCDCD51A4CF32D007B74CD /* PortfolioTableViewController.h */,
 				87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */,
 				875794CE1A3E36FE0073B429 /* ShareView.h */,
 				875794CF1A3E36FE0073B429 /* ShareView.m */,
-				875794CB1A3E2AC20073B429 /* ProfileViewController.h */,
-				875794CC1A3E2AC20073B429 /* ProfileViewController.m */,
-				87CCDCCF1A4CE306007B74CD /* SquareSpaceClient.h */,
-				87CCDCD01A4CE306007B74CD /* SquareSpaceClient.m */,
+				87CCDCE51A4D18E4007B74CD /* ProfileVIewController */,
+				87CCDCE31A4D188E007B74CD /* Networking */,
+				87CCDCE21A4D133C007B74CD /* SketchBookTableViewController */,
 				87CCDCD21A4CE577007B74CD /* SquarePhoto.h */,
 				87CCDCD31A4CE577007B74CD /* SquarePhoto.m */,
-				875348131A368B2200C55864 /* InstagramPhoto.h */,
-				875348141A368B2200C55864 /* InstagramPhoto.m */,
-				876EE59C1A43769700036D57 /* ResumeDetailViewController.h */,
-				876EE59D1A43769700036D57 /* ResumeDetailViewController.m */,
 				875794D11A3F7C580073B429 /* ContactViewController.h */,
 				875794D21A3F7C580073B429 /* ContactViewController.m */,
-				875794C81A3C07120073B429 /* SideBarRootViewController.h */,
-				875794C91A3C07120073B429 /* SideBarRootViewController.m */,
 				87C404441A38BB730099AC9F /* CustomShareButton.h */,
 				87C404451A38BB730099AC9F /* CustomShareButton.m */,
 				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
+				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
+				87CCDCE41A4D18B1007B74CD /* SideBar */,
 				87CCDCD81A4CF5DD007B74CD /* SquareSpaceTableViewCell.h */,
 				87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */,
-				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
-				8712E63F1A3BDF56009B6792 /* LeftMenuViewController.h */,
-				8712E6401A3BDF56009B6792 /* LeftMenuViewController.m */,
 				8712E6321A3BDDE4009B6792 /* RESideMenu */,
 				8753482F1A3809E500C55864 /* LiveFrost */,
 				8738581A1A3600BB000E4B32 /* Main.storyboard */,
@@ -274,6 +269,61 @@
 				87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		87CCDCE11A4D12EF007B74CD /* InstagramTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8753480A1A36880D00C55864 /* InstagramTableViewController.h */,
+				8753480B1A36880D00C55864 /* InstagramTableViewController.m */,
+				875348131A368B2200C55864 /* InstagramPhoto.h */,
+				875348141A368B2200C55864 /* InstagramPhoto.m */,
+			);
+			name = InstagramTableViewController;
+			sourceTree = "<group>";
+		};
+		87CCDCE21A4D133C007B74CD /* SketchBookTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				87CCDCDB1A4D09EB007B74CD /* SketchBookTableViewController.h */,
+				87CCDCDC1A4D09EB007B74CD /* SketchBookTableViewController.m */,
+				87CCDCDE1A4D0A0A007B74CD /* SketchBookClient.h */,
+				87CCDCDF1A4D0A0A007B74CD /* SketchBookClient.m */,
+			);
+			name = SketchBookTableViewController;
+			sourceTree = "<group>";
+		};
+		87CCDCE31A4D188E007B74CD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				875348101A36897100C55864 /* InstagramClient.h */,
+				875348111A36897100C55864 /* InstagramClient.m */,
+				87CCDCCF1A4CE306007B74CD /* SquareSpaceClient.h */,
+				87CCDCD01A4CE306007B74CD /* SquareSpaceClient.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		87CCDCE41A4D18B1007B74CD /* SideBar */ = {
+			isa = PBXGroup;
+			children = (
+				875794C81A3C07120073B429 /* SideBarRootViewController.h */,
+				875794C91A3C07120073B429 /* SideBarRootViewController.m */,
+				8712E63F1A3BDF56009B6792 /* LeftMenuViewController.h */,
+				8712E6401A3BDF56009B6792 /* LeftMenuViewController.m */,
+			);
+			name = SideBar;
+			sourceTree = "<group>";
+		};
+		87CCDCE51A4D18E4007B74CD /* ProfileVIewController */ = {
+			isa = PBXGroup;
+			children = (
+				875794CB1A3E2AC20073B429 /* ProfileViewController.h */,
+				875794CC1A3E2AC20073B429 /* ProfileViewController.m */,
+				876EE59C1A43769700036D57 /* ResumeDetailViewController.h */,
+				876EE59D1A43769700036D57 /* ResumeDetailViewController.m */,
+			);
+			name = ProfileVIewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,10 +429,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8712E6411A3BDF56009B6792 /* LeftMenuViewController.m in Sources */,
-				8753480C1A36880D00C55864 /* TableViewController.m in Sources */,
+				8753480C1A36880D00C55864 /* InstagramTableViewController.m in Sources */,
 				875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */,
 				8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */,
 				87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */,
+				87CCDCDD1A4D09EB007B74CD /* SketchBookTableViewController.m in Sources */,
 				875794CA1A3C07120073B429 /* SideBarRootViewController.m in Sources */,
 				873858191A3600BB000E4B32 /* IntroViewController.m in Sources */,
 				8712E63A1A3BDDE4009B6792 /* RESideMenu.m in Sources */,
@@ -396,6 +447,7 @@
 				873858131A3600BB000E4B32 /* main.m in Sources */,
 				87CCDCD41A4CE577007B74CD /* SquarePhoto.m in Sources */,
 				875794D31A3F7C580073B429 /* ContactViewController.m in Sources */,
+				87CCDCE01A4D0A0A007B74CD /* SketchBookClient.m in Sources */,
 				875348121A36897100C55864 /* InstagramClient.m in Sources */,
 				876EE59E1A43769700036D57 /* ResumeDetailViewController.m in Sources */,
 				8712E6391A3BDDE4009B6792 /* RECommonFunctions.m in Sources */,

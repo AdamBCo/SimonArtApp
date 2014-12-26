@@ -1,36 +1,28 @@
 //
-//  PortfolioTableViewController.m
+//  SketchBookTableViewController.m
 //  SimonArt
 //
 //  Created by Adam Cooper on 12/25/14.
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "PortfolioTableViewController.h"
-#import "InstagramTableViewController.h"
-#import "InstagramTableViewCell.h"
-#import "SquareSpaceClient.h"
+#import "SketchBookTableViewController.h"
 #import "SketchBookClient.h"
 #import "SquarePhoto.h"
-#import "LiveFrost.h"
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
 #import "IntroViewController.h"
 #import "SquareSpaceTableViewCell.h"
-#import "SketchBookClient.h"
-#import "InstagramClient.h"
 
 #include "ShareView.h"
 #import <MessageUI/MessageUI.h>
 
-@interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
-@property SquareSpaceClient *squareSpaceClient;
-@property SketchBookClient *sketchBookClient;
-@property InstagramClient *instagramClient;
+@property SketchBookClient *sketchbookClient;
 @property BOOL profileViewIsShowing;
 @property BOOL shareViewIsShowing;
 @property SquarePhoto *selectedSquarePhoto;
@@ -40,7 +32,7 @@
 
 @end
 
-@implementation PortfolioTableViewController
+@implementation SketchBookTableViewController
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
@@ -52,26 +44,16 @@
     [super viewDidLoad];
     self.flippedIndexPaths = [NSMutableArray array];
     
-    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
-    if (self.squareSpaceClient.squarePhotos.count == 0) {
+    self.sketchbookClient = [SketchBookClient sharedSquareSpaceClient];
+    NSLog(@"SketchBook = %@",self.sketchbookClient.squarePhotos);
+    
+    if (self.sketchbookClient.squarePhotos.count == 0) {
         [self performSegueWithIdentifier:@"IntroSegue" sender:self];
     }
     
-    for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
+    for (int i = 0; i < self.sketchbookClient.squarePhotos.count; i++) {
         [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
-    
-    self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
-    [self.sketchBookClient searchForSquarePhotosWithCompletion:^{
-        NSLog(@"YES");
-    }];
-    
-    self.instagramClient = [InstagramClient sharedInstagramClient];
-    [self.instagramClient searchForInstagramPhotosWithCompletion:^{
-        NSLog(@"Photos Loaded");
-    }];
-    
-    
     
     [self.tableView reloadData];
     
@@ -81,7 +63,7 @@
     
     self.flippedIndexPaths = [NSMutableArray array];
     
-    for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
+    for (int i = 0; i < self.sketchbookClient.squarePhotos.count; i++) {
         [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
     
@@ -127,7 +109,7 @@
 #pragma mark - TableView Delegates
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.squareSpaceClient.squarePhotos.count;
+    return self.sketchbookClient.squarePhotos.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -149,7 +131,7 @@
         cell.standardImageView.hidden = NO;
     }
     
-    SquarePhoto *result = [self.squareSpaceClient.squarePhotos objectAtIndex:indexPath.row];
+    SquarePhoto *result = [self.sketchbookClient.squarePhotos objectAtIndex:indexPath.row];
     cell.squarePhoto = result;
     cell.artworkNameLabel.text = result.title;
     cell.standardImageView.image = result.squareSpaceImage;

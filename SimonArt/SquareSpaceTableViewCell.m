@@ -16,6 +16,8 @@
     self.artworkNameLabel.adjustsFontSizeToFitWidth = YES;
     self.artworkNameLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [self.artworkNameLabel adjustsFontSizeToFitWidth];
+    self.standardImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.standardImageView setClipsToBounds:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

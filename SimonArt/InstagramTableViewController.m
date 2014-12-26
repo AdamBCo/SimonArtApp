@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Adam Cooper. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "InstagramTableViewController.h"
 #import "InstagramTableViewCell.h"
 #import "InstagramClient.h"
 #import "InstagramPhoto.h"
@@ -19,7 +19,7 @@
 #include "ShareView.h"
 #import <MessageUI/MessageUI.h>
 
-@interface TableViewController () <InstagramTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface InstagramTableViewController () <InstagramTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation TableViewController
+@implementation InstagramTableViewController
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
