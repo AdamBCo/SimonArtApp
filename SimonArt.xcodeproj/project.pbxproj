@@ -203,8 +203,6 @@
 				8738581A1A3600BB000E4B32 /* Main.storyboard */,
 				875794CE1A3E36FE0073B429 /* ShareView.h */,
 				875794CF1A3E36FE0073B429 /* ShareView.m */,
-				87B9AFD21A47064300B8F3F4 /* ResumePDFViewController.h */,
-				87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */,
 				8738581D1A3600BB000E4B32 /* Images.xcassets */,
 				8738581F1A3600BB000E4B32 /* LaunchScreen.xib */,
 				87C4049A1A38EAAF0099AC9F /* FacebookSDK.framework */,
@@ -321,6 +319,8 @@
 				875794CC1A3E2AC20073B429 /* ProfileViewController.m */,
 				876EE59C1A43769700036D57 /* ResumeDetailViewController.h */,
 				876EE59D1A43769700036D57 /* ResumeDetailViewController.m */,
+				87B9AFD21A47064300B8F3F4 /* ResumePDFViewController.h */,
+				87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */,
 			);
 			name = ProfileVIewController;
 			sourceTree = "<group>";

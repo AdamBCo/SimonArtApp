@@ -11,6 +11,8 @@
 
 @interface SquareSpaceClient()
 
+@property int imageCounter;
+
 @end
 
 @implementation SquareSpaceClient
@@ -36,14 +38,21 @@
 
 -(void)searchForSquarePhotosWithCompletion:(void (^)(void))completion{
     
+    self.imageCounter = 0;
+    
     [self requestImageInformationWithCompletion:^{
         for (SquarePhoto *squarePhoto in self.squarePhotos) {
             
             [self requestImageWithURL:squarePhoto.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
                 squarePhoto.squareSpaceImage = image;
+                self.imageCounter++;
+                
+                NSLog(@"\nCounter: %d\nSquarePhotoCount: %lu",self.imageCounter,(unsigned long)self.squarePhotos.count);
+                if (self.imageCounter == self.squarePhotos.count) {
+                    completion();
+                }
             }];
         }
-        completion();
     }];
     
     

@@ -68,12 +68,14 @@
     
     CGFloat const h = simonLogo.frame.size.height;
     CGFloat const w = simonLogo.frame.size.width;
+
     
     
     CAShapeLayer *hairOne = [CAShapeLayer new];
     CGMutablePathRef hairOnePath = CGPathCreateMutable();
-    CGPathMoveToPoint(hairOnePath, nil, w*.15, h*.99);
-    CGPathAddCurveToPoint(hairOnePath, nil, 0, h*.8, w*.4, h*.7, w*.15, h*.5);
+    CGPathMoveToPoint(hairOnePath, nil, w*.16, h*.99);
+    CGPathAddCurveToPoint(hairOnePath, nil, 0, h*.8, w*.4, h*.7, w*.15, h*.50);
+    
     CGPathAddCurveToPoint(hairOnePath, nil, 0, h*.2, w*.4, h*.3, w*.15, h*.01);
     hairOne.path = [UIBezierPath bezierPathWithCGPath:hairOnePath].CGPath;
     hairOne.strokeColor = [UIColor yellowColor].CGColor;

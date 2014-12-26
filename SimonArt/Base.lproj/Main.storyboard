@@ -80,18 +80,12 @@
                                 <action selector="presentLeftMenuViewController:" destination="wT8-Nq-WB8" id="GAz-B4-g7Z"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="cKr-nq-AVP">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="onRightBarButtonItemPressed:" destination="wT8-Nq-WB8" id="yh2-bX-VbB"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableview" destination="uK7-Y7-i5Z" id="gY7-Xq-Yeb"/>
                         <segue destination="5GW-zZ-epN" kind="show" identifier="ResumeDetailSegue" id="eH1-YL-7ZQ"/>
-                        <segue destination="c4r-ef-dmL" kind="presentation" identifier="ResumePDFSegue" id="FLr-mr-oAN"/>
+                        <segue destination="c4r-ef-dmL" kind="show" identifier="ResumePDFSegue" id="FLr-mr-oAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6d9-d0-kp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-ff-Yan">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -161,7 +155,7 @@
                             <constraint firstItem="6D3-ff-Yan" firstAttribute="leading" secondItem="yE6-QN-C6e" secondAttribute="leading" id="GLt-o5-qZT"/>
                             <constraint firstAttribute="trailing" secondItem="6D3-ff-Yan" secondAttribute="trailing" id="SVY-GI-dBp"/>
                             <constraint firstItem="eym-Gg-NcC" firstAttribute="top" secondItem="6D3-ff-Yan" secondAttribute="bottom" id="ZR0-eh-1Zr"/>
-                            <constraint firstItem="6D3-ff-Yan" firstAttribute="top" secondItem="yE6-QN-C6e" secondAttribute="top" id="eS5-GQ-yB6"/>
+                            <constraint firstItem="6D3-ff-Yan" firstAttribute="top" secondItem="yE6-QN-C6e" secondAttribute="top" constant="64" id="eS5-GQ-yB6"/>
                             <constraint firstAttribute="trailing" secondItem="6D3-ff-Yan" secondAttribute="trailing" id="fHS-xE-TMA"/>
                             <constraint firstItem="eym-Gg-NcC" firstAttribute="top" secondItem="6D3-ff-Yan" secondAttribute="bottom" id="fws-2Q-bmx"/>
                             <constraint firstItem="6D3-ff-Yan" firstAttribute="top" secondItem="yE6-QN-C6e" secondAttribute="top" id="vpj-SL-Ycm"/>
@@ -392,7 +386,7 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egO-X2-2tO">
                                             <rect key="frame" x="0.0" y="45" width="600" height="359.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -549,7 +543,7 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLq-6G-KJF">
                                             <rect key="frame" x="0.0" y="45" width="600" height="359.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>

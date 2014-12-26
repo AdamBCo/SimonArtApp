@@ -36,6 +36,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    self.title = @"Sketchbook";
 }
 
 - (void)viewDidLoad {

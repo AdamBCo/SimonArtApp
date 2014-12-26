@@ -216,7 +216,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
         case TableViewExhibitSection: {
         }break;
         case TableViewPublicationSection: {
-            [self performSegueWithIdentifier:@"ResumeDetailSegue" sender:self];
+//            [self performSegueWithIdentifier:@"ResumeDetailSegue" sender:self];
 //            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
 //            cell.textLabel.text = [self.publications objectAtIndex:indexPath.row];
 //            [cell.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
@@ -260,6 +260,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
             [educationTextView setScrollEnabled:NO];
             [educationTextView setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
             [educationTextView setText:@"Savannah College of Art and Design\n(2010-2014)\nB.F.A. Illustration, Printmaking"];
+            cell.userInteractionEnabled = NO;
             [cell.contentView addSubview:educationTextView];
         }break;
         case TableViewExhibitSection: {
@@ -268,6 +269,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
             cell.textLabel.text = [self.exhibits objectAtIndex:indexPath.row];
             cell.detailTextLabel.text = [self.exhibitsDetail objectAtIndex:indexPath.row];
             [cell.detailTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:12.0]];
+            cell.userInteractionEnabled = NO;
         }break;
         case TableViewPublicationSection: {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
@@ -276,6 +278,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
             [cell.textLabel sizeToFit];
             cell.detailTextLabel.text = [self.publicationsDetail objectAtIndex:indexPath.row];
             [cell.detailTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:12.0]];
+            cell.userInteractionEnabled = NO;
         }break;
         case TableViewPublicArtSection: {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
@@ -283,6 +286,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
             [cell.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
             cell.detailTextLabel.text = [self.publicArtDetail objectAtIndex:indexPath.row];
             [cell.detailTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:12.0]];
+            cell.userInteractionEnabled = NO;
         }break;
             
         default:
