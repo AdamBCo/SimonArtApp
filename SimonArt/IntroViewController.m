@@ -26,7 +26,6 @@
     
     self.clickHereButton.enabled = NO;
     
-    
     [self.activityIndicator startAnimating];
     
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
@@ -35,6 +34,9 @@
         [self.activityIndicator stopAnimating];
         [self.activityIndicator removeFromSuperview];
         self.clickHereButton.enabled = YES;
+        UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(onClickHereButtonPressed:)];
+        [self.view addGestureRecognizer:tapRec];
     }];
     
 }
@@ -65,17 +67,21 @@
     simonLogo.layer.borderColor = [UIColor yellowColor].CGColor;
     simonLogo.layer.borderWidth = 10.0;
     
+    
     CGFloat const h = simonLogo.frame.size.height;
     CGFloat const w = simonLogo.frame.size.width;
-
-    
     
     CAShapeLayer *hairOne = [CAShapeLayer new];
     CGMutablePathRef hairOnePath = CGPathCreateMutable();
-    CGPathMoveToPoint(hairOnePath, nil, w*.16, h*.99);
-    CGPathAddCurveToPoint(hairOnePath, nil, 0, h*.8, w*.4, h*.7, w*.15, h*.50);
-    
-    CGPathAddCurveToPoint(hairOnePath, nil, 0, h*.2, w*.4, h*.3, w*.15, h*.01);
+    CGPathMoveToPoint(hairOnePath, nil, w*.15, h);
+    CGPathAddQuadCurveToPoint(hairOnePath, nil, w*.05, h*.8, w*.15, h*.7);
+    CGPathMoveToPoint(hairOnePath, nil, w*.15,h*.7);
+    CGPathAddQuadCurveToPoint(hairOnePath, nil, w*.25, h*.6, w*.15, h*.5);
+    CGPathMoveToPoint(hairOnePath, nil, w*.15, h*.5);
+    CGPathAddQuadCurveToPoint(hairOnePath, nil, w*.05, h*.4, w*.15, h*.3);
+    CGPathMoveToPoint(hairOnePath, nil, w*.15,h*.3);
+    CGPathAddQuadCurveToPoint(hairOnePath, nil, w*.25, h*.2, w*.15, h*.01);
+
     hairOne.path = [UIBezierPath bezierPathWithCGPath:hairOnePath].CGPath;
     hairOne.strokeColor = [UIColor yellowColor].CGColor;
     hairOne.fillColor = [UIColor clearColor].CGColor;
@@ -83,20 +89,30 @@
     
     
     CAShapeLayer *hairTwo = [CAShapeLayer new];
-    CGMutablePathRef hairPathTwo = CGPathCreateMutable();
-    CGPathMoveToPoint(hairPathTwo, nil, w*.25, h*.99);
-    CGPathAddCurveToPoint(hairPathTwo, nil, w*.1, h*.8, w*.5, h*.7, w*.25, h*.5);
-    CGPathAddCurveToPoint(hairPathTwo, nil, w*.1, h*.2, w*.5, h*.3, w*.25, h*.01);
-    hairTwo.path = [UIBezierPath bezierPathWithCGPath:hairPathTwo].CGPath;
+    CGMutablePathRef hairTwoPath = CGPathCreateMutable();
+    CGPathMoveToPoint(hairTwoPath, nil, w*.25, h);
+    CGPathAddQuadCurveToPoint(hairTwoPath, nil, w*.15, h*.8, w*.25, h*.7);
+    CGPathMoveToPoint(hairTwoPath, nil, w*.25,h*.7);
+    CGPathAddQuadCurveToPoint(hairTwoPath, nil, w*.35, h*.6, w*.25, h*.5);
+    CGPathMoveToPoint(hairTwoPath, nil, w*.25, h*.5);
+    CGPathAddQuadCurveToPoint(hairTwoPath, nil, w*.15, h*.4, w*.25, h*.3);
+    CGPathMoveToPoint(hairTwoPath, nil, w*.25,h*.3);
+    CGPathAddQuadCurveToPoint(hairTwoPath, nil, w*.35, h*.2, w*.25, h*.01);
+    hairTwo.path = [UIBezierPath bezierPathWithCGPath:hairTwoPath].CGPath;
     hairTwo.strokeColor = [UIColor yellowColor].CGColor;
     hairTwo.fillColor = [UIColor clearColor].CGColor;
     hairTwo.lineWidth = 5;
     
     CAShapeLayer *hairThree = [CAShapeLayer new];
     CGMutablePathRef hairThreePath = CGPathCreateMutable();
-    CGPathMoveToPoint(hairThreePath, nil, w*.35, h*.99);
-    CGPathAddCurveToPoint(hairThreePath, nil, w*.2, h*.8, w*.6, h*.7, w*.35, h*.5);
-    CGPathAddCurveToPoint(hairThreePath, nil, w*.2, h*.2, w*.6, h*.3, w*.35, h*.01);
+    CGPathMoveToPoint(hairThreePath, nil, w*.35, h);
+    CGPathAddQuadCurveToPoint(hairThreePath, nil, w*.25, h*.8, w*.35, h*.7);
+    CGPathMoveToPoint(hairThreePath, nil, w*.35,h*.7);
+    CGPathAddQuadCurveToPoint(hairThreePath, nil, w*.45, h*.6, w*.35, h*.5);
+    CGPathMoveToPoint(hairThreePath, nil, w*.35, h*.5);
+    CGPathAddQuadCurveToPoint(hairThreePath, nil, w*.25, h*.4, w*.35, h*.3);
+    CGPathMoveToPoint(hairThreePath, nil, w*.35,h*.3);
+    CGPathAddQuadCurveToPoint(hairThreePath, nil, w*.45, h*.2, w*.35, h*.01);
     hairThree.path = [UIBezierPath bezierPathWithCGPath:hairThreePath].CGPath;
     hairThree.strokeColor = [UIColor yellowColor].CGColor;
     hairThree.fillColor = [UIColor clearColor].CGColor;
