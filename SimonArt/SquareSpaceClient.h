@@ -18,9 +18,11 @@
 
 @interface SquareSpaceClient : NSObject
 
+
 //Image Caches
 @property NSCache *standardImageCache;
 @property NSMutableArray *squarePhotos;
+@property NSString *siteDescription;
 @property BOOL isLoading;
 
 + (instancetype)sharedSquareSpaceClient;

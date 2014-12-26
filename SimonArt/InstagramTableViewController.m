@@ -126,7 +126,6 @@
     
     if (shouldBeFlipped){
         cell.standardImageView.hidden = YES;
-        NSLog(@"Cell Yes");
     } else {
         cell.standardImageView.hidden = NO;
     }

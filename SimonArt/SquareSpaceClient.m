@@ -71,22 +71,28 @@
         NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
-        NSLog(@"The Square Space Request URL: %@",request.URL);
-        
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
         
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             NSDictionary *jSONresult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            self.siteDescription = [[jSONresult valueForKey:@"website"] valueForKey:@"siteDescription"];
+            NSLog(@"Original: %@",self.siteDescription);
+            
+            NSAttributedString *siteString = [[NSAttributedString alloc] initWithData:[self.siteDescription dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+            
+            self.siteDescription = [siteString string];
+            NSLog(@"Changed: %@",self.siteDescription);
+
+            
+            
             NSArray *results = [jSONresult valueForKey:@"items"];
             NSMutableArray *squareArray = [NSMutableArray array];
             
-            NSLog(@"Results: %@", results);
             for (NSDictionary *result in results) {
                 
                 SquarePhoto *new = [[SquarePhoto alloc] initWithCreateSquarePhoto:result];
                 [squareArray addObject:new];
-                NSLog(@"NEw: %@",new.urlStringForSquarePhoto);
             }
             
             if (error){

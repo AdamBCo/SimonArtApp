@@ -32,7 +32,6 @@
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     self.squareSpaceClient.delegate = self;
     [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
-        NSLog(@"YES");
         [self.activityIndicator stopAnimating];
         [self.activityIndicator removeFromSuperview];
         self.clickHereButton.enabled = YES;

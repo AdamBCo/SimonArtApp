@@ -9,8 +9,14 @@
 #import "ProfileViewController.h"
 #import "ResumeDetailViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "SquareSpaceClient.h"
 
 @interface ProfileViewController () <MFMailComposeViewControllerDelegate,UITableViewDataSource,UITableViewDelegate>
+@property SquareSpaceClient *squareSpaceClient;
+@property NSString *bio;
+
+
+
 @property  UIImageView *profileImageView;
 @property UILabel *bioLabel;
 @property UILabel *educationLabel;
@@ -71,6 +77,11 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
+    
+    self.bio = [NSString stringWithFormat:@"     %@", self.squareSpaceClient.siteDescription];;
+    
+    
     
     CGFloat frameHeight = self.view.frame.size.height;
     CGFloat frameWidth = self.view.frame.size.width;
@@ -169,12 +180,10 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *text =  @"     Simon Cooper is an American artist and designer currently based in Savannah, Georgia. His interest in the arts began in Buenos Aires, Argentina where he lived and was greatly influenced by Latin-American art and culture. Cooper received his B.F.A. in Illustration, Printmaking from the Savannah College of Art and Design in 2014. Simon continues to explore painting, printmaking and gallery exhibitions.";
-    
     switch (indexPath.section) {
         case TableViewBioSection:
             // or however you are getting the text
-            return 10 + [self heightForText:text];
+            return [self heightForText:self.bio];
             break;
         case TableViewEducationSection:
             return 80;
@@ -245,7 +254,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
     switch (indexPath.section) {
         case TableViewBioSection: {
             UITextView *bioTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.tableview.frame.size.width, 180)];
-            [bioTextView setText:@"     Simon Cooper is an American artist and designer currently based in Savannah, Georgia. His interest in the arts began in Buenos Aires, Argentina where he lived and was greatly influenced by Latin-American art and culture. Cooper received his B.F.A. in Illustration, Printmaking from the Savannah College of Art and Design in 2014. Simon continues to explore painting, printmaking and gallery exhibitions."];
+            [bioTextView setText:self.bio];
             [bioTextView setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0]];
             [bioTextView sizeToFit];
             bioTextView.editable = NO;

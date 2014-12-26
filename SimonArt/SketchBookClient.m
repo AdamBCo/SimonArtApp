@@ -62,8 +62,6 @@
         NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
-        NSLog(@"The Square Space Request URL: %@",request.URL);
-        
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
         
@@ -72,12 +70,10 @@
             NSArray *results = [jSONresult valueForKey:@"items"];
             NSMutableArray *squareArray = [NSMutableArray array];
             
-            NSLog(@"Results: %@", results);
             for (NSDictionary *result in results) {
                 
                 SquarePhoto *new = [[SquarePhoto alloc] initWithCreateSquarePhoto:result];
                 [squareArray addObject:new];
-                NSLog(@"NEw: %@",new.urlStringForSquarePhoto);
             }
             
             if (error){
@@ -104,9 +100,6 @@
 
 
 -(void)requestImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion{
-    
-    NSLog(@"Image Request: %@", url);
-    
     NSURL *photoURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:photoURL];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

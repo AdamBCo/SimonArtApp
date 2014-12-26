@@ -60,12 +60,10 @@
     
     self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
     [self.sketchBookClient searchForSquarePhotosWithCompletion:^{
-        NSLog(@"YES");
     }];
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
     [self.instagramClient searchForInstagramPhotosWithCompletion:^{
-        NSLog(@"Photos Loaded");
     }];
     
     
