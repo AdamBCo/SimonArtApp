@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *artworkNameLabel;
 @property BOOL isFlipped;
 @property (nonatomic, strong) NSURLSessionDataTask *standardImageDownloadTask;
-@property (nonatomic, strong) NSURLSessionDataTask *profileImageDownloadTask;
 
 @property id<InstagramTableViewCellDelegate> delegate;
 

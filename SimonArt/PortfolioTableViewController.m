@@ -7,12 +7,9 @@
 //
 
 #import "PortfolioTableViewController.h"
-#import "InstagramTableViewController.h"
-#import "InstagramTableViewCell.h"
 #import "SquareSpaceClient.h"
 #import "SketchBookClient.h"
 #import "SquarePhoto.h"
-#import "LiveFrost.h"
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"

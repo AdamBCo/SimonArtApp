@@ -42,9 +42,8 @@
             [self requestImageWithURL:squarePhoto.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
                 squarePhoto.squareSpaceImage = image;
             }];
-            
-            completion();
         }
+        completion();
     }];
     
     

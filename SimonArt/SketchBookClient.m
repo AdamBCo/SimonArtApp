@@ -42,6 +42,8 @@
             
             completion();
         }
+        completion();
+        
     }];
     
     

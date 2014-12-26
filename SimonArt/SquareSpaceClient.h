@@ -10,6 +10,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@protocol SquareSpaceClientDelegate <NSObject>
+
+-(void)imagesHaveLoaded;
+
+@end
+
 @interface SquareSpaceClient : NSObject
 
 //Image Caches
@@ -21,5 +27,6 @@
 -(void)searchForSquarePhotosWithCompletion:(void (^)(void))completion;
 -(void)requestImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion;
 
+@property id<SquareSpaceClientDelegate> delegate;
 
 @end

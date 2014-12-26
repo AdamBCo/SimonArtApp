@@ -7,16 +7,11 @@
 //
 
 #import "IntroViewController.h"
-#import "InstagramTableViewController.h"
-#import "InstagramClient.h"
 #import "SquareSpaceClient.h"
-#import "SketchBookClient.h"
 
-@interface IntroViewController ()
+@interface IntroViewController () <SquareSpaceClientDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *logoNameButton;
-@property InstagramClient *instagramClient;
 @property SquareSpaceClient *squareSpaceClient;
-@property SketchBookClient *sketchBookClient;
 @property (weak, nonatomic) IBOutlet UIButton *clickHereButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
@@ -29,15 +24,24 @@
     self.logoNameButton.alpha = 0;
     self.clickHereButton.alpha = 0;
     
+    self.clickHereButton.enabled = NO;
+    
+    
     [self.activityIndicator startAnimating];
     
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
+    self.squareSpaceClient.delegate = self;
     [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
         NSLog(@"YES");
         [self.activityIndicator stopAnimating];
         [self.activityIndicator removeFromSuperview];
+        self.clickHereButton.enabled = YES;
     }];
     
+}
+
+-(void)imagesHaveLoaded{
+    self.clickHereButton.enabled = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{

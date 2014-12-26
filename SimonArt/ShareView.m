@@ -192,7 +192,7 @@
         controller.completionHandler =myBlock;
         
         //Adding the Text to the facebook post value from iOS
-        [controller setInitialText:@"Awesome photo by Simon Coooper"];
+        [controller setInitialText:@"Awesome artwork by Simon Coooper"];
         
         //Adding the URL to the facebook post value from iOS
         
@@ -215,7 +215,7 @@
 {
     [_pinterest createPinWithImageURL:self.selectedInstagramPhoto.standardResolutionPhotoURL
                             sourceURL:[NSURL URLWithString:@"http://www.simoncooperart.com"]
-                          description:@"Pinning from Pin It Demo"];
+                          description:@"Awesome artwork by Simon Coooper"];
 }
 
 #pragma mark - Facebook

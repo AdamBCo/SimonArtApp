@@ -360,7 +360,7 @@
             </objects>
             <point key="canvasLocation" x="1984" y="-1001"/>
         </scene>
-        <!--Title-->
+        <!--Portfolio-->
         <scene sceneID="iPt-Ul-vgj">
             <objects>
                 <tableViewController storyboardIdentifier="realPortfolioViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pb1-tq-s3j" customClass="PortfolioTableViewController" sceneMemberID="viewController">
@@ -447,7 +447,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="538-Ae-QFb">
+                    <navigationItem key="navigationItem" title="Portfolio" id="538-Ae-QFb">
                         <barButtonItem key="leftBarButtonItem" image="write" id="6QP-Jf-JhX">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -464,7 +464,7 @@
             </objects>
             <point key="canvasLocation" x="3693" y="-1137"/>
         </scene>
-        <!--Title-->
+        <!--Contact-->
         <scene sceneID="46s-W8-PnM">
             <objects>
                 <viewController storyboardIdentifier="contactViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AZS-gv-BMh" customClass="ContactViewController" sceneMemberID="viewController">
@@ -477,7 +477,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="wwD-In-al9">
+                    <navigationItem key="navigationItem" title="Contact" id="wwD-In-al9">
                         <barButtonItem key="leftBarButtonItem" image="write" id="kn6-4m-Qco">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -517,7 +517,7 @@
             </objects>
             <point key="canvasLocation" x="2871" y="-1137"/>
         </scene>
-        <!--Title-->
+        <!--Sketchbook-->
         <scene sceneID="Znr-T3-dl6">
             <objects>
                 <tableViewController storyboardIdentifier="sketchBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1eh-JE-B4B" customClass="SketchBookTableViewController" sceneMemberID="viewController">
@@ -582,11 +582,11 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="Fxk-Uu-3au"/>
-                                            <exclude reference="ieV-no-rnC"/>
-                                            <exclude reference="BuL-Ab-BJ7"/>
-                                            <exclude reference="SC8-pq-iXn"/>
                                             <exclude reference="5c7-nb-JW8"/>
+                                            <exclude reference="BuL-Ab-BJ7"/>
+                                            <exclude reference="Fxk-Uu-3au"/>
+                                            <exclude reference="SC8-pq-iXn"/>
+                                            <exclude reference="ieV-no-rnC"/>
                                             <exclude reference="SdE-o4-Sjf"/>
                                             <exclude reference="kwt-Gz-huT"/>
                                         </mask>
@@ -604,7 +604,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="Zbo-k6-1gm">
+                    <navigationItem key="navigationItem" title="Sketchbook" id="Zbo-k6-1gm">
                         <barButtonItem key="leftBarButtonItem" image="write" id="KCx-vi-aUA">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>

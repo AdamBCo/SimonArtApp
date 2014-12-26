@@ -185,10 +185,7 @@
 				873858171A3600BB000E4B32 /* IntroViewController.h */,
 				873858181A3600BB000E4B32 /* IntroViewController.m */,
 				87CCDCE11A4D12EF007B74CD /* InstagramTableViewController */,
-				87CCDCD51A4CF32D007B74CD /* PortfolioTableViewController.h */,
-				87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */,
-				875794CE1A3E36FE0073B429 /* ShareView.h */,
-				875794CF1A3E36FE0073B429 /* ShareView.m */,
+				87CCDCE61A4D20CF007B74CD /* PortfolioTableViewController */,
 				87CCDCE51A4D18E4007B74CD /* ProfileVIewController */,
 				87CCDCE31A4D188E007B74CD /* Networking */,
 				87CCDCE21A4D133C007B74CD /* SketchBookTableViewController */,
@@ -198,14 +195,14 @@
 				875794D21A3F7C580073B429 /* ContactViewController.m */,
 				87C404441A38BB730099AC9F /* CustomShareButton.h */,
 				87C404451A38BB730099AC9F /* CustomShareButton.m */,
-				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
-				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
 				87CCDCE41A4D18B1007B74CD /* SideBar */,
 				87CCDCD81A4CF5DD007B74CD /* SquareSpaceTableViewCell.h */,
 				87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */,
 				8712E6321A3BDDE4009B6792 /* RESideMenu */,
 				8753482F1A3809E500C55864 /* LiveFrost */,
 				8738581A1A3600BB000E4B32 /* Main.storyboard */,
+				875794CE1A3E36FE0073B429 /* ShareView.h */,
+				875794CF1A3E36FE0073B429 /* ShareView.m */,
 				87B9AFD21A47064300B8F3F4 /* ResumePDFViewController.h */,
 				87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */,
 				8738581D1A3600BB000E4B32 /* Images.xcassets */,
@@ -274,6 +271,8 @@
 		87CCDCE11A4D12EF007B74CD /* InstagramTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
+				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
 				8753480A1A36880D00C55864 /* InstagramTableViewController.h */,
 				8753480B1A36880D00C55864 /* InstagramTableViewController.m */,
 				875348131A368B2200C55864 /* InstagramPhoto.h */,
@@ -324,6 +323,15 @@
 				876EE59D1A43769700036D57 /* ResumeDetailViewController.m */,
 			);
 			name = ProfileVIewController;
+			sourceTree = "<group>";
+		};
+		87CCDCE61A4D20CF007B74CD /* PortfolioTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				87CCDCD51A4CF32D007B74CD /* PortfolioTableViewController.h */,
+				87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */,
+			);
+			name = PortfolioTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

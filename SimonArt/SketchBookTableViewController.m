@@ -21,7 +21,6 @@
 @interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
-@property NSMutableArray *photosArray;
 @property SketchBookClient *sketchbookClient;
 @property BOOL profileViewIsShowing;
 @property BOOL shareViewIsShowing;
@@ -46,10 +45,6 @@
     
     self.sketchbookClient = [SketchBookClient sharedSquareSpaceClient];
     NSLog(@"SketchBook = %@",self.sketchbookClient.squarePhotos);
-    
-    if (self.sketchbookClient.squarePhotos.count == 0) {
-        [self performSegueWithIdentifier:@"IntroSegue" sender:self];
-    }
     
     for (int i = 0; i < self.sketchbookClient.squarePhotos.count; i++) {
         [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
