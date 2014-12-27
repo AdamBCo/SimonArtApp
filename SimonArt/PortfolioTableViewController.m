@@ -13,7 +13,6 @@
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
-#import "IntroViewController.h"
 #import "SquareSpaceTableViewCell.h"
 #import "SketchBookClient.h"
 #import "InstagramClient.h"
@@ -22,7 +21,7 @@
 #import <MessageUI/MessageUI.h>
 #import "IntroLoadingVIew.h"
 
-@interface PortfolioTableViewController () <SquareTableViewCellDelegate,SquareSpaceClientDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface PortfolioTableViewController () <SquareTableViewCellDelegate,SquareSpaceClientDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -67,20 +66,27 @@
     
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     self.squareSpaceClient.delegate = self;
-    [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
-        [self.introLoadingView.activityIndicator stopAnimating];
-        [self.introLoadingView.activityIndicator removeFromSuperview];
-        
-        
-        for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
-            [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
-        }
-        
-        UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self action:@selector(closeButtonPressed)];
-        [self.introLoadingView addGestureRecognizer:tapRec];
-        [self.tableView reloadData]
-    }];
+    
+    if (self.squareSpaceClient.squarePhotos.count == 0) {
+        [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
+            [self.introLoadingView.activityIndicator stopAnimating];
+            [self.introLoadingView.activityIndicator removeFromSuperview];
+            
+            
+            for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
+                [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
+            }
+            
+            UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
+                                              initWithTarget:self action:@selector(closeButtonPressed)];
+            [self.introLoadingView addGestureRecognizer:tapRec];
+            [self.tableView reloadData];
+        }];
+    }
+    
+    for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
+        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
+    }
     
     self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
     [self.sketchBookClient searchForSquarePhotosWithCompletion:^{
@@ -110,11 +116,6 @@
     
     [self.tableView reloadData];
     
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    IntroViewController *introViewController = segue.destinationViewController;
-    introViewController.delegate = self;
 }
 
 
