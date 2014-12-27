@@ -13,13 +13,11 @@
 		8712E6411A3BDF56009B6792 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8712E6401A3BDF56009B6792 /* LeftMenuViewController.m */; };
 		873858131A3600BB000E4B32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858121A3600BB000E4B32 /* main.m */; };
 		873858161A3600BB000E4B32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858151A3600BB000E4B32 /* AppDelegate.m */; };
-		873858191A3600BB000E4B32 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858181A3600BB000E4B32 /* IntroViewController.m */; };
 		8738581C1A3600BB000E4B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8738581A1A3600BB000E4B32 /* Main.storyboard */; };
 		8738581E1A3600BB000E4B32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8738581D1A3600BB000E4B32 /* Images.xcassets */; };
 		873858211A3600BB000E4B32 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8738581F1A3600BB000E4B32 /* LaunchScreen.xib */; };
 		8738582D1A3600BB000E4B32 /* SimonArtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8738582C1A3600BB000E4B32 /* SimonArtTests.m */; };
 		8743AD961A4E15D80060951B /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743AD951A4E15D80060951B /* ContentViewController.m */; };
-		8743AD991A4E298A0060951B /* IntroLoadingVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743AD981A4E298A0060951B /* IntroLoadingVIew.m */; };
 		8753480C1A36880D00C55864 /* InstagramTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480B1A36880D00C55864 /* InstagramTableViewController.m */; };
 		8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480E1A36890900C55864 /* InstagramTableViewCell.m */; };
 		875348121A36897100C55864 /* InstagramClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348111A36897100C55864 /* InstagramClient.m */; };
@@ -70,8 +68,6 @@
 		873858121A3600BB000E4B32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		873858141A3600BB000E4B32 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		873858151A3600BB000E4B32 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		873858171A3600BB000E4B32 /* IntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
-		873858181A3600BB000E4B32 /* IntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		8738581B1A3600BB000E4B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8738581D1A3600BB000E4B32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		873858201A3600BB000E4B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -80,8 +76,6 @@
 		8738582C1A3600BB000E4B32 /* SimonArtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimonArtTests.m; sourceTree = "<group>"; };
 		8743AD941A4E15D80060951B /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		8743AD951A4E15D80060951B /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
-		8743AD971A4E298A0060951B /* IntroLoadingVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLoadingVIew.h; sourceTree = "<group>"; };
-		8743AD981A4E298A0060951B /* IntroLoadingVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLoadingVIew.m; sourceTree = "<group>"; };
 		8753480A1A36880D00C55864 /* InstagramTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramTableViewController.h; sourceTree = "<group>"; };
 		8753480B1A36880D00C55864 /* InstagramTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTableViewController.m; sourceTree = "<group>"; };
 		8753480D1A36890900C55864 /* InstagramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramTableViewCell.h; sourceTree = "<group>"; };
@@ -188,10 +182,6 @@
 				87B9AFDA1A47180800B8F3F4 /* Resume.pdf */,
 				873858141A3600BB000E4B32 /* AppDelegate.h */,
 				873858151A3600BB000E4B32 /* AppDelegate.m */,
-				873858171A3600BB000E4B32 /* IntroViewController.h */,
-				873858181A3600BB000E4B32 /* IntroViewController.m */,
-				8743AD971A4E298A0060951B /* IntroLoadingVIew.h */,
-				8743AD981A4E298A0060951B /* IntroLoadingVIew.m */,
 				87CCDCE11A4D12EF007B74CD /* InstagramTableViewController */,
 				87CCDCE61A4D20CF007B74CD /* PortfolioTableViewController */,
 				87CCDCE51A4D18E4007B74CD /* ProfileVIewController */,
@@ -454,7 +444,6 @@
 				87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */,
 				87CCDCDD1A4D09EB007B74CD /* SketchBookTableViewController.m in Sources */,
 				875794CA1A3C07120073B429 /* SideBarRootViewController.m in Sources */,
-				873858191A3600BB000E4B32 /* IntroViewController.m in Sources */,
 				8712E63A1A3BDDE4009B6792 /* RESideMenu.m in Sources */,
 				8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */,
 				875348151A368B2200C55864 /* InstagramPhoto.m in Sources */,
@@ -472,7 +461,6 @@
 				8712E6391A3BDDE4009B6792 /* RECommonFunctions.m in Sources */,
 				87CCDCDA1A4CF5DD007B74CD /* SquareSpaceTableViewCell.m in Sources */,
 				8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */,
-				8743AD991A4E298A0060951B /* IntroLoadingVIew.m in Sources */,
 				8712E63B1A3BDDE4009B6792 /* UIViewController+RESideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

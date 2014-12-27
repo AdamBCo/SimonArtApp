@@ -79,7 +79,7 @@
         UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(closeButtonPressed)];
         [self.introLoadingView addGestureRecognizer:tapRec];
-        [self.tableView reloadData];
+        [self.tableView reloadData]
     }];
     
     self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];

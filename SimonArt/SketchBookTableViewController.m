@@ -12,13 +12,12 @@
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
-#import "IntroViewController.h"
 #import "SquareSpaceTableViewCell.h"
 
 #include "ShareView.h"
 #import <MessageUI/MessageUI.h>
 
-@interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property SketchBookClient *sketchbookClient;
@@ -65,11 +64,6 @@
     
     [self.tableView reloadData];
     
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    IntroViewController *introViewController = segue.destinationViewController;
-    introViewController.delegate = self;
 }
 
 

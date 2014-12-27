@@ -14,12 +14,11 @@
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
-#import "IntroViewController.h"
 
 #include "ShareView.h"
 #import <MessageUI/MessageUI.h>
 
-@interface InstagramTableViewController () <InstagramTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface InstagramTableViewController () <InstagramTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -47,10 +46,6 @@
     self.flippedIndexPaths = [NSMutableArray array];
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
-    if (self.instagramClient.instagramPhotos.count == 0) {
-        [self performSegueWithIdentifier:@"IntroSegue" sender:self];
-    }
-    
     for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
         [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
@@ -70,12 +65,6 @@
     [self.tableView reloadData];
     
 }
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    IntroViewController *introViewController = segue.destinationViewController;
-    introViewController.delegate = self;
-}
-
 
 -(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
 

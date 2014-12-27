@@ -11,7 +11,6 @@
 #import "SquareSpaceClient.h"
 #import "SketchBookClient.h"
 
-#import "IntroViewController.h"
 #import "LeftMenuViewController.h"
 #import "InstagramTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>

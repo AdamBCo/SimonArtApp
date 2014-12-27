@@ -177,62 +177,6 @@
             </objects>
             <point key="canvasLocation" x="2877" y="788"/>
         </scene>
-        <!--Intro View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="BYZ-38-t0r" customClass="IntroViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mo-sT-EEh">
-                                <rect key="frame" x="16" y="500" width="568" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Click Here to Enter">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickHereButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nra-q7-JF2"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon Cooper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-Uz-XnK">
-                                <rect key="frame" x="0.0" y="452" width="600" height="48"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wxQ-hC-jMn">
-                                <rect key="frame" x="290" y="560" width="20" height="20"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.75294117647058822" green="0.22352941176470589" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Mo-sT-EEh" secondAttribute="bottom" constant="70" id="32j-ZG-tah"/>
-                            <constraint firstItem="4Mo-sT-EEh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="48G-lt-F3E"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wxQ-hC-jMn" secondAttribute="bottom" constant="20" id="Ig8-Nc-SfM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Mo-sT-EEh" secondAttribute="trailing" id="O1L-Qb-Een"/>
-                            <constraint firstItem="4Mo-sT-EEh" firstAttribute="top" secondItem="uhg-Uz-XnK" secondAttribute="bottom" id="PLA-UT-BDl"/>
-                            <constraint firstItem="uhg-Uz-XnK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="S26-1r-LY1"/>
-                            <constraint firstAttribute="centerX" secondItem="wxQ-hC-jMn" secondAttribute="centerX" id="X3N-XS-SJb"/>
-                            <constraint firstAttribute="trailing" secondItem="uhg-Uz-XnK" secondAttribute="trailing" id="v4t-94-vKh"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="wxQ-hC-jMn" id="pKl-wi-n5b"/>
-                        <outlet property="clickHereButton" destination="4Mo-sT-EEh" id="FZN-ki-EeA"/>
-                        <outlet property="logoNameButton" destination="uhg-Uz-XnK" id="NcZ-5K-mwT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4421" y="-1137"/>
-        </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="ghW-sN-qxl">
             <objects>
@@ -449,9 +393,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="IntroSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="GRz-9e-zWC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MU-el-KzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
