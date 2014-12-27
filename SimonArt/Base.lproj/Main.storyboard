@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVQ-aX-os9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22" y="336"/>
+            <point key="canvasLocation" x="3402" y="-1952"/>
         </scene>
         <!--Profile VIew Controller-->
         <scene sceneID="hfz-Gx-jzX">
@@ -37,7 +37,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ttp-fw-3Oh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JPf-pG-3Me">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="uK7-Y7-i5Z">
@@ -101,7 +101,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NGG-9n-zSF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gBB-ni-QXy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4C-Tv-Q31">
@@ -141,7 +141,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eym-Gg-NcC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yE6-QN-C6e">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-ff-Yan">
@@ -180,7 +180,7 @@
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IntroViewController" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="BYZ-38-t0r" customClass="IntroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -231,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4373" y="-1137"/>
+            <point key="canvasLocation" x="4421" y="-1137"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="ghW-sN-qxl">
@@ -248,14 +248,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdx-ez-Ka7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="1006"/>
+            <point key="canvasLocation" x="4151" y="-1952"/>
         </scene>
         <!--Shaktaya-->
         <scene sceneID="9Um-jT-Wwn">
             <objects>
                 <tableViewController storyboardIdentifier="portfolioViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i3G-aN-DDp" customClass="InstagramTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="402" sectionHeaderHeight="22" sectionFooterHeight="22" id="Gbl-1P-Vn4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -357,9 +357,9 @@
         <!--Portfolio-->
         <scene sceneID="iPt-Ul-vgj">
             <objects>
-                <tableViewController storyboardIdentifier="realPortfolioViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pb1-tq-s3j" customClass="PortfolioTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="realPortfolioViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pb1-tq-s3j" customClass="PortfolioTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="405" sectionHeaderHeight="22" sectionFooterHeight="22" id="PMX-ze-tVr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -449,9 +449,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="IntroSegue" modalTransitionStyle="crossDissolve" id="GRz-9e-zWC"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="IntroSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="GRz-9e-zWC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MU-el-KzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -467,7 +466,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bt8-2E-L02"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ege-G3-wHC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -484,14 +483,15 @@
             </objects>
             <point key="canvasLocation" x="3849" y="-220"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Content View Controller-->
         <scene sceneID="nyw-8G-Ufs">
             <objects>
-                <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Xl-FQ-09U" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Xl-FQ-09U" customClass="ContentViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NqT-IJ-FiW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
@@ -509,14 +509,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5q-eX-n8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2871" y="-1137"/>
+            <point key="canvasLocation" x="2763" y="-1365"/>
         </scene>
         <!--Sketchbook-->
         <scene sceneID="Znr-T3-dl6">
             <objects>
                 <tableViewController storyboardIdentifier="sketchBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1eh-JE-B4B" customClass="SketchBookTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="405" sectionHeaderHeight="22" sectionFooterHeight="22" id="jBl-ZP-5RI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

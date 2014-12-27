@@ -18,10 +18,11 @@
 #import "SketchBookClient.h"
 #import "InstagramClient.h"
 
-#include "ShareView.h"
+#import "ShareView.h"
 #import <MessageUI/MessageUI.h>
+#import "IntroLoadingVIew.h"
 
-@interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface PortfolioTableViewController () <SquareTableViewCellDelegate,SquareSpaceClientDelegate, RESideMenuDelegate, IntroViewDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -32,14 +33,27 @@
 @property BOOL shareViewIsShowing;
 @property SquarePhoto *selectedSquarePhoto;
 @property UIRefreshControl *refreshControl;
+@property IntroLoadingVIew *introLoadingView;
 
 @property NSMutableArray *flippedIndexPaths;
+
 
 @end
 
 @implementation PortfolioTableViewController
 
 -(void)viewWillAppear:(BOOL)animated {
+    
+    if (self.squareSpaceClient.squarePhotos.count == 0) {
+        self.introLoadingView = [[IntroLoadingVIew alloc] initWithFrame:self.navigationController.view.frame];
+        [self.introLoadingView createIntroLoadingView];
+        self.introLoadingView.backgroundColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
+        
+        [self.navigationController.view addSubview:self.introLoadingView];
+        [self.introLoadingView.activityIndicator startAnimating];
+    }
+    
+    
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
 }
@@ -48,15 +62,25 @@
     
     [super viewDidLoad];
     self.flippedIndexPaths = [NSMutableArray array];
+
+    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
-    if (self.squareSpaceClient.squarePhotos.count == 0) {
-        [self performSegueWithIdentifier:@"IntroSegue" sender:self];
-    }
-    
-    for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
-    }
+    self.squareSpaceClient.delegate = self;
+    [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
+        [self.introLoadingView.activityIndicator stopAnimating];
+        [self.introLoadingView.activityIndicator removeFromSuperview];
+        
+        
+        for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
+            [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
+        }
+        
+        UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(closeButtonPressed)];
+        [self.introLoadingView addGestureRecognizer:tapRec];
+        [self.tableView reloadData];
+    }];
     
     self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
     [self.sketchBookClient searchForSquarePhotosWithCompletion:^{
@@ -70,6 +94,10 @@
     
     [self.tableView reloadData];
     
+}
+
+-(void)closeButtonPressed {
+    [self.introLoadingView removeFromSuperview];
 }
 
 -(void)onEnterAppButtonPressed{
