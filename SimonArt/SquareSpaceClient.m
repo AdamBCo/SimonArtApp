@@ -49,6 +49,7 @@
                 
                 NSLog(@"\nCounter: %d\nSquarePhotoCount: %lu",self.imageCounter,(unsigned long)self.squarePhotos.count);
                 if (self.imageCounter == self.squarePhotos.count) {
+                    [self.delegate imagesHaveLoaded];
                     completion();
                 }
             }];

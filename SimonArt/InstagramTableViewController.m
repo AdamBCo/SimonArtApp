@@ -10,7 +10,6 @@
 #import "InstagramTableViewCell.h"
 #import "InstagramClient.h"
 #import "InstagramPhoto.h"
-#import "LiveFrost.h"
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
@@ -107,7 +106,6 @@
     
     if (!self.standardImageCache){
         self.standardImageCache = [NSCache new];
-        NSLog(@"New");
     }
     
     

@@ -23,15 +23,12 @@
 		8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480E1A36890900C55864 /* InstagramTableViewCell.m */; };
 		875348121A36897100C55864 /* InstagramClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348111A36897100C55864 /* InstagramClient.m */; };
 		875348151A368B2200C55864 /* InstagramPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348141A368B2200C55864 /* InstagramPhoto.m */; };
-		8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482A1A3809DF00C55864 /* LFGlassView.m */; };
-		8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753482C1A3809DF00C55864 /* LFDisplayBridge.m */; };
 		875794CA1A3C07120073B429 /* SideBarRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794C91A3C07120073B429 /* SideBarRootViewController.m */; };
 		875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CC1A3E2AC20073B429 /* ProfileViewController.m */; };
 		875794D01A3E36FE0073B429 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794CF1A3E36FE0073B429 /* ShareView.m */; };
 		875794D31A3F7C580073B429 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794D21A3F7C580073B429 /* ContactViewController.m */; };
 		876EE59E1A43769700036D57 /* ResumeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876EE59D1A43769700036D57 /* ResumeDetailViewController.m */; };
 		87B9AFD41A47064300B8F3F4 /* ResumePDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */; };
-		87B9AFDB1A47180800B8F3F4 /* Resume.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 87B9AFDA1A47180800B8F3F4 /* Resume.pdf */; };
 		87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C404451A38BB730099AC9F /* CustomShareButton.m */; };
 		87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C404921A38E5690099AC9F /* Pinterest.framework */; };
 		87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87C404941A38E5690099AC9F /* PinterestSDKResources.bundle */; };
@@ -87,11 +84,6 @@
 		875348111A36897100C55864 /* InstagramClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramClient.m; sourceTree = "<group>"; };
 		875348131A368B2200C55864 /* InstagramPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramPhoto.h; sourceTree = "<group>"; };
 		875348141A368B2200C55864 /* InstagramPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramPhoto.m; sourceTree = "<group>"; };
-		875348281A3809DF00C55864 /* LiveFrost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveFrost.h; sourceTree = "<group>"; };
-		875348291A3809DF00C55864 /* LFGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGlassView.h; sourceTree = "<group>"; };
-		8753482A1A3809DF00C55864 /* LFGlassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGlassView.m; sourceTree = "<group>"; };
-		8753482B1A3809DF00C55864 /* LFDisplayBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDisplayBridge.h; sourceTree = "<group>"; };
-		8753482C1A3809DF00C55864 /* LFDisplayBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDisplayBridge.m; sourceTree = "<group>"; };
 		875794C81A3C07120073B429 /* SideBarRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarRootViewController.h; sourceTree = "<group>"; };
 		875794C91A3C07120073B429 /* SideBarRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarRootViewController.m; sourceTree = "<group>"; };
 		875794CB1A3E2AC20073B429 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -104,7 +96,6 @@
 		876EE59D1A43769700036D57 /* ResumeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeDetailViewController.m; sourceTree = "<group>"; };
 		87B9AFD21A47064300B8F3F4 /* ResumePDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumePDFViewController.h; sourceTree = "<group>"; };
 		87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumePDFViewController.m; sourceTree = "<group>"; };
-		87B9AFDA1A47180800B8F3F4 /* Resume.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Resume.pdf; sourceTree = "<group>"; };
 		87C404441A38BB730099AC9F /* CustomShareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareButton.h; sourceTree = "<group>"; };
 		87C404451A38BB730099AC9F /* CustomShareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShareButton.m; sourceTree = "<group>"; };
 		87C404921A38E5690099AC9F /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
@@ -182,9 +173,10 @@
 		8738580F1A3600BB000E4B32 /* SimonArt */ = {
 			isa = PBXGroup;
 			children = (
-				87B9AFDA1A47180800B8F3F4 /* Resume.pdf */,
 				873858141A3600BB000E4B32 /* AppDelegate.h */,
 				873858151A3600BB000E4B32 /* AppDelegate.m */,
+				8743AE0E1A4E44810060951B /* IntroLoadingVIew.h */,
+				8743AE0F1A4E44810060951B /* IntroLoadingVIew.m */,
 				87CCDCE11A4D12EF007B74CD /* InstagramTableViewController */,
 				87CCDCE61A4D20CF007B74CD /* PortfolioTableViewController */,
 				87CCDCE51A4D18E4007B74CD /* ProfileVIewController */,
@@ -200,7 +192,6 @@
 				87CCDCD81A4CF5DD007B74CD /* SquareSpaceTableViewCell.h */,
 				87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */,
 				8712E6321A3BDDE4009B6792 /* RESideMenu */,
-				8753482F1A3809E500C55864 /* LiveFrost */,
 				8738581A1A3600BB000E4B32 /* Main.storyboard */,
 				8743AD941A4E15D80060951B /* ContentViewController.h */,
 				8743AD951A4E15D80060951B /* ContentViewController.m */,
@@ -238,18 +229,6 @@
 				8738582B1A3600BB000E4B32 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8753482F1A3809E500C55864 /* LiveFrost */ = {
-			isa = PBXGroup;
-			children = (
-				875348281A3809DF00C55864 /* LiveFrost.h */,
-				875348291A3809DF00C55864 /* LFGlassView.h */,
-				8753482A1A3809DF00C55864 /* LFGlassView.m */,
-				8753482B1A3809DF00C55864 /* LFDisplayBridge.h */,
-				8753482C1A3809DF00C55864 /* LFDisplayBridge.m */,
-			);
-			name = LiveFrost;
 			sourceTree = "<group>";
 		};
 		87C404911A38E5690099AC9F /* Pinterest.embeddedframework */ = {
@@ -307,8 +286,6 @@
 		87CCDCE41A4D18B1007B74CD /* SideBar */ = {
 			isa = PBXGroup;
 			children = (
-				8743AE0E1A4E44810060951B /* IntroLoadingVIew.h */,
-				8743AE0F1A4E44810060951B /* IntroLoadingVIew.m */,
 				875794C81A3C07120073B429 /* SideBarRootViewController.h */,
 				875794C91A3C07120073B429 /* SideBarRootViewController.m */,
 				8712E63F1A3BDF56009B6792 /* LeftMenuViewController.h */,
@@ -421,7 +398,6 @@
 			files = (
 				8738581C1A3600BB000E4B32 /* Main.storyboard in Resources */,
 				873858211A3600BB000E4B32 /* LaunchScreen.xib in Resources */,
-				87B9AFDB1A47180800B8F3F4 /* Resume.pdf in Resources */,
 				8738581E1A3600BB000E4B32 /* Images.xcassets in Resources */,
 				87C404961A38E5690099AC9F /* PinterestSDKResources.bundle in Resources */,
 			);
@@ -445,7 +421,6 @@
 				8753480C1A36880D00C55864 /* InstagramTableViewController.m in Sources */,
 				8743AD961A4E15D80060951B /* ContentViewController.m in Sources */,
 				875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */,
-				8753482E1A3809DF00C55864 /* LFDisplayBridge.m in Sources */,
 				87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */,
 				87CCDCDD1A4D09EB007B74CD /* SketchBookTableViewController.m in Sources */,
 				875794CA1A3C07120073B429 /* SideBarRootViewController.m in Sources */,
@@ -466,7 +441,6 @@
 				876EE59E1A43769700036D57 /* ResumeDetailViewController.m in Sources */,
 				8712E6391A3BDDE4009B6792 /* RECommonFunctions.m in Sources */,
 				87CCDCDA1A4CF5DD007B74CD /* SquareSpaceTableViewCell.m in Sources */,
-				8753482D1A3809DF00C55864 /* LFGlassView.m in Sources */,
 				8712E63B1A3BDDE4009B6792 /* UIViewController+RESideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

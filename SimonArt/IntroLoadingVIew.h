@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol IntroViewDelegate <NSObject>
+
+-(void)introDrawingHasCompleted;
+
+@end
+
 @interface IntroLoadingVIew : UIView
 
 @property UILabel *simonNameLabel;
 @property UIButton *closeViewButton;
 @property UIActivityIndicatorView *activityIndicator;
+@property id<IntroViewDelegate> delegate;
 
 -(void)createIntroLoadingView;
 

@@ -108,7 +108,6 @@
     
     if (!self.standardImageCache){
         self.standardImageCache = [NSCache new];
-        NSLog(@"New");
     }
     
     

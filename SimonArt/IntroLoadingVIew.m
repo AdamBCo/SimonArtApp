@@ -10,25 +10,28 @@
 
 @implementation IntroLoadingVIew
 
-
 -(void)createIntroLoadingView {
-    [self drawSimonLogo];
-    
     self.simonNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height*.75, self.frame.size.width, self.frame.size.height*.1)];
     [self.simonNameLabel setText:@"Simon Cooper"];
+    self.simonNameLabel.alpha = 0;
     [self.simonNameLabel setTextAlignment:NSTextAlignmentCenter];
     [self.simonNameLabel setTextColor:[UIColor whiteColor]];
     [self.simonNameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:40.0]];
     [self addSubview:self.simonNameLabel];
     
-    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    self.activityIndicator.color = [UIColor blackColor];
     self.activityIndicator.center = CGPointMake(self.frame.size.width*.5, self.frame.size.height*.95);
     self.activityIndicator.hidesWhenStopped = NO;
     [self addSubview:self.activityIndicator];
+    
+    [self drawSimonLogoWithCompletion:^{
+        [self.delegate introDrawingHasCompleted];
+    }];
 }
 
 
-- (void)drawSimonLogo {
+- (void)drawSimonLogoWithCompletion:(void (^)(void))completion {
     UIView *simonLogo = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width*.5, self.frame.size.height*.5)];
     [self addSubview:simonLogo];
     simonLogo.center = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height*.48);
@@ -116,10 +119,9 @@
     
     //Animate Text Alpha
     [UIView animateWithDuration:2.0 delay:1.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        self.logoNameButton.alpha = 1;
-//        self.clickHereButton.alpha = 1;
+        self.simonNameLabel.alpha = 1;
     } completion:^(BOOL finished) {
-        
+            completion();
     }];
     
     [hairOne addAnimation:drawAnimation forKey:@"drawHairOneAnimation"];
@@ -133,6 +135,7 @@
     [simonLogo.layer addSublayer:hairThree];
     [simonLogo.layer addSublayer:face];
     [simonLogo.layer addSublayer:eye];
+    
 }
 
 @end

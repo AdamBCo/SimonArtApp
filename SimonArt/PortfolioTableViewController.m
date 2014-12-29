@@ -21,7 +21,7 @@
 #import <MessageUI/MessageUI.h>
 #import "IntroLoadingVIew.h"
 
-@interface PortfolioTableViewController () <SquareTableViewCellDelegate,SquareSpaceClientDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate, IntroViewDelegate, SquareSpaceClientDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -33,8 +33,10 @@
 @property SquarePhoto *selectedSquarePhoto;
 @property UIRefreshControl *refreshControl;
 @property IntroLoadingVIew *introLoadingView;
-
 @property NSMutableArray *flippedIndexPaths;
+
+@property BOOL drawingHasFinished;
+@property BOOL imagesHaveLoadedFromPlace;
 
 
 @end
@@ -44,14 +46,15 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     if (self.squareSpaceClient.squarePhotos.count == 0) {
+        self.drawingHasFinished = NO;
+        self.imagesHaveLoadedFromPlace = NO;
         self.introLoadingView = [[IntroLoadingVIew alloc] initWithFrame:self.navigationController.view.frame];
+        self.introLoadingView.delegate = self;
         [self.introLoadingView createIntroLoadingView];
         self.introLoadingView.backgroundColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
-        
         [self.navigationController.view addSubview:self.introLoadingView];
         [self.introLoadingView.activityIndicator startAnimating];
     }
-    
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
@@ -160,7 +163,6 @@
     
     if (!self.standardImageCache){
         self.standardImageCache = [NSCache new];
-        NSLog(@"New");
     }
     
     
@@ -246,6 +248,29 @@
     
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)imagesHaveLoaded {
+    self.imagesHaveLoadedFromPlace = YES;
+    if (self.drawingHasFinished == YES) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.introLoadingView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.introLoadingView removeFromSuperview];
+        }];
+    }
+    
+}
+
+-(void)introDrawingHasCompleted{
+    self.drawingHasFinished = YES;
+    if (self.imagesHaveLoadedFromPlace == YES) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.introLoadingView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.introLoadingView removeFromSuperview];
+        }];
+    }
 }
 
 
