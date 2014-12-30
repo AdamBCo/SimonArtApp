@@ -53,6 +53,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
     
@@ -93,7 +94,6 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderWidth = 3.0f;
     self.profileImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.profileImageView.backgroundColor = [UIColor greenColor];
     [headerView addSubview:self.profileImageView];
     self.tableview.tableHeaderView = headerView;
 }

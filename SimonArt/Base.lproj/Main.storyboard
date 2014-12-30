@@ -296,7 +296,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMc-S8-sgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984" y="-1001"/>
+            <point key="canvasLocation" x="1528" y="-541"/>
         </scene>
         <!--Portfolio-->
         <scene sceneID="iPt-Ul-vgj">
@@ -441,10 +441,10 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wT8-Nq-WB8" kind="show" id="oyh-ss-nRR"/>
-                        <segue destination="AZS-gv-BMh" kind="show" id="pqR-ms-nyX"/>
-                        <segue destination="1eh-JE-B4B" kind="show" id="daf-fz-iio"/>
-                        <segue destination="i3G-aN-DDp" kind="show" id="X1y-yW-xfS"/>
+                        <segue destination="wT8-Nq-WB8" kind="show" identifier="ProfileViewSegue" id="oyh-ss-nRR"/>
+                        <segue destination="AZS-gv-BMh" kind="show" identifier="ContactViewSegue" id="pqR-ms-nyX"/>
+                        <segue destination="1eh-JE-B4B" kind="show" identifier="SketchBook Segue" id="daf-fz-iio"/>
+                        <segue destination="i3G-aN-DDp" kind="show" identifier="InstagramViewSegue" id="X1y-yW-xfS"/>
                         <segue destination="Pb1-tq-s3j" kind="relationship" relationship="rootViewController" id="8IB-W8-oak"/>
                     </connections>
                 </navigationController>

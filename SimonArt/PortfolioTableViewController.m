@@ -44,6 +44,7 @@
 @implementation PortfolioTableViewController
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     if (self.squareSpaceClient.squarePhotos.count == 0) {
         self.drawingHasFinished = NO;

@@ -52,11 +52,11 @@
     CGPathAddQuadCurveToPoint(hairOnePath, nil, w*.05, h*.4, w*.15, h*.3);
     CGPathMoveToPoint(hairOnePath, nil, w*.15,h*.3);
     CGPathAddQuadCurveToPoint(hairOnePath, nil, w*.25, h*.2, w*.15, h*.01);
-    
     hairOne.path = [UIBezierPath bezierPathWithCGPath:hairOnePath].CGPath;
     hairOne.strokeColor = [UIColor yellowColor].CGColor;
     hairOne.fillColor = [UIColor clearColor].CGColor;
     hairOne.lineWidth = 5;
+    CGPathRelease(hairOnePath);
     
     
     CAShapeLayer *hairTwo = [CAShapeLayer new];
@@ -73,6 +73,7 @@
     hairTwo.strokeColor = [UIColor yellowColor].CGColor;
     hairTwo.fillColor = [UIColor clearColor].CGColor;
     hairTwo.lineWidth = 5;
+    CGPathRelease(hairTwoPath);
     
     CAShapeLayer *hairThree = [CAShapeLayer new];
     CGMutablePathRef hairThreePath = CGPathCreateMutable();
@@ -88,6 +89,7 @@
     hairThree.strokeColor = [UIColor yellowColor].CGColor;
     hairThree.fillColor = [UIColor clearColor].CGColor;
     hairThree.lineWidth = 5;
+    CGPathRelease(hairThreePath);
     
     CAShapeLayer *face = [CAShapeLayer new];
     CGMutablePathRef facePath = CGPathCreateMutable();
@@ -99,6 +101,7 @@
     face.strokeColor = [UIColor yellowColor].CGColor;
     face.fillColor = [UIColor clearColor].CGColor;
     face.lineWidth = 5;
+    CGPathRelease(facePath);
     
     //Draw Eye
     int radius = w*.05;

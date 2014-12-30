@@ -22,6 +22,7 @@
 @implementation ContactViewController
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
     self.title = @"Contact";
@@ -51,7 +52,7 @@
     [self.contactViaEmail setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.contactViaEmail.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:24.0]];
     [self.contactViaEmail setImage:[[UIImage imageNamed:@"email"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    [self.contactViaEmail setImageEdgeInsets:UIEdgeInsetsMake(11.5, -30, 13.5, -12)];
+    [self.contactViaEmail setImageEdgeInsets:UIEdgeInsetsMake(self.contactViaEmail.frame.size.height*.15, -30, self.contactViaEmail.frame.size.height*.15, -12)];
     self.contactViaEmail.tintColor = [UIColor blackColor];
     self.contactViaEmail.layer.borderColor = [UIColor blackColor].CGColor;
     self.contactViaEmail.layer.borderWidth = 0.5;

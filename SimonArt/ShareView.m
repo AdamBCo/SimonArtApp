@@ -166,8 +166,9 @@
                                           delegate:self
                                  cancelButtonTitle:@"Cancel"
                                  otherButtonTitles:nil];
-        [alert show];
     }
+    
+    [alert show];
 }
 
 #pragma mark - Twitter
