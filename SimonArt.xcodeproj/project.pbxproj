@@ -11,6 +11,7 @@
 		8712E63A1A3BDDE4009B6792 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8712E6361A3BDDE4009B6792 /* RESideMenu.m */; };
 		8712E63B1A3BDDE4009B6792 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8712E6381A3BDDE4009B6792 /* UIViewController+RESideMenu.m */; };
 		8712E6411A3BDF56009B6792 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8712E6401A3BDF56009B6792 /* LeftMenuViewController.m */; };
+		871465A01A649B65005EAF74 /* SquareShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8714659F1A649B65005EAF74 /* SquareShareView.m */; };
 		873858131A3600BB000E4B32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858121A3600BB000E4B32 /* main.m */; };
 		873858161A3600BB000E4B32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 873858151A3600BB000E4B32 /* AppDelegate.m */; };
 		8738581C1A3600BB000E4B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8738581A1A3600BB000E4B32 /* Main.storyboard */; };
@@ -61,6 +62,8 @@
 		8712E6381A3BDDE4009B6792 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		8712E63F1A3BDF56009B6792 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		8712E6401A3BDF56009B6792 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		8714659E1A649B65005EAF74 /* SquareShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareShareView.h; sourceTree = "<group>"; };
+		8714659F1A649B65005EAF74 /* SquareShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareShareView.m; sourceTree = "<group>"; };
 		8738580D1A3600BB000E4B32 /* SimonArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimonArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		873858111A3600BB000E4B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		873858121A3600BB000E4B32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				8743AD941A4E15D80060951B /* ContentViewController.h */,
 				8743AD951A4E15D80060951B /* ContentViewController.m */,
 				875794CE1A3E36FE0073B429 /* ShareView.h */,
+				8714659E1A649B65005EAF74 /* SquareShareView.h */,
+				8714659F1A649B65005EAF74 /* SquareShareView.m */,
 				875794CF1A3E36FE0073B429 /* ShareView.m */,
 				8738581D1A3600BB000E4B32 /* Images.xcassets */,
 				8738581F1A3600BB000E4B32 /* LaunchScreen.xib */,
@@ -419,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8712E6411A3BDF56009B6792 /* LeftMenuViewController.m in Sources */,
+				871465A01A649B65005EAF74 /* SquareShareView.m in Sources */,
 				8753480C1A36880D00C55864 /* InstagramTableViewController.m in Sources */,
 				8743AD961A4E15D80060951B /* ContentViewController.m in Sources */,
 				875794CD1A3E2AC20073B429 /* ProfileViewController.m in Sources */,

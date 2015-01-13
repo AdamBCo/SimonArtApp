@@ -14,10 +14,10 @@
 #import "LeftMenuViewController.h"
 #import "SquareSpaceTableViewCell.h"
 
-#include "ShareView.h"
+#include "SquareShareView.h"
 #import <MessageUI/MessageUI.h>
 
-@interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate , MFMailComposeViewControllerDelegate>
 
 @property NSCache *standardImageCache;
 @property SketchBookClient *sketchbookClient;
@@ -67,12 +67,11 @@
     
 }
 
-
--(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
+-(void)cellShareButtonTapped:(SquarePhoto *)squarePhoto{
     
-    ShareView *shareview = [[ShareView alloc] initWithFrame:self.view.frame];
+    SquareShareView *shareview = [[SquareShareView alloc] initWithFrame:self.view.frame];
     [shareview createShareView];
-    shareview.selectedInstagramPhoto = instagramPhoto;
+    shareview.selectedSquarePhoto = squarePhoto;
     shareview.delegate = self;
     shareview.alpha = 0;
     [self.navigationController.view addSubview:shareview];

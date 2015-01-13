@@ -1,20 +1,22 @@
 //
-//  ShareView.m
+//  SquareShareView.m
 //  SimonArt
 //
-//  Created by Adam Cooper on 12/14/14.
-//  Copyright (c) 2014 Adam Cooper. All rights reserved.
+//  Created by Adam Cooper on 1/12/15.
+//  Copyright (c) 2015 Adam Cooper. All rights reserved.
 //
 
-#import "ShareView.h"
+#import "SquareShareView.h"
 #import "CustomShareButton.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface ShareView () <MFMailComposeViewControllerDelegate>
+@interface SquareShareView () <MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate>
 @property Pinterest *pinterest;
+@property (nonatomic, strong) UIDocumentInteractionController *documentController;
 
 @end
 
-@implementation ShareView
+@implementation SquareShareView
 
 -(void)createShareView{
     
@@ -29,31 +31,12 @@
     
     [self addGestureRecognizer:tap];
     
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(frameWidth*.1, frameHeight*.20, frameWidth*.8, frameHeight*.60)];
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(frameWidth*.1, frameHeight*.30, frameWidth*.8, frameHeight*.40)];
     whiteView.backgroundColor = [UIColor whiteColor];
     [self addSubview:whiteView];
     
-    CustomShareButton *pinterestButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
-    [pinterestButton setTitle:@"Pinterest" forState:UIControlStateNormal];
-    [pinterestButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [pinterestButton setImage:[[UIImage imageNamed:@"pinterest_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    pinterestButton.tintColor = [UIColor colorWithRed:0.753 green:0.000 blue:0.094 alpha:1.000];
-    [pinterestButton addTarget:self action:@selector(pinIt:) forControlEvents:UIControlEventTouchUpInside];
-    pinterestButton.layer.borderColor = [UIColor grayColor].CGColor;
-    pinterestButton.layer.borderWidth = .25;
-    [whiteView addSubview:pinterestButton];
     
-    CustomShareButton *instagramButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
-    [instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
-    [instagramButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [instagramButton setImage:[[UIImage imageNamed:@"instagram_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    instagramButton.tintColor = [UIColor colorWithRed:0.255 green:0.420 blue:0.576 alpha:1.000];
-    [instagramButton addTarget:self action:@selector(shareImageOnInstagram) forControlEvents:UIControlEventTouchUpInside];
-    instagramButton.layer.borderColor = [UIColor grayColor].CGColor;
-    instagramButton.layer.borderWidth = .25;
-    [whiteView addSubview:instagramButton];
-    
-    CustomShareButton *facebookButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, whiteView.frame.size.height/3, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
+    CustomShareButton *facebookButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/2)];
     [facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
     [facebookButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [facebookButton setImage:[[UIImage imageNamed:@"facebook_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -63,7 +46,7 @@
     facebookButton.layer.borderWidth = .25;
     [whiteView addSubview:facebookButton];
     
-    CustomShareButton *twitterButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, whiteView.frame.size.height/3, whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
+    CustomShareButton *twitterButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, 0, whiteView.frame.size.width/2, whiteView.frame.size.height/2)];
     [twitterButton setTitle:@"Twitter" forState:UIControlStateNormal];
     [twitterButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [twitterButton setImage:[[UIImage imageNamed:@"twitter_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -73,7 +56,7 @@
     twitterButton.layer.borderWidth = .25;
     [whiteView addSubview:twitterButton];
     
-    CustomShareButton *savePhotoButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, (whiteView.frame.size.height - whiteView.frame.size.height/3), whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
+    CustomShareButton *savePhotoButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(0, (whiteView.frame.size.height*.5), whiteView.frame.size.width/2, whiteView.frame.size.height/2)];
     [savePhotoButton setTitle:@"Save Image" forState:UIControlStateNormal];
     [savePhotoButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [savePhotoButton setImage:[[UIImage imageNamed:@"link"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -83,7 +66,7 @@
     savePhotoButton.layer.borderWidth = .25;
     [whiteView addSubview:savePhotoButton];
     
-    CustomShareButton *emailButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, (whiteView.frame.size.height - whiteView.frame.size.height/3), whiteView.frame.size.width/2, whiteView.frame.size.height/3)];
+    CustomShareButton *emailButton = [[CustomShareButton alloc] initWithFrame:CGRectMake(whiteView.frame.size.width*.5, whiteView.frame.size.height*.5, whiteView.frame.size.width/2, whiteView.frame.size.height/2)];
     [emailButton setTitle:@"Email" forState:UIControlStateNormal];
     [emailButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [emailButton setImage:[[UIImage imageNamed:@"email"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -110,12 +93,7 @@
 #pragma mark - Instagram
 
 -(void)shareImageOnInstagram {
-    NSString *urlString = [NSString stringWithFormat:@"instagram://media?id=%@", self.selectedInstagramPhoto.photoIDNumber];
-    NSLog(@"%@",urlString);
-    NSURL *instagramURL = [NSURL URLWithString:urlString];
-    if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
-        [[UIApplication sharedApplication] openURL:instagramURL];
-    }
+    
 }
 
 
@@ -132,7 +110,7 @@
     [mc setMessageBody:messageBody isHTML:NO];
     
     // Get the resource path and read the file using NSData
-    UIImage *image = self.selectedInstagramPhoto.standardResolutionImage;
+    UIImage *image = self.selectedSquarePhoto.squareSpaceImage;
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     [mc addAttachmentData:imageData mimeType:@"image/jpeg" fileName:@"SimonArt"];
     
@@ -143,7 +121,7 @@
 #pragma mark - Copy Link
 
 -(void)savePhotoToCameraRoll{
-    UIImage *image = self.selectedInstagramPhoto.standardResolutionImage;
+    UIImage *image = self.selectedSquarePhoto.squareSpaceImage;
     UIImageWriteToSavedPhotosAlbum(image, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
@@ -197,7 +175,7 @@
         [controller addURL:[NSURL URLWithString:@"http://www.simoncooperart.com"]];
         
         //Adding the Image to the facebook post value from iOS
-        [controller addImage:self.selectedInstagramPhoto.standardResolutionImage];
+        [controller addImage:self.selectedSquarePhoto.squareSpaceImage];
         
         [self.delegate presentTwitterViewController:controller];
         
@@ -211,9 +189,10 @@
 
 - (void)pinIt:(id)sender
 {
-    [_pinterest createPinWithImageURL:self.selectedInstagramPhoto.standardResolutionPhotoURL
-                            sourceURL:[NSURL URLWithString:@"http://www.simoncooperart.com"]
-                          description:@"Awesome artwork by Simon Coooper"];
+#warning Need to fix
+//    [_pinterest createPinWithImageURL:self.selectedInstagramPhoto.standardResolutionPhotoURL
+//                            sourceURL:[NSURL URLWithString:@"http://www.simoncooperart.com"]
+//                          description:@"Awesome artwork by Simon Coooper"];
 }
 
 #pragma mark - Facebook
@@ -225,7 +204,7 @@
         NSLog(@"canPresent");
         
         FBPhotoParams *params = [[FBPhotoParams alloc] init];
-        params.photos = @[self.selectedInstagramPhoto.standardResolutionImage];
+        params.photos = @[self.selectedSquarePhoto.squareSpaceImage];
         
         [FBDialogs presentShareDialogWithPhotoParams:params
                                          clientState:nil
@@ -249,6 +228,5 @@
     
     
 }
-
 
 @end

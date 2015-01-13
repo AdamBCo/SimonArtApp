@@ -17,11 +17,11 @@
 #import "SketchBookClient.h"
 #import "InstagramClient.h"
 
-#import "ShareView.h"
+#import "SquareShareView.h"
 #import <MessageUI/MessageUI.h>
 #import "IntroLoadingVIew.h"
 
-@interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate, IntroViewDelegate, SquareSpaceClientDelegate>
+@interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate, MFMailComposeViewControllerDelegate, IntroViewDelegate, SquareSpaceClientDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -122,12 +122,11 @@
     
 }
 
-
--(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
+-(void)cellShareButtonTapped:(SquarePhoto *)squarePhoto{
     
-    ShareView *shareview = [[ShareView alloc] initWithFrame:self.view.frame];
+    SquareShareView *shareview = [[SquareShareView alloc] initWithFrame:self.view.frame];
     [shareview createShareView];
-    shareview.selectedInstagramPhoto = instagramPhoto;
+    shareview.selectedSquarePhoto = squarePhoto;
     shareview.delegate = self;
     shareview.alpha = 0;
     [self.navigationController.view addSubview:shareview];
@@ -147,10 +146,6 @@
     }
     
 }
-
-
-
-
 
 #pragma mark - TableView Delegates
 
