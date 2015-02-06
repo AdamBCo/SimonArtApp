@@ -31,6 +31,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         self.squarePhotos = [NSMutableArray array];
+        self.flippedPortfolioIndexPaths = [NSMutableArray array];
     }
     return self;
 };

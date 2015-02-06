@@ -26,8 +26,6 @@
 @property SquarePhoto *selectedSquarePhoto;
 @property UIRefreshControl *refreshControl;
 
-@property NSMutableArray *flippedIndexPaths;
-
 @end
 
 @implementation SketchBookTableViewController
@@ -42,13 +40,12 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.flippedIndexPaths = [NSMutableArray array];
     
     self.sketchbookClient = [SketchBookClient sharedSquareSpaceClient];
     NSLog(@"SketchBook = %@",self.sketchbookClient.squarePhotos);
     
     for (int i = 0; i < self.sketchbookClient.squarePhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
+        [self.sketchbookClient.flippedSketchBookIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
     
     [self.tableView reloadData];
@@ -57,10 +54,9 @@
 
 -(void)onEnterAppButtonPressed{
     
-    self.flippedIndexPaths = [NSMutableArray array];
     
     for (int i = 0; i < self.sketchbookClient.squarePhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
+        [self.sketchbookClient.flippedSketchBookIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
     
     [self.tableView reloadData];
@@ -111,7 +107,7 @@
     }
     
     
-    BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL shouldBeFlipped = [[self.sketchbookClient.flippedSketchBookIndexPaths objectAtIndex:indexPath.row] boolValue];
     
     if (shouldBeFlipped){
         cell.standardImageView.hidden = YES;
@@ -135,23 +131,20 @@
     cell.delegate = self;
     
     
-    BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL shouldBeFlipped = [[self.sketchbookClient.flippedSketchBookIndexPaths objectAtIndex:indexPath.row] boolValue];
     BOOL updatedValue = !shouldBeFlipped;
     
-    self.flippedIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
+    self.sketchbookClient.flippedSketchBookIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
     
-    NSLog(cell.isFlipped ? @"Photo" : @" Text");
     
     [UIView beginAnimations:@"FlipCellAnimation" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:cell cache:YES];
     
-    if (cell.isFlipped) {
+    if (shouldBeFlipped) {
         cell.standardImageView.hidden = NO;
-        cell.isFlipped = NO;
     } else {
         cell.standardImageView.hidden = YES;
-        cell.isFlipped = YES;
     }
     
     [UIView commitAnimations];

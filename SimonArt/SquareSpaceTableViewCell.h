@@ -17,7 +17,6 @@
 @property SquarePhoto *squarePhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *standardImageView;
 @property (weak, nonatomic) IBOutlet UILabel *artworkNameLabel;
-@property BOOL isFlipped;
 @property (nonatomic, strong) NSURLSessionDataTask *standardImageDownloadTask;
 
 @property id<SquareTableViewCellDelegate> delegate;

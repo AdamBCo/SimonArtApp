@@ -22,6 +22,7 @@
 @property NSCache *standardImageCache;
 @property NSMutableArray *squarePhotos;
 @property NSString *siteDescription;
+@property NSMutableArray *flippedPortfolioIndexPaths;
 @property BOOL isLoading;
 
 + (instancetype)sharedSquareSpaceClient;

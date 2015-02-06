@@ -20,6 +20,21 @@
 		8738582D1A3600BB000E4B32 /* SimonArtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8738582C1A3600BB000E4B32 /* SimonArtTests.m */; };
 		8743AD961A4E15D80060951B /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743AD951A4E15D80060951B /* ContentViewController.m */; };
 		8743AE101A4E44810060951B /* IntroLoadingVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743AE0F1A4E44810060951B /* IntroLoadingVIew.m */; };
+		8743BA2A1A6739E900773942 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA281A6739E900773942 /* Bolts.framework */; };
+		8743BA2D1A6739FC00773942 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA2C1A6739FC00773942 /* AudioToolbox.framework */; };
+		8743BA2F1A673A0900773942 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA2E1A673A0900773942 /* CFNetwork.framework */; };
+		8743BA311A673A1300773942 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA301A673A1300773942 /* CoreGraphics.framework */; };
+		8743BA331A673A1C00773942 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA321A673A1C00773942 /* MobileCoreServices.framework */; };
+		8743BA351A673A2700773942 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA341A673A2700773942 /* QuartzCore.framework */; };
+		8743BA371A673A3100773942 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA361A673A3100773942 /* Security.framework */; };
+		8743BA391A673A3800773942 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA381A673A3800773942 /* StoreKit.framework */; };
+		8743BA3B1A673A4200773942 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA3A1A673A4200773942 /* SystemConfiguration.framework */; };
+		8743BA3D1A673A5400773942 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA3C1A673A5400773942 /* libz.dylib */; };
+		8743BA3F1A673A6600773942 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA3E1A673A6600773942 /* libsqlite3.dylib */; };
+		8743BA411A67D46800773942 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA401A67D46800773942 /* ParseCrashReporting.framework */; };
+		8743BA431A67D49C00773942 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA421A67D49C00773942 /* libstdc++.6.dylib */; };
+		8743BA461A67D62300773942 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA451A67D62300773942 /* Accounts.framework */; };
+		8743BA481A67D70500773942 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743BA471A67D70500773942 /* Parse.framework */; };
 		8753480C1A36880D00C55864 /* InstagramTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480B1A36880D00C55864 /* InstagramTableViewController.m */; };
 		8753480F1A36890900C55864 /* InstagramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8753480E1A36890900C55864 /* InstagramTableViewCell.m */; };
 		875348121A36897100C55864 /* InstagramClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 875348111A36897100C55864 /* InstagramClient.m */; };
@@ -79,6 +94,21 @@
 		8743AD951A4E15D80060951B /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		8743AE0E1A4E44810060951B /* IntroLoadingVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLoadingVIew.h; sourceTree = "<group>"; };
 		8743AE0F1A4E44810060951B /* IntroLoadingVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLoadingVIew.m; sourceTree = "<group>"; };
+		8743BA281A6739E900773942 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		8743BA2C1A6739FC00773942 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8743BA2E1A673A0900773942 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8743BA301A673A1300773942 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8743BA321A673A1C00773942 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8743BA341A673A2700773942 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8743BA361A673A3100773942 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8743BA381A673A3800773942 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8743BA3A1A673A4200773942 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8743BA3C1A673A5400773942 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		8743BA3E1A673A6600773942 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8743BA401A67D46800773942 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		8743BA421A67D49C00773942 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		8743BA451A67D62300773942 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		8743BA471A67D70500773942 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8753480A1A36880D00C55864 /* InstagramTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramTableViewController.h; sourceTree = "<group>"; };
 		8753480B1A36880D00C55864 /* InstagramTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTableViewController.m; sourceTree = "<group>"; };
 		8753480D1A36890900C55864 /* InstagramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramTableViewCell.h; sourceTree = "<group>"; };
@@ -124,9 +154,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8743BA461A67D62300773942 /* Accounts.framework in Frameworks */,
+				8743BA431A67D49C00773942 /* libstdc++.6.dylib in Frameworks */,
+				8743BA3F1A673A6600773942 /* libsqlite3.dylib in Frameworks */,
+				8743BA3D1A673A5400773942 /* libz.dylib in Frameworks */,
+				8743BA3B1A673A4200773942 /* SystemConfiguration.framework in Frameworks */,
+				8743BA391A673A3800773942 /* StoreKit.framework in Frameworks */,
+				8743BA371A673A3100773942 /* Security.framework in Frameworks */,
+				8743BA351A673A2700773942 /* QuartzCore.framework in Frameworks */,
+				8743BA331A673A1C00773942 /* MobileCoreServices.framework in Frameworks */,
+				8743BA311A673A1300773942 /* CoreGraphics.framework in Frameworks */,
+				8743BA481A67D70500773942 /* Parse.framework in Frameworks */,
+				8743BA2F1A673A0900773942 /* CFNetwork.framework in Frameworks */,
+				8743BA2D1A6739FC00773942 /* AudioToolbox.framework in Frameworks */,
 				87C4049F1A38FA4F0099AC9F /* Social.framework in Frameworks */,
 				87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */,
 				87C4049B1A38EAAF0099AC9F /* FacebookSDK.framework in Frameworks */,
+				8743BA2A1A6739E900773942 /* Bolts.framework in Frameworks */,
+				8743BA411A67D46800773942 /* ParseCrashReporting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +201,7 @@
 		873858041A3600BB000E4B32 = {
 			isa = PBXGroup;
 			children = (
-				87C4049E1A38FA4F0099AC9F /* Social.framework */,
+				87F2D7AE1A6D86A70069B995 /* Frameworks */,
 				8738580F1A3600BB000E4B32 /* SimonArt */,
 				873858291A3600BB000E4B32 /* SimonArtTests */,
 				8738580E1A3600BB000E4B32 /* Products */,
@@ -256,10 +301,10 @@
 		87CCDCE11A4D12EF007B74CD /* InstagramTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
-				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
 				8753480A1A36880D00C55864 /* InstagramTableViewController.h */,
 				8753480B1A36880D00C55864 /* InstagramTableViewController.m */,
+				8753480D1A36890900C55864 /* InstagramTableViewCell.h */,
+				8753480E1A36890900C55864 /* InstagramTableViewCell.m */,
 				875348131A368B2200C55864 /* InstagramPhoto.h */,
 				875348141A368B2200C55864 /* InstagramPhoto.m */,
 			);
@@ -271,8 +316,6 @@
 			children = (
 				87CCDCDB1A4D09EB007B74CD /* SketchBookTableViewController.h */,
 				87CCDCDC1A4D09EB007B74CD /* SketchBookTableViewController.m */,
-				87CCDCDE1A4D0A0A007B74CD /* SketchBookClient.h */,
-				87CCDCDF1A4D0A0A007B74CD /* SketchBookClient.m */,
 			);
 			name = SketchBookTableViewController;
 			sourceTree = "<group>";
@@ -282,6 +325,8 @@
 			children = (
 				875348101A36897100C55864 /* InstagramClient.h */,
 				875348111A36897100C55864 /* InstagramClient.m */,
+				87CCDCDE1A4D0A0A007B74CD /* SketchBookClient.h */,
+				87CCDCDF1A4D0A0A007B74CD /* SketchBookClient.m */,
 				87CCDCCF1A4CE306007B74CD /* SquareSpaceClient.h */,
 				87CCDCD01A4CE306007B74CD /* SquareSpaceClient.m */,
 			);
@@ -319,6 +364,29 @@
 				87CCDCD61A4CF32D007B74CD /* PortfolioTableViewController.m */,
 			);
 			name = PortfolioTableViewController;
+			sourceTree = "<group>";
+		};
+		87F2D7AE1A6D86A70069B995 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8743BA471A67D70500773942 /* Parse.framework */,
+				8743BA451A67D62300773942 /* Accounts.framework */,
+				8743BA421A67D49C00773942 /* libstdc++.6.dylib */,
+				8743BA401A67D46800773942 /* ParseCrashReporting.framework */,
+				8743BA3E1A673A6600773942 /* libsqlite3.dylib */,
+				8743BA3C1A673A5400773942 /* libz.dylib */,
+				8743BA3A1A673A4200773942 /* SystemConfiguration.framework */,
+				8743BA381A673A3800773942 /* StoreKit.framework */,
+				8743BA361A673A3100773942 /* Security.framework */,
+				8743BA341A673A2700773942 /* QuartzCore.framework */,
+				8743BA321A673A1C00773942 /* MobileCoreServices.framework */,
+				8743BA301A673A1300773942 /* CoreGraphics.framework */,
+				8743BA2E1A673A0900773942 /* CFNetwork.framework */,
+				8743BA2C1A6739FC00773942 /* AudioToolbox.framework */,
+				8743BA281A6739E900773942 /* Bolts.framework */,
+				87C4049E1A38FA4F0099AC9F /* Social.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +575,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -549,6 +618,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -574,14 +644,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
 					"$(PROJECT_DIR)/SimonArt",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SimonArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -592,14 +665,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
 					"$(PROJECT_DIR)/SimonArt",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SimonArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

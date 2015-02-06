@@ -15,6 +15,7 @@
 //Image Caches
 @property NSCache *standardImageCache;
 @property NSMutableArray *squarePhotos;
+@property NSMutableArray *flippedSketchBookIndexPaths;
 @property BOOL isLoading;
 
 + (instancetype)sharedSquareSpaceClient;

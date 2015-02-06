@@ -13,11 +13,11 @@
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
-
 #include "ShareView.h"
 #import <MessageUI/MessageUI.h>
+#import "IntroLoadingVIew.h"
 
-@interface InstagramTableViewController () <InstagramTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate>
+@interface InstagramTableViewController () <InstagramTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate, IntroViewDelegate, InstagramClientDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
@@ -26,9 +26,9 @@
 @property BOOL shareViewIsShowing;
 @property InstagramPhoto *selectedInstagramPhoto;
 @property UIRefreshControl *refreshControl;
-
-
-@property NSMutableArray *flippedIndexPaths;
+@property IntroLoadingVIew *introLoadingView;
+@property BOOL drawingHasFinished;
+@property BOOL imagesHaveLoadedFromPlace;
 
 @end
 
@@ -36,34 +36,71 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    if (self.instagramClient.instagramPhotos.count == 0) {
+        self.drawingHasFinished = NO;
+        self.imagesHaveLoadedFromPlace = NO;
+        
+        self.introLoadingView = [[IntroLoadingVIew alloc] initWithFrame:self.navigationController.view.frame];
+        self.introLoadingView.delegate = self;
+        [self.introLoadingView createIntroLoadingView];
+        self.introLoadingView.backgroundColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
+        [self.navigationController.view addSubview:self.introLoadingView];
+        [self.introLoadingView.activityIndicator startAnimating];
+    }
+    
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+}
+
+-(void)introDrawingHasCompleted{
+    self.drawingHasFinished = YES;
+    if (self.imagesHaveLoadedFromPlace == YES) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.introLoadingView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.introLoadingView removeFromSuperview];
+        }];
+    }
+}
+
+-(void)closeButtonPressed {
+    [self.introLoadingView removeFromSuperview];
+}
+
+-(void)imagesHaveLoaded{
+    self.imagesHaveLoadedFromPlace = YES;
+    [self.tableView reloadData];
+
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.flippedIndexPaths = [NSMutableArray array];
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
-    for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
-    }
+    self.instagramClient.delegate = self;
+    
+    if (self.instagramClient.instagramPhotos.count == 0) {
         
-    [self.tableView reloadData];
-    
-}
+        [self.instagramClient searchForInstagramPhotosWithCompletion:^{
+            [self.introLoadingView.activityIndicator stopAnimating];
+            [self.introLoadingView.activityIndicator removeFromSuperview];
+            
+            for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
+                [self.instagramClient.flippedInstagramIndexPaths addObject:[NSNumber numberWithBool:NO]];
+                NSLog(@"FLIPPED: %@",[self.instagramClient.flippedInstagramIndexPaths objectAtIndex:i]);
+            }
+            
+            UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
+                                              initWithTarget:self action:@selector(closeButtonPressed)];
+            [self.introLoadingView addGestureRecognizer:tapRec];
+        }];
+    } else {
+        
+        [self.tableView reloadData];
 
--(void)onEnterAppButtonPressed{
-    
-    self.flippedIndexPaths = [NSMutableArray array];
-    
-    for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
     }
-    
-    [self.tableView reloadData];
-    
 }
 
 -(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
@@ -109,8 +146,10 @@
         self.standardImageCache = [NSCache new];
     }
     
+    NSLog(@"IndexPath: %ld",(long)indexPath.row);
+    BOOL shouldBeFlipped = [[self.instagramClient.flippedInstagramIndexPaths objectAtIndex:indexPath.row] boolValue];
     
-    BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    NSLog(shouldBeFlipped ? @"YES" : @" NO");
     
     if (shouldBeFlipped){
         cell.standardImageView.hidden = YES;
@@ -122,6 +161,8 @@
     cell.instagramPhoto = result;
     cell.artworkNameLabel.text = result.photoText;
     cell.standardImageView.image = result.standardResolutionImage;
+    
+    NSLog(@"Image: %@",result.standardResolutionImage);
     return cell;
     
 }
@@ -133,23 +174,19 @@
     cell.delegate = self;
     
     
-    BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL shouldBeFlipped = [[self.instagramClient.flippedInstagramIndexPaths objectAtIndex:indexPath.row] boolValue];
     BOOL updatedValue = !shouldBeFlipped;
     
-    self.flippedIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
-    
-    NSLog(cell.isFlipped ? @"Photo" : @" Text");
-    
+    self.instagramClient.flippedInstagramIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
+
     [UIView beginAnimations:@"FlipCellAnimation" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:cell cache:YES];
     
-    if (cell.isFlipped) {
+    if (shouldBeFlipped) {
         cell.standardImageView.hidden = NO;
-        cell.isFlipped = NO;
     } else {
         cell.standardImageView.hidden = YES;
-        cell.isFlipped = YES;
     }
     
     [UIView commitAnimations];

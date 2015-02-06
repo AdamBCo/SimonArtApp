@@ -15,25 +15,20 @@
 #import "LeftMenuViewController.h"
 #import "SquareSpaceTableViewCell.h"
 #import "SketchBookClient.h"
-#import "InstagramClient.h"
 
 #import "SquareShareView.h"
 #import <MessageUI/MessageUI.h>
-#import "IntroLoadingVIew.h"
 
-@interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate, MFMailComposeViewControllerDelegate, IntroViewDelegate, SquareSpaceClientDelegate>
+@interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate, MFMailComposeViewControllerDelegate, SquareSpaceClientDelegate>
 
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
 @property SquareSpaceClient *squareSpaceClient;
 @property SketchBookClient *sketchBookClient;
-@property InstagramClient *instagramClient;
 @property BOOL profileViewIsShowing;
 @property BOOL shareViewIsShowing;
 @property SquarePhoto *selectedSquarePhoto;
 @property UIRefreshControl *refreshControl;
-@property IntroLoadingVIew *introLoadingView;
-@property NSMutableArray *flippedIndexPaths;
 
 @property BOOL drawingHasFinished;
 @property BOOL imagesHaveLoadedFromPlace;
@@ -46,17 +41,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if (self.squareSpaceClient.squarePhotos.count == 0) {
-        self.drawingHasFinished = NO;
-        self.imagesHaveLoadedFromPlace = NO;
-        self.introLoadingView = [[IntroLoadingVIew alloc] initWithFrame:self.navigationController.view.frame];
-        self.introLoadingView.delegate = self;
-        [self.introLoadingView createIntroLoadingView];
-        self.introLoadingView.backgroundColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
-        [self.navigationController.view addSubview:self.introLoadingView];
-        [self.introLoadingView.activityIndicator startAnimating];
-    }
-    
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
 }
@@ -64,62 +48,27 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.flippedIndexPaths = [NSMutableArray array];
 
-    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
-    
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     self.squareSpaceClient.delegate = self;
     
     if (self.squareSpaceClient.squarePhotos.count == 0) {
         [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
-            [self.introLoadingView.activityIndicator stopAnimating];
-            [self.introLoadingView.activityIndicator removeFromSuperview];
-            
             
             for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
-                [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
+                [self.squareSpaceClient.flippedPortfolioIndexPaths addObject:[NSNumber numberWithBool:NO]];
             }
-            
-            UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
-                                              initWithTarget:self action:@selector(closeButtonPressed)];
-            [self.introLoadingView addGestureRecognizer:tapRec];
             [self.tableView reloadData];
         }];
+    } else {
+        
+        [self.tableView reloadData];
     }
-    
-    for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
-    }
-    
-    self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
-    [self.sketchBookClient searchForSquarePhotosWithCompletion:^{
-    }];
-    
-    self.instagramClient = [InstagramClient sharedInstagramClient];
-    [self.instagramClient searchForInstagramPhotosWithCompletion:^{
-    }];
-    
-    
-    
-    [self.tableView reloadData];
     
 }
 
--(void)closeButtonPressed {
-    [self.introLoadingView removeFromSuperview];
-}
-
--(void)onEnterAppButtonPressed{
-    
-    self.flippedIndexPaths = [NSMutableArray array];
-    
-    for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
-        [self.flippedIndexPaths addObject:[NSNumber numberWithBool:NO]];
-    }
-    
-    [self.tableView reloadData];
-    
+-(void)imagesHaveLoaded{
+    self.imagesHaveLoadedFromPlace = YES;
 }
 
 -(void)cellShareButtonTapped:(SquarePhoto *)squarePhoto{
@@ -162,7 +111,7 @@
     }
     
     
-    BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL shouldBeFlipped = [[self.squareSpaceClient.flippedPortfolioIndexPaths objectAtIndex:indexPath.row] boolValue];
     
     if (shouldBeFlipped){
         cell.standardImageView.hidden = YES;
@@ -186,28 +135,23 @@
     cell.delegate = self;
     
     
-    BOOL shouldBeFlipped = [[self.flippedIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL shouldBeFlipped = [[self.squareSpaceClient.flippedPortfolioIndexPaths objectAtIndex:indexPath.row] boolValue];
     BOOL updatedValue = !shouldBeFlipped;
     
-    self.flippedIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
-    
-    NSLog(cell.isFlipped ? @"Photo" : @" Text");
+    self.squareSpaceClient.flippedPortfolioIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
     
     [UIView beginAnimations:@"FlipCellAnimation" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:cell cache:YES];
     
-    if (cell.isFlipped) {
+    if (shouldBeFlipped) {
         cell.standardImageView.hidden = NO;
-        cell.isFlipped = NO;
     } else {
         cell.standardImageView.hidden = YES;
-        cell.isFlipped = YES;
     }
     
     [UIView commitAnimations];
 }
-
 
 
 
@@ -245,29 +189,17 @@
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
--(void)imagesHaveLoaded {
-    self.imagesHaveLoadedFromPlace = YES;
-    if (self.drawingHasFinished == YES) {
-        [UIView animateWithDuration:0.7 animations:^{
-            self.introLoadingView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [self.introLoadingView removeFromSuperview];
-        }];
-    }
-    
-}
-
--(void)introDrawingHasCompleted{
-    self.drawingHasFinished = YES;
-    if (self.imagesHaveLoadedFromPlace == YES) {
-        [UIView animateWithDuration:0.7 animations:^{
-            self.introLoadingView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [self.introLoadingView removeFromSuperview];
-        }];
-    }
-}
+//
+//-(void)introDrawingHasCompleted{
+//    self.drawingHasFinished = YES;
+//    if (self.imagesHaveLoadedFromPlace == YES) {
+//        [UIView animateWithDuration:0.7 animations:^{
+//            self.introLoadingView.alpha = 0;
+//        } completion:^(BOOL finished) {
+//            [self.introLoadingView removeFromSuperview];
+//        }];
+//    }
+//}
 
 
 @end

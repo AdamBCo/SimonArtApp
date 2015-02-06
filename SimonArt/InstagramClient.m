@@ -11,6 +11,8 @@
 
 @interface InstagramClient()
 
+@property int imageCounter;
+
 @end
 
 @implementation InstagramClient
@@ -29,6 +31,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         self.instagramPhotos = [NSMutableArray array];
+        self.flippedInstagramIndexPaths = [NSMutableArray array];
     }
     return self;
 };
@@ -36,11 +39,22 @@
 
 -(void)searchForInstagramPhotosWithCompletion:(void (^)(void))completion{
     
+    self.imageCounter = 0;
+    
     [self requestImageInformationWithCompletion:^{
         for (InstagramPhoto *instagramPhoto in self.instagramPhotos) {
             
             [self requestImageWithURL:instagramPhoto.standardResolutionPhotoURL withCompletion:^(UIImage *image) {
                 instagramPhoto.standardResolutionImage = image;
+                
+                self.imageCounter++;
+                
+                NSLog(@"\nCounter: %d\nInstagramPhotoCount: %lu",self.imageCounter,(unsigned long)self.instagramPhotos.count);
+                
+                if (self.imageCounter == self.instagramPhotos.count) {
+                    [self.delegate imagesHaveLoaded];
+                    completion();
+                }
             }];
             
             completion();

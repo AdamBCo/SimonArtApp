@@ -26,6 +26,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         self.squarePhotos = [NSMutableArray array];
+        self.flippedSketchBookIndexPaths = [NSMutableArray array];
     }
     return self;
 };

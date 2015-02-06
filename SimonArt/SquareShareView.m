@@ -185,16 +185,6 @@
     }
 }
 
-#pragma mark - Pinterest
-
-- (void)pinIt:(id)sender
-{
-#warning Need to fix
-//    [_pinterest createPinWithImageURL:self.selectedInstagramPhoto.standardResolutionPhotoURL
-//                            sourceURL:[NSURL URLWithString:@"http://www.simoncooperart.com"]
-//                          description:@"Awesome artwork by Simon Coooper"];
-}
-
 #pragma mark - Facebook
 
 - (void)shareToFacebook:(id)sender{

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+#import <ParseCrashReporting/ParseCrashReporting.h>
 #import "InstagramClient.h"
 #import "SquareSpaceClient.h"
 #import "SketchBookClient.h"
@@ -24,15 +26,79 @@
 
 @implementation AppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Parse setApplicationId:@"YHcq2S8WdDwBRKGP5Lzy9d3p4pWzKr0B2EMF5v73"
+                  clientKey:@"bomRQ6GaePvEntCGlWXuKhpLTsqPH75EnUGscySI"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     self.instagramClient = [InstagramClient sharedInstagramClient];
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
+    [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
+        for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
+            [self.squareSpaceClient.flippedPortfolioIndexPaths addObject:[NSNumber numberWithBool:NO]];
+        }
+    }];
     self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
+    [self.sketchBookClient searchForSquarePhotosWithCompletion:^{
+        for (int i = 0; i < self.sketchBookClient.squarePhotos.count; i++) {
+            [self.sketchBookClient.flippedSketchBookIndexPaths addObject:[NSNumber numberWithBool:NO]];
+        }
+    }];
+
+    // Register for Push Notitications
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                            categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+    
+    
     
     return YES;
 }
 
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    if (error.code == 3010) {
+        NSLog(@"Push notifications are not supported in the iOS Simulator.");
+    } else {
+        // show some alert or otherwise handle the failure to register.
+        NSLog(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error.localizedDescription);
+    }
+}
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    
+    currentInstallation.channels = @[ @"global" ];
+    
+    NSLog(@"currentInstallation %@", currentInstallation);
+    
+    NSString *model = [[UIDevice currentDevice] model]; // deviceModel
+    NSString *osVersion = [[UIDevice currentDevice] systemVersion]; // osVersion
+    NSString *deviceName = [[UIDevice currentDevice] name]; // deviceName
+    
+    [currentInstallation setObject:model forKey:@"deviceModel"];
+    [currentInstallation setObject:osVersion forKey:@"osVersion"];
+    [currentInstallation setObject:deviceName forKey:@"deviceName"];
+    
+    NSLog(@"installation: %@", currentInstallation);
+    
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@" The User has registered for PUSH successfully!");
+    }];
+    
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
