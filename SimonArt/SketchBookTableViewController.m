@@ -7,24 +7,25 @@
 //
 
 #import "SketchBookTableViewController.h"
-#import "SketchBookClient.h"
+#import "SquareSpaceClient.h"
+
 #import "SquarePhoto.h"
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
 #import "SquareSpaceTableViewCell.h"
-
 #include "SquareShareView.h"
 #import <MessageUI/MessageUI.h>
 
-@interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate , MFMailComposeViewControllerDelegate>
+@interface SketchBookTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate , MFMailComposeViewControllerDelegate, SquareSpaceClientDelegate>
 
-@property NSCache *standardImageCache;
-@property SketchBookClient *sketchbookClient;
+@property SquareSpaceClient *squareSpaceClient;
+@property SquarePhoto *selectedSketchBookPhoto;
+
 @property BOOL profileViewIsShowing;
 @property BOOL shareViewIsShowing;
-@property SquarePhoto *selectedSquarePhoto;
-@property UIRefreshControl *refreshControl;
+
+@property BOOL sketchBookImagesHaveDownloadedFromSquareSpaceClient;
 
 @end
 
@@ -32,33 +33,18 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.title = @"Sketchbook";
+    
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
-    self.title = @"Sketchbook";
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    self.sketchbookClient = [SketchBookClient sharedSquareSpaceClient];
-    NSLog(@"SketchBook = %@",self.sketchbookClient.squarePhotos);
-    
-    for (int i = 0; i < self.sketchbookClient.squarePhotos.count; i++) {
-        [self.sketchbookClient.flippedSketchBookIndexPaths addObject:[NSNumber numberWithBool:NO]];
-    }
-    
-    [self.tableView reloadData];
-    
-}
-
--(void)onEnterAppButtonPressed{
-    
-    
-    for (int i = 0; i < self.sketchbookClient.squarePhotos.count; i++) {
-        [self.sketchbookClient.flippedSketchBookIndexPaths addObject:[NSNumber numberWithBool:NO]];
-    }
-    
+    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     [self.tableView reloadData];
     
 }
@@ -95,19 +81,19 @@
 #pragma mark - TableView Delegates
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.sketchbookClient.squarePhotos.count;
+    return self.squareSpaceClient.sketchBookPhotos.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SquareSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    if (!self.standardImageCache){
-        self.standardImageCache = [NSCache new];
+    if (!self.squareSpaceClient.sketchBookImageCache){
+        self.squareSpaceClient.sketchBookImageCache = [NSCache new];
     }
     
     
-    BOOL shouldBeFlipped = [[self.sketchbookClient.flippedSketchBookIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL shouldBeFlipped = [[self.squareSpaceClient.flippedSketchBookIndexPaths objectAtIndex:indexPath.row] boolValue];
     
     if (shouldBeFlipped){
         cell.standardImageView.hidden = YES;
@@ -116,7 +102,7 @@
         cell.standardImageView.hidden = NO;
     }
     
-    SquarePhoto *result = [self.sketchbookClient.squarePhotos objectAtIndex:indexPath.row];
+    SquarePhoto *result = [self.squareSpaceClient.sketchBookPhotos objectAtIndex:indexPath.row];
     cell.squarePhoto = result;
     cell.artworkNameLabel.text = result.title;
     cell.standardImageView.image = result.squareSpaceImage;
@@ -131,10 +117,10 @@
     cell.delegate = self;
     
     
-    BOOL shouldBeFlipped = [[self.sketchbookClient.flippedSketchBookIndexPaths objectAtIndex:indexPath.row] boolValue];
+    BOOL shouldBeFlipped = [[self.squareSpaceClient.flippedSketchBookIndexPaths objectAtIndex:indexPath.row] boolValue];
     BOOL updatedValue = !shouldBeFlipped;
     
-    self.sketchbookClient.flippedSketchBookIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
+    self.squareSpaceClient.flippedSketchBookIndexPaths[indexPath.row] = [NSNumber numberWithBool:updatedValue];
     
     
     [UIView beginAnimations:@"FlipCellAnimation" context:nil];
@@ -150,8 +136,13 @@
     [UIView commitAnimations];
 }
 
+#pragma mark - SquareSpace Delegate Methods
 
-
+-(void)sketchBookImagesHaveLoaded{
+    
+    self.sketchBookImagesHaveDownloadedFromSquareSpaceClient = YES;
+    
+}
 
 #pragma mark - ShareView Delegate Methods
 

@@ -12,22 +12,34 @@
 
 @protocol SquareSpaceClientDelegate <NSObject>
 
--(void)imagesHaveLoaded;
+@optional
+-(void)portfolioImagesHaveLoaded;
+-(void)sketchBookImagesHaveLoaded;
 
 @end
 
 @interface SquareSpaceClient : NSObject
 
-//Image Caches
-@property NSCache *standardImageCache;
-@property NSMutableArray *squarePhotos;
-@property NSString *siteDescription;
-@property NSMutableArray *flippedPortfolioIndexPaths;
-@property BOOL isLoading;
-
 + (instancetype)sharedSquareSpaceClient;
--(void)searchForSquarePhotosWithCompletion:(void (^)(void))completion;
--(void)requestImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion;
+
+@property NSString *siteDescription;
+
+//Portfolio Photos
+@property NSCache *portfolioImageCache;
+@property NSMutableArray *portfolioPhotos;
+@property NSMutableArray *flippedPortfolioIndexPaths;
+@property BOOL portfolioPhotosAreDownloading;
+
+-(void)searchForPortfolioPhotosWithCompletion:(void (^)(void))completion;
+
+//SketchBook Photos
+@property NSCache *sketchBookImageCache;
+@property NSMutableArray *sketchBookPhotos;
+@property NSMutableArray *flippedSketchBookIndexPaths;
+@property BOOL sketchBookPhotosAreDownloading;
+
+-(void)searchForSketchbookPhotosWithCompletion:(void (^)(void))completion;
+//-(void)requestPortfolioImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion;
 
 @property id<SquareSpaceClientDelegate> delegate;
 

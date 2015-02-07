@@ -11,7 +11,8 @@
 
 @interface SquareSpaceClient()
 
-@property int imageCounter;
+@property int portfolioImageCounter;
+@property int sketchBookImageCounter;
 
 @end
 
@@ -30,43 +31,43 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.squarePhotos = [NSMutableArray array];
+        self.portfolioPhotos = [NSMutableArray array];
+        self.sketchBookPhotos = [NSMutableArray array];
         self.flippedPortfolioIndexPaths = [NSMutableArray array];
+        self.flippedSketchBookIndexPaths = [NSMutableArray array];
     }
     return self;
 };
 
+#pragma mark - Portfolio Image Methods
 
--(void)searchForSquarePhotosWithCompletion:(void (^)(void))completion{
+
+-(void)searchForPortfolioPhotosWithCompletion:(void (^)(void))completion{
     
-    self.imageCounter = 0;
+    self.portfolioImageCounter = 0;
     
-    [self requestImageInformationWithCompletion:^{
-        for (SquarePhoto *squarePhoto in self.squarePhotos) {
-            
-            [self requestImageWithURL:squarePhoto.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
-                squarePhoto.squareSpaceImage = image;
-                self.imageCounter++;
+    [self requestPortfolioImageWithCompletion:^{
+        for (SquarePhoto *portfolioImage in self.portfolioPhotos) {
+        
+            [self requestPortfolioImageWithURL:portfolioImage.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
+                portfolioImage.squareSpaceImage = image;
+                self.portfolioImageCounter++;
+                [self.flippedPortfolioIndexPaths addObject:[NSNumber numberWithBool:NO]];
                 
-                NSLog(@"\nCounter: %d\nSquarePhotoCount: %lu",self.imageCounter,(unsigned long)self.squarePhotos.count);
-                if (self.imageCounter == self.squarePhotos.count) {
-                    [self.delegate imagesHaveLoaded];
+                if (self.portfolioImageCounter == self.portfolioPhotos.count) {
+                    [self.delegate portfolioImagesHaveLoaded];
                     completion();
                 }
             }];
         }
     }];
-    
-    
 }
 
 
-
-
--(void)requestImageInformationWithCompletion:(void (^)(void))completion{
+-(void)requestPortfolioImageWithCompletion:(void (^)(void))completion{
     
-    if (!self.isLoading) {
-        self.isLoading = YES;
+    if (!self.portfolioPhotosAreDownloading) {
+        self.portfolioPhotosAreDownloading = YES;
         
         NSString *urlString = [NSString stringWithFormat:@"http://www.simoncooperart.com/?format=json-pretty"];
         
@@ -85,7 +86,7 @@
             
             self.siteDescription = [siteString string];
             NSLog(@"Changed: %@",self.siteDescription);
-
+            
             
             
             NSArray *results = [jSONresult valueForKey:@"items"];
@@ -107,8 +108,8 @@
                 NSLog(@"Error: %@",error);
                 return;
             }else{
-                [self.squarePhotos addObjectsFromArray:squareArray];
-                self.isLoading = NO;
+                [self.portfolioPhotos addObjectsFromArray:squareArray];
+                self.portfolioPhotosAreDownloading = NO;
                 completion();
             }
         }];
@@ -119,11 +120,105 @@
 }
 
 
+-(void)requestPortfolioImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion{
 
--(void)requestImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion{
-    
     NSLog(@"Image Request: %@", url);
+
+    NSURL *photoURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:photoURL];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR: %@", error);
+        } else {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if (httpResponse.statusCode == 200) {
+                UIImage *image = [UIImage imageWithData:data];
+                completion(image);
+            } else {
+                NSLog(@"Couldn't load image at URL: %@", url);
+                NSLog(@"HTTP %ld", (long)httpResponse.statusCode);
+            }
+        }
+
+    }];
+    [task resume];
+}
+
+
+#pragma mark - SketchBook Image Methods
+
+-(void)searchForSketchbookPhotosWithCompletion:(void (^)(void))completion{
     
+    self.sketchBookImageCounter = 0;
+     
+     [self requestSketchBookImageWithCompletion:^{
+        for (SquarePhoto *sketchBookImage in self.sketchBookPhotos) {
+            
+            [self requestSketchBookImageWithURL:sketchBookImage.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
+                
+                sketchBookImage.squareSpaceImage = image;
+                self.sketchBookImageCounter++;
+                [self.flippedSketchBookIndexPaths addObject:[NSNumber numberWithBool:NO]];
+                
+                if (self.sketchBookImageCounter == self.sketchBookPhotos.count) {
+                    [self.delegate sketchBookImagesHaveLoaded];
+                    completion();
+                }
+            }];
+        }
+    }];
+ 
+}
+
+-(void)requestSketchBookImageWithCompletion:(void (^)(void))completion{
+    
+    if (!self.sketchBookPhotosAreDownloading) {
+        self.sketchBookPhotosAreDownloading = YES;
+        
+        NSString *urlString = [NSString stringWithFormat:@"http://www.simoncooperart.com/sketch/?format=json-pretty"];
+        
+        NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+        
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSDictionary *jSONresult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            NSArray *results = [jSONresult valueForKey:@"items"];
+            NSMutableArray *squareArray = [NSMutableArray array];
+            
+            for (NSDictionary *result in results) {
+                
+                SquarePhoto *new = [[SquarePhoto alloc] initWithCreateSquarePhoto:result];
+                [squareArray addObject:new];
+            }
+            
+            if (error){
+                if (!error){
+                    NSDictionary *userInfo = @{@"error":jSONresult[@"status"]};
+                    NSError *newError = [NSError errorWithDomain:@"API Error" code:666 userInfo:userInfo];
+                    NSLog(@"Error: %@",newError);
+                    return;
+                }
+                NSLog(@"Error: %@",error);
+                return;
+            }else{
+                [self.sketchBookPhotos addObjectsFromArray:squareArray];
+                self.sketchBookPhotosAreDownloading = NO;
+                completion();
+            }
+        }];
+        
+        [task resume];
+    }
+    
+}
+
+
+-(void)requestSketchBookImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion{
     NSURL *photoURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:photoURL];
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -145,6 +240,8 @@
     }];
     [task resume];
 }
+
+
 
 @end
 

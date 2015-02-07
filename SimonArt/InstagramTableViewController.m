@@ -9,6 +9,7 @@
 #import "InstagramTableViewController.h"
 #import "InstagramTableViewCell.h"
 #import "InstagramClient.h"
+#import "SquareSpaceClient.h"
 #import "InstagramPhoto.h"
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
@@ -29,6 +30,9 @@
 @property IntroLoadingVIew *introLoadingView;
 @property BOOL drawingHasFinished;
 @property BOOL imagesHaveLoadedFromPlace;
+
+
+@property SquareSpaceClient *squareSpaceClient;
 
 @end
 
@@ -55,7 +59,7 @@
 
 -(void)introDrawingHasCompleted{
     self.drawingHasFinished = YES;
-    if (self.imagesHaveLoadedFromPlace == YES) {
+    if (self.introLoadingView && self.imagesHaveLoadedFromPlace == YES) {
         [UIView animateWithDuration:0.7 animations:^{
             self.introLoadingView.alpha = 0;
         } completion:^(BOOL finished) {
@@ -70,6 +74,25 @@
 
 -(void)imagesHaveLoaded{
     self.imagesHaveLoadedFromPlace = YES;
+    [self.introLoadingView.activityIndicator stopAnimating];
+    [self.introLoadingView.activityIndicator removeFromSuperview];
+    
+    if (self.introLoadingView) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.introLoadingView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.introLoadingView removeFromSuperview];
+        }];
+    }
+    
+    [[SquareSpaceClient sharedSquareSpaceClient] searchForPortfolioPhotosWithCompletion:^{
+        NSLog(@"Portfolio photos have loaded successfully!");
+    }];
+    
+    [[SquareSpaceClient sharedSquareSpaceClient] searchForSketchbookPhotosWithCompletion:^{
+        NSLog(@"SketchBook photos have loaded successfully!");
+    }];
+    
     [self.tableView reloadData];
 
 }
@@ -84,13 +107,6 @@
     if (self.instagramClient.instagramPhotos.count == 0) {
         
         [self.instagramClient searchForInstagramPhotosWithCompletion:^{
-            [self.introLoadingView.activityIndicator stopAnimating];
-            [self.introLoadingView.activityIndicator removeFromSuperview];
-            
-            for (int i = 0; i < self.instagramClient.instagramPhotos.count; i++) {
-                [self.instagramClient.flippedInstagramIndexPaths addObject:[NSNumber numberWithBool:NO]];
-                NSLog(@"FLIPPED: %@",[self.instagramClient.flippedInstagramIndexPaths objectAtIndex:i]);
-            }
             
             UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc]
                                               initWithTarget:self action:@selector(closeButtonPressed)];

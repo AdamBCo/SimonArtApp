@@ -42,6 +42,7 @@
     self.imageCounter = 0;
     
     [self requestImageInformationWithCompletion:^{
+        
         for (InstagramPhoto *instagramPhoto in self.instagramPhotos) {
             
             [self requestImageWithURL:instagramPhoto.standardResolutionPhotoURL withCompletion:^(UIImage *image) {
@@ -57,7 +58,7 @@
                 }
             }];
             
-            completion();
+        [self.flippedInstagramIndexPaths addObject:[NSNumber numberWithBool:NO]];
         }
     }];
 

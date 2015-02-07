@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "InstagramClient.h"
+#import "SquareSpaceClient.h"
 
 @interface SimonArtTests : XCTestCase
 
@@ -29,6 +31,40 @@
     // This is an example of a functional test case.
     XCTAssert(YES, @"Pass");
 }
+
+
+- (void)testIfAdamIsEqualToAdam{
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"Waiting for Adam to equal Adam"];
+    XCTAssertEqualObjects(@"Adam", @"Adam");
+}
+
+- (void)testIfInstagramClientRecievesPhotoData{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Waiting for Instagram photos to return."];
+    InstagramClient *instagramclient = [InstagramClient sharedInstagramClient];
+    [instagramclient searchForInstagramPhotosWithCompletion:^{
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+}
+
+- (void)testIfPortfolioPhotosAreDownloaded{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Waiting for Square photos to return."];
+    [[SquareSpaceClient sharedSquareSpaceClient] searchForPortfolioPhotosWithCompletion:^{
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+}
+
+- (void)testIfSketchBookPhotosAreDownloaded{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Waiting for SketchBook photos to return."];
+    [[SquareSpaceClient sharedSquareSpaceClient] searchForSketchbookPhotosWithCompletion:^{
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+}
+
+
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

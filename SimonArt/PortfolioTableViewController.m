@@ -8,14 +8,11 @@
 
 #import "PortfolioTableViewController.h"
 #import "SquareSpaceClient.h"
-#import "SketchBookClient.h"
 #import "SquarePhoto.h"
 #import "CustomShareButton.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
 #import "SquareSpaceTableViewCell.h"
-#import "SketchBookClient.h"
-
 #import "SquareShareView.h"
 #import <MessageUI/MessageUI.h>
 
@@ -24,14 +21,12 @@
 @property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
 @property SquareSpaceClient *squareSpaceClient;
-@property SketchBookClient *sketchBookClient;
 @property BOOL profileViewIsShowing;
 @property BOOL shareViewIsShowing;
 @property SquarePhoto *selectedSquarePhoto;
 @property UIRefreshControl *refreshControl;
 
-@property BOOL drawingHasFinished;
-@property BOOL imagesHaveLoadedFromPlace;
+@property BOOL portfolioImagesHaveDownloadedFromSquareSpaceClient;
 
 
 @end
@@ -52,23 +47,18 @@
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     self.squareSpaceClient.delegate = self;
     
-    if (self.squareSpaceClient.squarePhotos.count == 0) {
-        [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
-            
-            for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
-                [self.squareSpaceClient.flippedPortfolioIndexPaths addObject:[NSNumber numberWithBool:NO]];
-            }
+    if (self.squareSpaceClient.portfolioPhotos.count == 0) {
+        [self.squareSpaceClient searchForPortfolioPhotosWithCompletion:^{
             [self.tableView reloadData];
         }];
     } else {
-        
         [self.tableView reloadData];
     }
     
 }
 
--(void)imagesHaveLoaded{
-    self.imagesHaveLoadedFromPlace = YES;
+-(void)portfolioImagesHaveLoaded{
+    self.portfolioImagesHaveDownloadedFromSquareSpaceClient = YES;
 }
 
 -(void)cellShareButtonTapped:(SquarePhoto *)squarePhoto{
@@ -99,7 +89,7 @@
 #pragma mark - TableView Delegates
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.squareSpaceClient.squarePhotos.count;
+    return self.squareSpaceClient.portfolioPhotos.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -120,7 +110,7 @@
         cell.standardImageView.hidden = NO;
     }
     
-    SquarePhoto *result = [self.squareSpaceClient.squarePhotos objectAtIndex:indexPath.row];
+    SquarePhoto *result = [self.squareSpaceClient.portfolioPhotos objectAtIndex:indexPath.row];
     cell.squarePhoto = result;
     cell.artworkNameLabel.text = result.title;
     cell.standardImageView.image = result.squareSpaceImage;
@@ -189,17 +179,5 @@
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-//
-//-(void)introDrawingHasCompleted{
-//    self.drawingHasFinished = YES;
-//    if (self.imagesHaveLoadedFromPlace == YES) {
-//        [UIView animateWithDuration:0.7 animations:^{
-//            self.introLoadingView.alpha = 0;
-//        } completion:^(BOOL finished) {
-//            [self.introLoadingView removeFromSuperview];
-//        }];
-//    }
-//}
-
 
 @end

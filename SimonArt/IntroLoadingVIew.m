@@ -38,7 +38,6 @@
     simonLogo.layer.borderColor = [UIColor yellowColor].CGColor;
     simonLogo.layer.borderWidth = 10.0;
     
-    
     CGFloat const h = simonLogo.frame.size.height;
     CGFloat const w = simonLogo.frame.size.width;
     

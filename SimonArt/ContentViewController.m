@@ -7,21 +7,6 @@
 //
 
 #import "ContentViewController.h"
-#include "SquareSpaceClient.h"
-
-
-@interface ContentViewController ()
-
-@property NSCache *standardImageCache;
-@property NSMutableArray *photosArray;
-@property BOOL profileViewIsShowing;
-@property BOOL shareViewIsShowing;
-@property UIView *coverView;
-@property SquareSpaceClient *squareSpaceClient;
-
-@property NSMutableArray *flippedIndexPaths;
-
-@end
 
 @implementation ContentViewController
 
@@ -34,7 +19,5 @@
     [super viewDidLoad];
     
 }
-
-
 
 @end

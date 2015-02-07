@@ -8,19 +8,13 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import <ParseCrashReporting/ParseCrashReporting.h>
 #import "InstagramClient.h"
 #import "SquareSpaceClient.h"
-#import "SketchBookClient.h"
-
 #import "LeftMenuViewController.h"
 #import "InstagramTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface AppDelegate ()
-@property InstagramClient *instagramClient;
-@property SquareSpaceClient *squareSpaceClient;
-@property SketchBookClient *sketchBookClient;
 
 @end
 
@@ -29,31 +23,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [Parse setApplicationId:@"YHcq2S8WdDwBRKGP5Lzy9d3p4pWzKr0B2EMF5v73"
-                  clientKey:@"bomRQ6GaePvEntCGlWXuKhpLTsqPH75EnUGscySI"];
+    [Parse setApplicationId:@"dfnOE53B2BaAp2xiphmTgV1ohzm39K547N8wYRLf"
+                  clientKey:@"UpmNVRLNffqxWDaka5MWTdXl1Lw2DJxArzSb4jJ2"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    self.instagramClient = [InstagramClient sharedInstagramClient];
-    self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
-    [self.squareSpaceClient searchForSquarePhotosWithCompletion:^{
-        for (int i = 0; i < self.squareSpaceClient.squarePhotos.count; i++) {
-            [self.squareSpaceClient.flippedPortfolioIndexPaths addObject:[NSNumber numberWithBool:NO]];
-        }
-    }];
-    self.sketchBookClient = [SketchBookClient sharedSquareSpaceClient];
-    [self.sketchBookClient searchForSquarePhotosWithCompletion:^{
-        for (int i = 0; i < self.sketchBookClient.squarePhotos.count; i++) {
-            [self.sketchBookClient.flippedSketchBookIndexPaths addObject:[NSNumber numberWithBool:NO]];
-        }
-    }];
-
     // Register for Push Notitications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
                                                     UIUserNotificationTypeSound);
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                            categories:nil];
+                                                                             categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
@@ -73,25 +53,17 @@
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    
-    currentInstallation.channels = @[ @"global" ];
-    
-    NSLog(@"currentInstallation %@", currentInstallation);
-    
     NSString *model = [[UIDevice currentDevice] model]; // deviceModel
     NSString *osVersion = [[UIDevice currentDevice] systemVersion]; // osVersion
     NSString *deviceName = [[UIDevice currentDevice] name]; // deviceName
     
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation setObject:model forKey:@"deviceModel"];
     [currentInstallation setObject:osVersion forKey:@"osVersion"];
     [currentInstallation setObject:deviceName forKey:@"deviceName"];
-    
-    NSLog(@"installation: %@", currentInstallation);
-    
     [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@" The User has registered for PUSH successfully!");
+        NSLog(@" The User has registered for PUSH Notififications successfully!");
     }];
     
 }
