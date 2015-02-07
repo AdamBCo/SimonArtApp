@@ -23,7 +23,6 @@
 @property IntroLoadingVIew *introLoadingView;
 
 @property BOOL shareViewIsShowing;
-@property BOOL drawingHasFinished;
 @property BOOL imagesHaveLoadedFromPlace;
 
 
@@ -37,10 +36,7 @@
     [super viewWillAppear:animated];
     
     if (self.instagramClient.instagramPhotos.count == 0) {
-        
-        self.drawingHasFinished = NO;
         self.imagesHaveLoadedFromPlace = NO;
-
         self.introLoadingView = [[IntroLoadingVIew alloc] initWithFrame:self.navigationController.view.frame];
         self.introLoadingView.delegate = self;
         [self.introLoadingView createIntroLoadingView];
@@ -142,8 +138,9 @@
     [self.introLoadingView.activityIndicator stopAnimating];
     [self.introLoadingView.activityIndicator removeFromSuperview];
     
+    
     if (self.introLoadingView) {
-        [UIView animateWithDuration:0.7 animations:^{
+        [UIView animateWithDuration:0.7 delay:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.introLoadingView.alpha = 0;
         } completion:^(BOOL finished) {
             [self.introLoadingView removeFromSuperview];
@@ -197,7 +194,6 @@
 }
 
 -(void)introDrawingHasCompleted{
-    self.drawingHasFinished = YES;
     if (self.introLoadingView && self.imagesHaveLoadedFromPlace == YES) {
         [UIView animateWithDuration:0.7 animations:^{
             self.introLoadingView.alpha = 0;

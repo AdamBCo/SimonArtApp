@@ -9,16 +9,13 @@
 #import "PortfolioTableViewController.h"
 #import "SquareSpaceClient.h"
 #import "SquarePhoto.h"
-#import "CustomShareButton.h"
 #import "RESideMenu.h"
-#import "LeftMenuViewController.h"
 #import "SquareSpaceTableViewCell.h"
 #import "SquareShareView.h"
 #import <MessageUI/MessageUI.h>
 
 @interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate, MFMailComposeViewControllerDelegate, SquareSpaceClientDelegate>
 
-@property NSMutableArray *photosArray;
 @property SquareSpaceClient *squareSpaceClient;
 @property SquarePhoto *selectedPortfolioPhoto;
 
