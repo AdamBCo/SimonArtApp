@@ -39,6 +39,34 @@
     return self;
 };
 
+
+
+-(void)requestSquareImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion{
+    
+    NSLog(@"Image Request: %@", url);
+    
+    NSURL *photoURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:photoURL];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR: %@", error);
+        } else {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if (httpResponse.statusCode == 200) {
+                UIImage *image = [UIImage imageWithData:data];
+                completion(image);
+            } else {
+                NSLog(@"Couldn't load image at URL: %@", url);
+                NSLog(@"HTTP %ld", (long)httpResponse.statusCode);
+            }
+        }
+        
+    }];
+    [task resume];
+}
+
 #pragma mark - Portfolio Image Methods
 
 
@@ -49,7 +77,7 @@
     [self requestPortfolioImageWithCompletion:^{
         for (SquarePhoto *portfolioImage in self.portfolioPhotos) {
         
-            [self requestPortfolioImageWithURL:portfolioImage.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
+            [self requestSquareImageWithURL:portfolioImage.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
                 portfolioImage.squareSpaceImage = image;
                 self.portfolioImageCounter++;
                 [self.flippedPortfolioIndexPaths addObject:[NSNumber numberWithBool:NO]];
@@ -120,33 +148,6 @@
 }
 
 
--(void)requestPortfolioImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion{
-
-    NSLog(@"Image Request: %@", url);
-
-    NSURL *photoURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:photoURL];
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error) {
-            NSLog(@"ERROR: %@", error);
-        } else {
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            if (httpResponse.statusCode == 200) {
-                UIImage *image = [UIImage imageWithData:data];
-                completion(image);
-            } else {
-                NSLog(@"Couldn't load image at URL: %@", url);
-                NSLog(@"HTTP %ld", (long)httpResponse.statusCode);
-            }
-        }
-
-    }];
-    [task resume];
-}
-
-
 #pragma mark - SketchBook Image Methods
 
 -(void)searchForSketchbookPhotosWithCompletion:(void (^)(void))completion{
@@ -156,7 +157,7 @@
      [self requestSketchBookImageWithCompletion:^{
         for (SquarePhoto *sketchBookImage in self.sketchBookPhotos) {
             
-            [self requestSketchBookImageWithURL:sketchBookImage.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
+            [self requestSquareImageWithURL:sketchBookImage.urlStringForSquarePhoto withCompletion:^(UIImage *image) {
                 
                 sketchBookImage.squareSpaceImage = image;
                 self.sketchBookImageCounter++;
@@ -216,31 +217,6 @@
     }
     
 }
-
-
--(void)requestSketchBookImageWithURL: (NSString *)url withCompletion:(void (^)(UIImage *image))completion{
-    NSURL *photoURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:photoURL];
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error) {
-            NSLog(@"ERROR: %@", error);
-        } else {
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            if (httpResponse.statusCode == 200) {
-                UIImage *image = [UIImage imageWithData:data];
-                completion(image);
-            } else {
-                NSLog(@"Couldn't load image at URL: %@", url);
-                NSLog(@"HTTP %ld", (long)httpResponse.statusCode);
-            }
-        }
-        
-    }];
-    [task resume];
-}
-
 
 
 @end
