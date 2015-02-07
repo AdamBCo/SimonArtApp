@@ -7,13 +7,10 @@
 //
 
 #import "SketchBookTableViewController.h"
-#import "SquareSpaceClient.h"
-
-#import "SquarePhoto.h"
-#import "CustomShareButton.h"
 #import "RESideMenu.h"
-#import "LeftMenuViewController.h"
+#import "SquareSpaceClient.h"
 #import "SquareSpaceTableViewCell.h"
+#import "SquarePhoto.h"
 #include "SquareShareView.h"
 #import <MessageUI/MessageUI.h>
 
@@ -22,9 +19,7 @@
 @property SquareSpaceClient *squareSpaceClient;
 @property SquarePhoto *selectedSketchBookPhoto;
 
-@property BOOL profileViewIsShowing;
 @property BOOL shareViewIsShowing;
-
 @property BOOL sketchBookImagesHaveDownloadedFromSquareSpaceClient;
 
 @end
@@ -34,15 +29,13 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.title = @"Sketchbook";
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
-    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.title = @"Sketchbook";
     
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     [self.tableView reloadData];
@@ -80,11 +73,11 @@
 
 #pragma mark - TableView Delegates
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.squareSpaceClient.sketchBookPhotos.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SquareSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
@@ -155,8 +148,7 @@
     [self presentViewController:twitterViewController animated:YES completion:nil];
 }
 
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     switch (result)
     {
         case MFMailComposeResultCancelled:
@@ -175,7 +167,6 @@
             break;
     }
     
-    // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

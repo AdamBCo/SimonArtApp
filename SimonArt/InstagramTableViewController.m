@@ -7,27 +7,22 @@
 //
 
 #import "InstagramTableViewController.h"
+#import "RESideMenu.h"
 #import "InstagramTableViewCell.h"
 #import "InstagramClient.h"
 #import "SquareSpaceClient.h"
 #import "InstagramPhoto.h"
-#import "CustomShareButton.h"
-#import "RESideMenu.h"
-#import "LeftMenuViewController.h"
+#import "IntroLoadingVIew.h"
 #include "ShareView.h"
 #import <MessageUI/MessageUI.h>
-#import "IntroLoadingVIew.h"
 
 @interface InstagramTableViewController () <InstagramTableViewCellDelegate, RESideMenuDelegate, ShareViewDelegate, MFMailComposeViewControllerDelegate, IntroViewDelegate, InstagramClientDelegate>
 
-@property NSCache *standardImageCache;
-@property NSMutableArray *photosArray;
 @property InstagramClient *instagramClient;
-@property BOOL profileViewIsShowing;
-@property BOOL shareViewIsShowing;
 @property InstagramPhoto *selectedInstagramPhoto;
-@property UIRefreshControl *refreshControl;
 @property IntroLoadingVIew *introLoadingView;
+
+@property BOOL shareViewIsShowing;
 @property BOOL drawingHasFinished;
 @property BOOL imagesHaveLoadedFromPlace;
 
@@ -42,59 +37,19 @@
     [super viewWillAppear:animated];
     
     if (self.instagramClient.instagramPhotos.count == 0) {
+        
         self.drawingHasFinished = NO;
         self.imagesHaveLoadedFromPlace = NO;
-        
+
         self.introLoadingView = [[IntroLoadingVIew alloc] initWithFrame:self.navigationController.view.frame];
         self.introLoadingView.delegate = self;
         [self.introLoadingView createIntroLoadingView];
         self.introLoadingView.backgroundColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
         [self.navigationController.view addSubview:self.introLoadingView];
         [self.introLoadingView.activityIndicator startAnimating];
+        
     }
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
-    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
-}
-
--(void)introDrawingHasCompleted{
-    self.drawingHasFinished = YES;
-    if (self.introLoadingView && self.imagesHaveLoadedFromPlace == YES) {
-        [UIView animateWithDuration:0.7 animations:^{
-            self.introLoadingView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [self.introLoadingView removeFromSuperview];
-        }];
-    }
-}
-
--(void)closeButtonPressed {
-    [self.introLoadingView removeFromSuperview];
-}
-
--(void)imagesHaveLoaded{
-    self.imagesHaveLoadedFromPlace = YES;
-    [self.introLoadingView.activityIndicator stopAnimating];
-    [self.introLoadingView.activityIndicator removeFromSuperview];
-    
-    if (self.introLoadingView) {
-        [UIView animateWithDuration:0.7 animations:^{
-            self.introLoadingView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [self.introLoadingView removeFromSuperview];
-        }];
-    }
-    
-    [[SquareSpaceClient sharedSquareSpaceClient] searchForPortfolioPhotosWithCompletion:^{
-        NSLog(@"Portfolio photos have loaded successfully!");
-    }];
-    
-    [[SquareSpaceClient sharedSquareSpaceClient] searchForSketchbookPhotosWithCompletion:^{
-        NSLog(@"SketchBook photos have loaded successfully!");
-    }];
-    
-    [self.tableView reloadData];
-
 }
 
 - (void)viewDidLoad {
@@ -119,35 +74,6 @@
     }
 }
 
--(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
-
-    ShareView *shareview = [[ShareView alloc] initWithFrame:self.view.frame];
-    [shareview createShareView];
-    shareview.selectedInstagramPhoto = instagramPhoto;
-    shareview.delegate = self;
-    shareview.alpha = 0;
-    [self.navigationController.view addSubview:shareview];
-    shareview.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500];
-
-    self.shareViewIsShowing = NO;
-    
-    if (!self.shareViewIsShowing) {
-        [UIView animateWithDuration:0.6
-                              delay:0
-                            options:UIViewAnimationOptionAllowUserInteraction
-                         animations:^{
-                             shareview.alpha = 1.0;
-                         } completion:^(BOOL finished) {
-                             self.shareViewIsShowing = YES;
-                         }];
-    }
-
-}
-
-
-
-
-
 #pragma mark - TableView Delegates
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -158,8 +84,8 @@
 
     InstagramTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    if (!self.standardImageCache){
-        self.standardImageCache = [NSCache new];
+    if (!self.instagramClient.instagramImageCache){
+        self.instagramClient.instagramImageCache = [NSCache new];
     }
     
     NSLog(@"IndexPath: %ld",(long)indexPath.row);
@@ -209,7 +135,77 @@
 }
 
 
+#pragma mark - InstagramClient Delegate Methods
 
+-(void)imagesHaveLoaded{
+    self.imagesHaveLoadedFromPlace = YES;
+    [self.introLoadingView.activityIndicator stopAnimating];
+    [self.introLoadingView.activityIndicator removeFromSuperview];
+    
+    if (self.introLoadingView) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.introLoadingView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.introLoadingView removeFromSuperview];
+        }];
+    }
+    
+    [[SquareSpaceClient sharedSquareSpaceClient] searchForPortfolioPhotosWithCompletion:^{
+        NSLog(@"Portfolio photos have loaded successfully!");
+    }];
+    
+    [[SquareSpaceClient sharedSquareSpaceClient] searchForSketchbookPhotosWithCompletion:^{
+        NSLog(@"SketchBook photos have loaded successfully!");
+    }];
+    
+    [self.tableView reloadData];
+    
+}
+
+
+#pragma mark - InstagramCell Delegate Methods
+
+-(void)cellShareButtonTapped:(InstagramPhoto *)instagramPhoto{
+    
+    ShareView *shareview = [[ShareView alloc] initWithFrame:self.view.frame];
+    [shareview createShareView];
+    shareview.selectedInstagramPhoto = instagramPhoto;
+    shareview.delegate = self;
+    shareview.alpha = 0;
+    [self.navigationController.view addSubview:shareview];
+    shareview.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500];
+    
+    self.shareViewIsShowing = NO;
+    
+    if (!self.shareViewIsShowing) {
+        [UIView animateWithDuration:0.6
+                              delay:0
+                            options:UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             shareview.alpha = 1.0;
+                         } completion:^(BOOL finished) {
+                             self.shareViewIsShowing = YES;
+                         }];
+    }
+    
+}
+
+#pragma mark - IntroView Delegate Methods
+
+-(void)closeButtonPressed {
+    [self.introLoadingView removeFromSuperview];
+}
+
+-(void)introDrawingHasCompleted{
+    self.drawingHasFinished = YES;
+    if (self.introLoadingView && self.imagesHaveLoadedFromPlace == YES) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.introLoadingView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.introLoadingView removeFromSuperview];
+        }];
+    }
+}
 
 #pragma mark - ShareView Delegate Methods
 

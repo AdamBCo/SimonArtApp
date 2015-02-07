@@ -79,11 +79,8 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
-    
     self.bio = [NSString stringWithFormat:@"     %@", self.squareSpaceClient.siteDescription];;
-    
-    
-    
+
     CGFloat frameHeight = self.view.frame.size.height;
     CGFloat frameWidth = self.view.frame.size.width;
     

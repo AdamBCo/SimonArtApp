@@ -10,14 +10,16 @@
 #import "SquarePhoto.h"
 
 @protocol SquareTableViewCellDelegate <NSObject>
+
 -(void)cellShareButtonTapped: (SquarePhoto *)squarePhoto;
+
 @end
 
 @interface SquareSpaceTableViewCell : UITableViewCell
 @property SquarePhoto *squarePhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *standardImageView;
 @property (weak, nonatomic) IBOutlet UILabel *artworkNameLabel;
-@property (nonatomic, strong) NSURLSessionDataTask *standardImageDownloadTask;
+@property (strong, nonatomic) NSURLSessionDataTask *standardImageDownloadTask;
 
 @property id<SquareTableViewCellDelegate> delegate;
 

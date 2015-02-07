@@ -17,8 +17,7 @@
 
 @interface InstagramClient : NSObject
 
-//Image Caches
-@property NSCache *standardImageCache;
+@property NSCache *instagramImageCache;
 @property NSMutableArray *instagramPhotos;
 @property BOOL isLoading;
 @property NSMutableArray *flippedInstagramIndexPaths;

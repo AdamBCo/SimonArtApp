@@ -185,10 +185,10 @@
 		870376D91A85902800EE9E39 /* SquareSpace */ = {
 			isa = PBXGroup;
 			children = (
-				87CCDCD21A4CE577007B74CD /* SquarePhoto.h */,
-				87CCDCD31A4CE577007B74CD /* SquarePhoto.m */,
 				87CCDCD81A4CF5DD007B74CD /* SquareSpaceTableViewCell.h */,
 				87CCDCD91A4CF5DD007B74CD /* SquareSpaceTableViewCell.m */,
+				87CCDCD21A4CE577007B74CD /* SquarePhoto.h */,
+				87CCDCD31A4CE577007B74CD /* SquarePhoto.m */,
 				8714659E1A649B65005EAF74 /* SquareShareView.h */,
 				8714659F1A649B65005EAF74 /* SquareShareView.m */,
 			);

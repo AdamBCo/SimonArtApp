@@ -37,6 +37,10 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
     
     
     return YES;

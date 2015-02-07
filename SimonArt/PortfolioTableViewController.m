@@ -18,13 +18,11 @@
 
 @interface PortfolioTableViewController () <SquareTableViewCellDelegate, RESideMenuDelegate, SquareShareViewDelegate, MFMailComposeViewControllerDelegate, SquareSpaceClientDelegate>
 
-@property NSCache *standardImageCache;
 @property NSMutableArray *photosArray;
 @property SquareSpaceClient *squareSpaceClient;
-@property BOOL profileViewIsShowing;
+@property SquarePhoto *selectedPortfolioPhoto;
+
 @property BOOL shareViewIsShowing;
-@property SquarePhoto *selectedSquarePhoto;
-@property UIRefreshControl *refreshControl;
 
 @property BOOL portfolioImagesHaveDownloadedFromSquareSpaceClient;
 
@@ -35,14 +33,13 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.692 green:0.147 blue:0.129 alpha:1.000];
-    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"HelveticaNeue-Thin" size:21],NSFontAttributeName, [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.title = @"Portfolio";
 
     self.squareSpaceClient = [SquareSpaceClient sharedSquareSpaceClient];
     self.squareSpaceClient.delegate = self;
@@ -96,8 +93,8 @@
     
     SquareSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    if (!self.standardImageCache){
-        self.standardImageCache = [NSCache new];
+    if (!self.squareSpaceClient.portfolioImageCache){
+        self.squareSpaceClient.portfolioImageCache = [NSCache new];
     }
     
     
