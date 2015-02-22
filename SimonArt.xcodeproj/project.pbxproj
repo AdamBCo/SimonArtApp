@@ -44,6 +44,8 @@
 		875794D31A3F7C580073B429 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875794D21A3F7C580073B429 /* ContactViewController.m */; };
 		876EE59E1A43769700036D57 /* ResumeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876EE59D1A43769700036D57 /* ResumeDetailViewController.m */; };
 		877BE6CA1A8580B600FFCCFD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877BE6C91A8580B600FFCCFD /* CoreLocation.framework */; };
+		878387311A90258000315E05 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8783872F1A90258000315E05 /* Crashlytics.framework */; };
+		878387321A90258000315E05 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878387301A90258000315E05 /* Fabric.framework */; };
 		87B9AFD41A47064300B8F3F4 /* ResumePDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */; };
 		87C404461A38BB730099AC9F /* CustomShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C404451A38BB730099AC9F /* CustomShareButton.m */; };
 		87C404951A38E5690099AC9F /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C404921A38E5690099AC9F /* Pinterest.framework */; };
@@ -126,6 +128,8 @@
 		876EE59C1A43769700036D57 /* ResumeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeDetailViewController.h; sourceTree = "<group>"; };
 		876EE59D1A43769700036D57 /* ResumeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeDetailViewController.m; sourceTree = "<group>"; };
 		877BE6C91A8580B600FFCCFD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8783872F1A90258000315E05 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		878387301A90258000315E05 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		87B9AFD21A47064300B8F3F4 /* ResumePDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumePDFViewController.h; sourceTree = "<group>"; };
 		87B9AFD31A47064300B8F3F4 /* ResumePDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumePDFViewController.m; sourceTree = "<group>"; };
 		87C404441A38BB730099AC9F /* CustomShareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShareButton.h; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			files = (
 				8743BA461A67D62300773942 /* Accounts.framework in Frameworks */,
 				8743BA2D1A6739FC00773942 /* AudioToolbox.framework in Frameworks */,
+				878387311A90258000315E05 /* Crashlytics.framework in Frameworks */,
 				8743BA2F1A673A0900773942 /* CFNetwork.framework in Frameworks */,
 				8743BA311A673A1300773942 /* CoreGraphics.framework in Frameworks */,
 				877BE6CA1A8580B600FFCCFD /* CoreLocation.framework in Frameworks */,
@@ -161,6 +166,7 @@
 				8743BA371A673A3100773942 /* Security.framework in Frameworks */,
 				8743BA391A673A3800773942 /* StoreKit.framework in Frameworks */,
 				8743BA3B1A673A4200773942 /* SystemConfiguration.framework in Frameworks */,
+				878387321A90258000315E05 /* Fabric.framework in Frameworks */,
 				870376D81A85875C00EE9E39 /* Parse.framework in Frameworks */,
 				8743BA3D1A673A5400773942 /* libz.dylib in Frameworks */,
 				8743BA3F1A673A6600773942 /* libsqlite3.dylib in Frameworks */,
@@ -380,6 +386,8 @@
 		87F2D7AE1A6D86A70069B995 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8783872F1A90258000315E05 /* Crashlytics.framework */,
+				878387301A90258000315E05 /* Fabric.framework */,
 				870376D51A85875C00EE9E39 /* Bolts.framework */,
 				870376D61A85875C00EE9E39 /* Parse.framework */,
 				877BE6C91A8580B600FFCCFD /* CoreLocation.framework */,
@@ -410,6 +418,7 @@
 				873858091A3600BB000E4B32 /* Sources */,
 				8738580A1A3600BB000E4B32 /* Frameworks */,
 				8738580B1A3600BB000E4B32 /* Resources */,
+				8783872E1A90254B00315E05 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -497,6 +506,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8783872E1A90254B00315E05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 8ac9bf56b5b638db85df0d5996e4e7a54cee219b ba7aab715af1e51065e94ee0eb63b3f7c975e1d70a153e15299da23157adc202";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		873858091A3600BB000E4B32 /* Sources */ = {

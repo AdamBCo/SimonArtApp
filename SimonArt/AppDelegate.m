@@ -14,6 +14,10 @@
 #import "InstagramTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
+
 @interface AppDelegate ()
 
 @end
@@ -22,6 +26,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Fabric with:@[CrashlyticsKit]];
     
     [Parse setApplicationId:@"dfnOE53B2BaAp2xiphmTgV1ohzm39K547N8wYRLf"
                   clientKey:@"UpmNVRLNffqxWDaka5MWTdXl1Lw2DJxArzSb4jJ2"];
